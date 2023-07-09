@@ -59,6 +59,7 @@ return packer.startup(function(use)
 
   -- Miscellaneous
   use("windwp/nvim-autopairs") -- Integrates with both completion and treesitter
+  use("kylechui/nvim-surround")
   use("numToStr/Comment.nvim")
   use("nvim-telescope/telescope.nvim")
   use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })

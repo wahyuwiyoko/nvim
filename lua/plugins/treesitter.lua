@@ -6,5 +6,8 @@ end
 
 treesitter.setup({
   ensure_installed = { "html", "css", "javascript", "lua", "bash" },
-  highlight = { enable = true }
+  sync_install = false,
+  auto_install = false,
+  highlight = { enable = true },
+  indent = { enable = true, disable = { "yaml" } }
 })

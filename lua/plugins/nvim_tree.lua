@@ -1,4 +1,4 @@
-local status_ok, nvimtree = pcall(require, "nvim-tree")
+local status_ok, nvim_tree = pcall(require, "nvim-tree")
 
 if not status_ok then
   return
@@ -7,14 +7,14 @@ end
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
-nvimtree.setup({
+nvim_tree.setup({
   disable_netrw = true,
   hijack_netrw = true,
   hijack_cursor = false,
   sort_by = "case_sensitive",
   view = {
     cursorline = true,
-    width = 30,
+    width = 25,
     hide_root_folder = false,
     side = "left",
     number = false,
