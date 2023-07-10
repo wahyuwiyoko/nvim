@@ -19,7 +19,7 @@ local packer_bootstrap = ensure_packer()
 vim.cmd([[
   augroup packer_user_config
     autocmd!
-    autocmd BufWritePost plugins-setup.lua source <afile> | PackerSync
+    autocmd BufWritePost plugins_setup.lua source <afile> | PackerSync
   augroup end
 ]])
 
@@ -33,13 +33,16 @@ return packer.startup(function(use)
   use("wbthomason/packer.nvim")
   use("nvim-lua/plenary.nvim")
 
-  -- UI
+  -- Editor
   use({ "rose-pine/neovim", as = "rose-pine" })
+  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
   use("lewis6991/gitsigns.nvim")
   use("nvim-tree/nvim-tree.lua")
   use("nvim-lualine/lualine.nvim")
   use("akinsho/bufferline.nvim")
   use("akinsho/toggleterm.nvim")
+  use("lukas-reineke/indent-blankline.nvim")
+  use("folke/which-key.nvim")
 
   -- Autocompletion
   use("hrsh7th/nvim-cmp")
@@ -58,11 +61,11 @@ return packer.startup(function(use)
   use("neovim/nvim-lspconfig")
 
   -- Miscellaneous
+  use("nvim-telescope/telescope.nvim")
+  use("numToStr/Comment.nvim")
   use("windwp/nvim-autopairs") -- Integrates with both completion and treesitter
   use("kylechui/nvim-surround")
-  use("numToStr/Comment.nvim")
-  use("nvim-telescope/telescope.nvim")
-  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+  use("folke/todo-comments.nvim")
 
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then

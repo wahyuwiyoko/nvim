@@ -11,5 +11,6 @@ if not actions_setup then
 end
 
 telescope.setup()
- 
+
+-- TODO: Not used yet
 -- telescope.load_extension("fzf")
