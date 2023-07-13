@@ -50,7 +50,11 @@ keymap("n", "<leader>fc", ":Telescope grep_string<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 
--- Visual
+-- Insert mode
+keymap("i", "jk", "<ESC>", opts)
+keymap("i", "kj", "<ESC>", opts)
+
+-- Visual mode
 -- Stay in indent mode
 keymap("v", "<", "<gv^", opts)
 keymap("v", ">", ">gv^", opts)

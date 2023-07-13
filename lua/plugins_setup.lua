@@ -66,6 +66,7 @@ return packer.startup(function(use)
   use("windwp/nvim-autopairs") -- Integrates with both completion and treesitter
   use("kylechui/nvim-surround")
   use("folke/todo-comments.nvim")
+  use("folke/trouble.nvim")
 
   -- Automatically set up configuration after cloning packer.nvim
   if packer_bootstrap then

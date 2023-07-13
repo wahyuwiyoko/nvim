@@ -44,7 +44,7 @@ opt.splitbelow = true
 -- Buffer
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 0
-opt.timeoutlen = 1000
+opt.timeoutlen = 300
 opt.updatetime = 300
 
 -- Editor
