@@ -1,75 +1,87 @@
--- Automatically install packer.nvim
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-    vim.cmd [[packadd packer.nvim]]
-
-    return true
-  end
-
-  return false
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath
+  })
 end
 
-local packer_bootstrap = ensure_packer()
+vim.opt.rtp:prepend(lazypath)
 
--- Autocommand will reload plugins whenever this file saved
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins_setup.lua source <afile> | PackerSync
-  augroup end
-]])
+local plugins = {
+  "nvim-lua/plenary.nvim",
 
-local status_ok, packer = pcall(require, "packer")
+  -- Editor
+  { "rose-pine/neovim", name = "rose-pine" },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  "lewis6991/gitsigns.nvim",
+  "nvim-tree/nvim-tree.lua",
+  "nvim-lualine/lualine.nvim",
+  "akinsho/bufferline.nvim",
+  "akinsho/toggleterm.nvim",
+  "lukas-reineke/indent-blankline.nvim",
+  "folke/which-key.nvim",
+
+  -- Autocompletion
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "saadparwaiz1/cmp_luasnip",
+  "hrsh7th/cmp-nvim-lsp",
+
+  -- Snippets
+  "L3MON4D3/LuaSnip",
+  "rafamadriz/friendly-snippets",
+
+  -- LSP
+  "williamboman/mason.nvim",
+  "williamboman/mason-lspconfig.nvim",
+  "neovim/nvim-lspconfig",
+
+  -- Miscellaneous
+  "nvim-telescope/telescope.nvim",
+  "numToStr/Comment.nvim",
+  "windwp/nvim-autopairs", -- Integrates with both completion and treesitter
+  "kylechui/nvim-surround",
+  "folke/todo-comments.nvim",
+  "folke/trouble.nvim"
+}
+
+local opts = {
+  ui = {
+    icons = {
+      cmd = "⌘",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
+      runtime = "💻",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+      lazy = "💤",
+      list = {
+        "●",
+        "➜",
+        "★",
+        "‒"
+      }
+    }
+  },
+  checker = { enabled = true, frequency = 259200 } -- Check for updates every 3 day
+}
+
+local status_ok, lazy = pcall(require, "lazy")
 
 if not status_ok then
   return
 end
 
-return packer.startup(function(use)
-  use("wbthomason/packer.nvim")
-  use("nvim-lua/plenary.nvim")
-
-  -- Editor
-  use({ "rose-pine/neovim", as = "rose-pine" })
-  use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
-  use("lewis6991/gitsigns.nvim")
-  use("nvim-tree/nvim-tree.lua")
-  use("nvim-lualine/lualine.nvim")
-  use("akinsho/bufferline.nvim")
-  use("akinsho/toggleterm.nvim")
-  use("lukas-reineke/indent-blankline.nvim")
-  use("folke/which-key.nvim")
-
-  -- Autocompletion
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
-  use("saadparwaiz1/cmp_luasnip")
-  use("hrsh7th/cmp-nvim-lsp")
-
-  -- Snippets
-  use("L3MON4D3/LuaSnip")
-  use("rafamadriz/friendly-snippets")
-
-  -- LSP
-  use("williamboman/mason.nvim")
-  use("williamboman/mason-lspconfig.nvim")
-  use("neovim/nvim-lspconfig")
-
-  -- Miscellaneous
-  use("nvim-telescope/telescope.nvim")
-  use("numToStr/Comment.nvim")
-  use("windwp/nvim-autopairs") -- Integrates with both completion and treesitter
-  use("kylechui/nvim-surround")
-  use("folke/todo-comments.nvim")
-  use("folke/trouble.nvim")
-
-  -- Automatically set up configuration after cloning packer.nvim
-  if packer_bootstrap then
-    require("packer").sync()
-  end
-end)
+lazy.setup(plugins, opts)

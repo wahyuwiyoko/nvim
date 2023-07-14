@@ -1,10 +1,11 @@
+require("plugins_setup")
+
 -- Core
 require("core.options")
 require("core.keymaps")
 require("core.colorscheme")
 
--- PLugins
-require("plugins_setup")
+-- Plugins
 require("plugins.nvim_cmp")
 require("plugins.lsp.mason")
 require("plugins.lsp.lspconfig")
