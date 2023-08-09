@@ -6,7 +6,7 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- TODO: Add gitsigns, telescope, diagnostic, and todo-comments keymaps
+-- TODO: Add diagnostic and todo-comments keymaps
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts("Focus left window"))
@@ -33,7 +33,7 @@ keymap("n", "<S-x>", ":bdelete<CR>", opts("Close buffer"))
 keymap("n", "<S-k>", ":m .-2<CR>==", opts("Move text up"))
 keymap("n", "<S-j>", ":m .+1<CR>==", opts("Move text down"))
 
--- Window
+-- Split windows
 keymap("n", "<leader>sv", "<C-w>v", opts("Split window vertically"))
 keymap("n", "<leader>sh", "<C-w>s", opts("Split window horizontally"))
 keymap("n", "<leader>se", "<C-w>=", opts("Make split windows equal width"))
@@ -75,6 +75,12 @@ keymap("v", "p", '"_dP') -- Will keep to register after yank/delete
 -- Move line up & down using Alt key
 keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts("Move line up"))
 keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts("Move line down"))
+
+-- Gitsigns
+keymap("n", "<leader>gn", ":Gitsigns next_hunk<CR>", opts("Git next hunk"))
+keymap("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", opts("Git previous hunk"))
+keymap("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", opts("Git preview hunk"))
+keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts("Git show diff"))
 
 -- Terminal
 -- Open terminal
