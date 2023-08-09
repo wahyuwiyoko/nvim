@@ -6,17 +6,17 @@ end
 
 gitsigns.setup({
   signs = {
-    add          = { text = "+" },
-    change       = { text = "~" },
-    delete       = { text = "_" },
-    topdelete    = { text = "‾" },
+    add = { text = "+" },
+    change = { text = "~" },
+    delete = { text = "_" },
+    topdelete = { text = "‾" },
     changedelete = { text = "~" },
-    untracked    = { text = "┆" }
+    untracked = { text = "┆" }
   },
   signcolumn = true,
-  numhl      = false,
-  linehl     = false,
-  word_diff  = false,
+  numhl = false,
+  linehl = false,
+  word_diff = false,
   watch_gitdir = { follow_files = true },
   attach_to_untracked = true,
   current_line_blame = false,
@@ -31,7 +31,5 @@ gitsigns.setup({
     row = 0,
     col = 1
   },
-  yadm = {
-    enable = false
-  }
+  yadm = { enable = false }
 })
