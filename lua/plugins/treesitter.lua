@@ -9,5 +9,5 @@ treesitter.setup({
   sync_install = false,
   auto_install = false,
   highlight = { enable = true },
-  indent = { enable = true, disable = { "yaml" } }
+  indent = { enable = true }
 })

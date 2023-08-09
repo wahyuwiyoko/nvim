@@ -7,7 +7,6 @@ end
 
 rose_pine.setup({
   variant = "main",
-  dark_variant = "main",
   disable_italics = true
 })
 

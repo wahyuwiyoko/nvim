@@ -1,6 +1,7 @@
 local keymap = vim.keymap.set
-local opts = function (description)
-  return { noremap = true, silent = true, desc = description }
+
+local function opts(desc)
+  return { noremap = true, silent = true, desc = desc }
 end
 
 vim.g.mapleader = " "
