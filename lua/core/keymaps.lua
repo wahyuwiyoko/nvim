@@ -7,7 +7,7 @@ end
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- TODO: Add diagnostic and todo-comments keymaps
+-- TODO: Add diagnostic keymaps
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts("Focus left window"))
@@ -46,16 +46,18 @@ keymap("n", "<leader>tn", ":tabn<CR>", opts("Focus next tab"))
 keymap("n", "<leader>tp", ":tabp<CR>", opts("Focus previous tab"))
 
 keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts("Toggle file browser"))
+keymap("n", "<leader>tt", ":TroubleToggle<CR>", opts("Git show diff"))
 
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts("Search files"))
-keymap("n", "<leader>gf", ":Telescope git_files<CR>", opts("Search Git files"))
+keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts("Search Git files"))
 keymap("n", "<leader>sg", ":Telescope live_grep<CR>", opts("Search by grep"))
 keymap("n", "<leader>sw", ":Telescope grep_string<CR>", opts("Search current word"))
 keymap("n", "<leader>sb", ":Telescope buffers<CR>", opts("Search buffers"))
 keymap("n", "<leader>sd", ":Telescope diagnostics<CR>", opts("Search diagnostics"))
 keymap("n", "<leader>sp", ":Telescope help_tags<CR>", opts("Search help"))
 keymap("n", "<leader>sk", ":Telescope keymaps<CR>", opts("Search keymaps"))
+keymap("n", "<leader>td", ":TodoTelescope<CR>", opts("Search todo"))
 
 -- Insert mode
 keymap("i", "jk", "<ESC>", opts("Escape from insert mode"))

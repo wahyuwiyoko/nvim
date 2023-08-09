@@ -40,8 +40,11 @@ local plugins = {
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
 
-  -- Miscellaneous
+  -- Telescope
   "nvim-telescope/telescope.nvim",
+  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+
+  -- Miscellaneous
   "numToStr/Comment.nvim",
   "windwp/nvim-autopairs",
   "kylechui/nvim-surround",
