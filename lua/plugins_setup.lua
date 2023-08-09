@@ -23,9 +23,7 @@ local plugins = {
   "nvim-tree/nvim-tree.lua",
   "nvim-lualine/lualine.nvim",
   "akinsho/bufferline.nvim",
-  "akinsho/toggleterm.nvim",
   "lukas-reineke/indent-blankline.nvim",
-  "folke/which-key.nvim",
 
   -- Autocompletion
   "hrsh7th/nvim-cmp",
@@ -46,7 +44,7 @@ local plugins = {
   -- Miscellaneous
   "nvim-telescope/telescope.nvim",
   "numToStr/Comment.nvim",
-  "windwp/nvim-autopairs", -- Integrates with both completion and treesitter
+  "windwp/nvim-autopairs",
   "kylechui/nvim-surround",
   "folke/todo-comments.nvim",
   "folke/trouble.nvim"
