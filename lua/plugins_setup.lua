@@ -22,7 +22,6 @@ local plugins = {
   "lewis6991/gitsigns.nvim",
   "nvim-tree/nvim-tree.lua",
   "nvim-lualine/lualine.nvim",
-  "akinsho/bufferline.nvim",
   "lukas-reineke/indent-blankline.nvim",
 
   -- Autocompletion
