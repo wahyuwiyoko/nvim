@@ -12,27 +12,22 @@ end
 
 mason.setup({
   ui = {
-    border = "none",
     icons = {
-      package_installed = "✓",
-      package_pending = "→",
+      package_installed = "+",
+      package_pending = "p",
       package_uninstalled = "✗"
     }
-  },
-  keymaps = {
-    toggle_package_expand = "<CR>",
-    install_package = "i",
-    update_package = "u",
-    check_package_version = "c",
-    update_all_packages = "U",
-    check_outdated_packages = "C",
-    uninstall_package = "X",
-    cancel_installation = "<C-c>",
-    apply_language_filter = "<C-f>"
   }
 })
 
 mason_lspconfig.setup({
-  ensure_installed = { "lua_ls", "bashls", "html", "cssls", "tsserver" },
+  ensure_installed = {
+    "lua_ls",
+    "bashls",
+    "html",
+    "cssls",
+    "tsserver",
+    "emmet_ls"
+  },
   automatic_installation = false
 })

@@ -1,4 +1,5 @@
 local keymap = vim.keymap.set
+local diagnostic = vim.diagnostic
 
 local function opts(desc)
   return { noremap = true, silent = true, desc = desc }
@@ -6,8 +7,6 @@ end
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
--- TODO: Add diagnostic keymaps
 
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts("Focus left window"))
@@ -59,6 +58,18 @@ keymap("n", "<leader>sp", ":Telescope help_tags<CR>", opts("Search help"))
 keymap("n", "<leader>sk", ":Telescope keymaps<CR>", opts("Search keymaps"))
 keymap("n", "<leader>td", ":TodoTelescope<CR>", opts("Search todo"))
 
+-- Gitsigns
+keymap("n", "<leader>gn", ":Gitsigns next_hunk<CR>", opts("Git next hunk"))
+keymap("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", opts("Git previous hunk"))
+keymap("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", opts("Git preview hunk"))
+keymap("n", "<leader>gs", ":Gitsigns diffthis<CR>", opts("Git show diff"))
+
+-- Diagnostic
+keymap("n", "<leader>o", diagnostic.open_float, opts("Open float diagnostic"))
+keymap("n", "]d", diagnostic.goto_next, opts("Go to next diagnostic"))
+keymap("n", "[d", diagnostic.goto_prev, opts("Go to previous diagnostic"))
+keymap("n", "<leader>q", diagnostic.setloclist, opts("Setloclist diagnostic"))
+
 -- Insert mode
 keymap("i", "jk", "<ESC>", opts("Escape from insert mode"))
 keymap("i", "kj", "<ESC>", opts("Escape from insert mode"))
@@ -78,12 +89,6 @@ keymap("v", "p", '"_dP') -- Will keep to register after yank/delete
 -- Move line up & down using Alt key
 keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts("Move line up"))
 keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts("Move line down"))
-
--- Gitsigns
-keymap("n", "<leader>gn", ":Gitsigns next_hunk<CR>", opts("Git next hunk"))
-keymap("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", opts("Git previous hunk"))
-keymap("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", opts("Git preview hunk"))
-keymap("n", "<leader>gd", ":Gitsigns diffthis<CR>", opts("Git show diff"))
 
 -- Terminal
 -- Open terminal
