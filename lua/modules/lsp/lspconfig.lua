@@ -61,7 +61,7 @@ for _, server in ipairs(servers) do
     capabilities = capabilities
   }
 
-  local settings_setup, settings = pcall(require, "plugins.lsp.settings." .. server)
+  local settings_setup, settings = pcall(require, "settings." .. server)
 
   if settings_setup then
     opts = vim.tbl_deep_extend("force", settings, opts)
