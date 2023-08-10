@@ -30,7 +30,7 @@ opt.incsearch = true
 -- Appearance
 opt.termguicolors = true
 opt.background = "dark"
-opt.showmode = true
+opt.showmode = false
 opt.cursorline = true
 opt.showtabline = 2
 opt.signcolumn = "yes"
@@ -50,10 +50,11 @@ opt.updatetime = 300
 -- Editor
 opt.clipboard:append("unnamedplus")
 opt.wrap = false
+opt.showcmd = false
 opt.mouse = "a"
 opt.backspace = "indent,eol,start"
 opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.wildmenu = true
-opt.ruler = true
+opt.ruler = false
 opt.iskeyword:append("-")

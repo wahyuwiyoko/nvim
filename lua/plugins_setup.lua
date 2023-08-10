@@ -14,6 +14,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+  -- Dependencies
   "nvim-lua/plenary.nvim",
 
   -- Editor
@@ -55,32 +56,31 @@ local plugins = {
 local opts = {
   ui = {
     icons = {
-      cmd = "⌘",
-      config = "🛠",
-      event = "📅",
-      ft = "📂",
-      init = "⚙",
-      keys = "🗝",
-      plugin = "🔌",
-      runtime = "💻",
-      source = "📄",
-      start = "🚀",
-      task = "📌",
-      lazy = "💤",
+      cmd = "cmd",
+      config = "conf",
+      event = "event",
+      ft = "ft",
+      init = "init",
+      keys = "keys",
+      plugin = "plugin",
+      runtime = "runtime",
+      source = "source",
+      start = "start",
+      task = "task",
+      lazy = "lazy",
       list = {
-        "●",
-        "➜",
-        "★",
-        "‒"
+        "O",
+        "->",
+        "*",
+        "-"
       }
     }
-  },
-  checker = { enabled = true, frequency = 259200 } -- Check for updates every 3 day
+  }
 }
 
-local status_ok, lazy = pcall(require, "lazy")
+local lazy_setup, lazy = pcall(require, "lazy")
 
-if not status_ok then
+if not lazy_setup then
   return
 end
 
