@@ -27,6 +27,7 @@ mason_lspconfig.setup({
     "html",
     "cssls",
     "tsserver",
+    "jsonls",
     "emmet_ls"
   },
   automatic_installation = false

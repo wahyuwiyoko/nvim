@@ -7,8 +7,7 @@ require("core.colorscheme")
 
 -- Plugins
 require("plugins.nvim_cmp")
-require("plugins.lsp.mason")
-require("plugins.lsp.lspconfig")
+require("plugins.lsp")
 require("plugins.telescope")
 require("plugins.treesitter")
 require("plugins.autopairs")
