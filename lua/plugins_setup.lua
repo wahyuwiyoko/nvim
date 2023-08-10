@@ -46,6 +46,7 @@ local plugins = {
   { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 
   -- Miscellaneous
+  { "creativenull/efmls-configs-nvim", version = "v0.1.4" },
   "numToStr/Comment.nvim",
   "windwp/nvim-autopairs",
   "kylechui/nvim-surround",

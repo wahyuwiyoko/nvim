@@ -11,6 +11,7 @@ treesitter.setup({
     "html",
     "css",
     "javascript",
+    "yaml",
     "json",
     "markdown",
     "markdown_inline",

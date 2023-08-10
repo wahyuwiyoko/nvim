@@ -27,6 +27,7 @@ mason_lspconfig.setup({
     "html",
     "cssls",
     "tsserver",
+    "marksman",
     "jsonls",
     "emmet_ls"
   },

@@ -10,6 +10,7 @@ if not luasnip_setup then
   return
 end
 
+-- Load friendly-snippets
 require("luasnip.loaders.from_vscode").lazy_load()
 
 cmp.setup({
