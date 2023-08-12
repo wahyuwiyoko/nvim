@@ -1,11 +1,6 @@
 return {
-  "lua_ls",
-  "bashls",
-  "html",
-  "cssls",
-  "tsserver",
+  "lua_ls", "bashls", "jsonls",
+  "html", "cssls", "tsserver",
   "gopls",
-  "marksman",
-  "jsonls",
-  "emmet_ls"
+  "marksman", "emmet_ls"
 }

@@ -6,18 +6,12 @@ end
 
 treesitter.setup({
   ensure_installed = {
-    "lua",
-    "bash",
-    "html",
-    "css",
-    "javascript",
-    "yaml",
-    "json",
-    "markdown",
-    "markdown_inline",
-    "gitcommit",
-    "gitignore",
-    "git_config"
+    "c", "lua", "vim", "vimdoc", "query",
+    "bash", "json", "yaml",
+    "html", "css", "javascript",
+    "go", "gomod",
+    "markdown", "markdown_inline",
+    "gitcommit", "gitignore", "git_config"
   },
   sync_install = false,
   auto_install = false,
