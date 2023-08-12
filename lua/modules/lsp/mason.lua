@@ -10,6 +10,8 @@ if not mason_lspconfig_setup then
   return
 end
 
+local servers = require("modules.lsp.servers")
+
 mason.setup({
   ui = {
     icons = {
@@ -21,15 +23,6 @@ mason.setup({
 })
 
 mason_lspconfig.setup({
-  ensure_installed = {
-    "lua_ls",
-    "bashls",
-    "html",
-    "cssls",
-    "tsserver",
-    "marksman",
-    "jsonls",
-    "emmet_ls"
-  },
+  ensure_installed = servers,
   automatic_installation = false
 })

@@ -42,18 +42,7 @@ local on_attach = function (_, bufnr)
   end, opts("LSP format"))
 end
 
--- Enable some language servers with the additional completion
--- capabilities offered by nvim-cmp
-local servers = {
-  "lua_ls",
-  "bashls",
-  "html",
-  "cssls",
-  "tsserver",
-  "marksman",
-  "jsonls",
-  "emmet_ls"
-}
+local servers = require("modules.lsp.servers")
 
 for _, server in ipairs(servers) do
   local opts = {
