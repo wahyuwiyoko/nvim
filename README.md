@@ -35,13 +35,16 @@ My simple Neovim configuration with no patched fonts included.
     │   ├── init.lua
     │   ├── lsp
     │   │   ├── init.lua
+    │   │   ├── lsp_signature.lua
     │   │   ├── lspconfig.lua
-    │   │   └── mason.lua
+    │   │   ├── mason.lua
+    │   │   └── servers.lua
     │   └── tools
     │       ├── efmls.lua
     │       ├── init.lua
     │       └── telescope.lua
     └── settings
+        ├── gopls.lua
         ├── jsonls.lua
         └── lua_ls.lua
 ```
