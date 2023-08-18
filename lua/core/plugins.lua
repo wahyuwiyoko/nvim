@@ -21,7 +21,7 @@ local plugins = {
   { "rose-pine/neovim", name = "rose-pine" },
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   "lewis6991/gitsigns.nvim",
-  "nvim-tree/nvim-tree.lua",
+  "stevearc/oil.nvim",
   "nvim-lualine/lualine.nvim",
   "lukas-reineke/indent-blankline.nvim",
 

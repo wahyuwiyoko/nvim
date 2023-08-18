@@ -44,7 +44,7 @@ keymap("n", "<leader>tx", ":tabclose<CR>", opts("Close focused tab"))
 keymap("n", "<leader>tn", ":tabn<CR>", opts("Focus next tab"))
 keymap("n", "<leader>tp", ":tabp<CR>", opts("Focus previous tab"))
 
-keymap("n", "<leader>e", ":NvimTreeToggle<CR>", opts("Toggle file browser"))
+keymap("n", "-", ":Oil<CR>", opts("Open parent directory"))
 keymap("n", "<leader>tt", ":TroubleToggle<CR>", opts("Git show diff"))
 
 -- Telescope
