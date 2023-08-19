@@ -14,7 +14,8 @@ My simple Neovim configuration with no patched fonts included.
     │   ├── init.lua
     │   ├── keymaps.lua
     │   ├── options.lua
-    │   └── plugins.lua
+    │   ├── plugins.lua
+    │   └── settings.lua
     ├── modules
     │   ├── completions
     │   │   ├── init.lua
@@ -27,7 +28,7 @@ My simple Neovim configuration with no patched fonts included.
     │   │   ├── indent_blankline.lua
     │   │   ├── init.lua
     │   │   ├── lualine.lua
-    │   │   ├── nvim_tree.lua
+    │   │   ├── oil.lua
     │   │   ├── surround.lua
     │   │   ├── todo_comments.lua
     │   │   ├── treesitter.lua
