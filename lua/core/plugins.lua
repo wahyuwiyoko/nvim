@@ -80,9 +80,9 @@ local opts = {
   }
 }
 
-local lazy_setup, lazy = pcall(require, "lazy")
+local setup, lazy = pcall(require, "lazy")
 
-if not lazy_setup then
+if not setup then
   return
 end
 

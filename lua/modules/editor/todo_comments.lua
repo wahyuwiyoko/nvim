@@ -1,6 +1,6 @@
-local status_ok, todo_comments = pcall(require, "todo-comments")
+local setup, todo_comments = pcall(require, "todo-comments")
 
-if not status_ok then
+if not setup then
   return
 end
 

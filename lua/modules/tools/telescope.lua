@@ -1,6 +1,6 @@
-local telescope_setup, telescope = pcall(require, "telescope")
+local setup, telescope = pcall(require, "telescope")
 
-if not telescope_setup then
+if not setup then
   return
 end
 

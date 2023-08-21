@@ -1,6 +1,6 @@
-local status_ok, rose_pine = pcall(require, "rose-pine")
+local setup, rose_pine = pcall(require, "rose-pine")
 
-if not status_ok then
+if not setup then
   print("Colorscheme not found!")
   return
 end

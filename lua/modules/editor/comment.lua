@@ -1,6 +1,6 @@
-local status_ok, comment = pcall(require, "Comment")
+local setup, comment = pcall(require, "Comment")
 
-if not status_ok then
+if not setup then
   return
 end
 

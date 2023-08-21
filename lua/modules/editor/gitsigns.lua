@@ -1,6 +1,6 @@
-local status_ok, gitsigns = pcall(require, "gitsigns")
+local setup, gitsigns = pcall(require, "gitsigns")
 
-if not status_ok then
+if not setup then
   return
 end
 
