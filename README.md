@@ -4,6 +4,13 @@ My simple Neovim configuration with no patched fonts included.
 
 ![Neovim](https://raw.githubusercontent.com/wahyuwiyoko/dotfiles/main/screenshots/neovim.png)
 
+## Requirements
+
+- [Neovim v0.9.1](https://github.com/neovim/neovim/releases/tag/stable)
+- Git, `gcc` or `clang`, and `make` installed
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [efm-langserver binary](https://github.com/mattn/efm-langserver)
+
 ## Structure
 
 ```
