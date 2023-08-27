@@ -8,9 +8,29 @@ My simple Neovim configuration with no patched fonts included.
 
 - [Neovim stable release](https://github.com/neovim/neovim/releases/tag/stable)
 - Git, `gcc` or `clang`, and `make` installed
+- `shellcheck` and `lua-check` installed for linter
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [Node.js](https://nodejs.org/)
-- [efm-langserver binary](https://github.com/mattn/efm-langserver)
+- [efm-langserver](https://github.com/mattn/efm-langserver)
+
+## Notes
+
+Some of these packages may be available in several official repositories in
+each Linux distribution:
+
+- LSP
+  - `efm-langserver`
+  - `gopls`
+- Linter
+  - `shellcheck`
+  - `lua-check`
+  - `go-staticcheck`
+  - `eslint`
+  - `jsonlint`
+  - `yamllint`
+  - `gitlint`
+- Formatter
+  - `shfmt`
 
 ## Structure
 
