@@ -6,9 +6,10 @@ My simple Neovim configuration with no patched fonts included.
 
 ## Requirements
 
-- [Neovim v0.9.1](https://github.com/neovim/neovim/releases/tag/stable)
+- [Neovim stable release](https://github.com/neovim/neovim/releases/tag/stable)
 - Git, `gcc` or `clang`, and `make` installed
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [Node.js](https://nodejs.org/)
 - [efm-langserver binary](https://github.com/mattn/efm-langserver)
 
 ## Structure
