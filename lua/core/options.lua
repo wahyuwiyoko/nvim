@@ -57,4 +57,3 @@ opt.scrolloff = 8
 opt.sidescrolloff = 8
 opt.wildmenu = true
 opt.ruler = false
-opt.iskeyword:append("-")
