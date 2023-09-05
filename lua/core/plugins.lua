@@ -13,13 +13,12 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local modules = {
-  { import = "modules.editor" },
-  { import = "modules.tools" },
-  { import = "modules.lsp" },
-}
-
-local opts = {
+require("lazy").setup({
+  spec = {
+    { import = "modules.editor" },
+    { import = "modules.tools" },
+    { import = "modules.lsp" }
+  },
   ui = {
     icons = {
       cmd = "cmd",
@@ -27,21 +26,22 @@ local opts = {
       event = "event",
       ft = "ft",
       init = "init",
+      import = "import",
       keys = "keys",
+      lazy = "lazy",
+      loaded = "loaded",
+      not_loaded = "not loaded",
       plugin = "plugin",
       runtime = "runtime",
       source = "source",
       start = "start",
       task = "task",
-      lazy = "lazy",
       list = {
-        "O",
-        "->",
+        "o",
+        "=>",
         "*",
         "-"
       }
     }
   }
-}
-
-require("lazy").setup(modules, opts)
+})
