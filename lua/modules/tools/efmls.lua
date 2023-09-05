@@ -1,6 +1,7 @@
 return {
   "creativenull/efmls-configs-nvim",
   version = "v0.1.4",
+  event = { "BufReadPre", "BufNewFile" },
   config = function ()
     local efmls = require("efmls-configs")
 

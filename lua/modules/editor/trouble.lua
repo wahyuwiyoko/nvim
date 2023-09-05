@@ -1,5 +1,9 @@
 return {
   "folke/trouble.nvim",
+  cmd = { "TroubleToggle", "Trouble" },
+  keys = {
+    { "<leader>tt", ":TroubleToggle<CR>" }
+  },
   opts = {
     icons = false,
     fold_open = "v",

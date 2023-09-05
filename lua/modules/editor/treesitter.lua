@@ -1,10 +1,12 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
+  cmd = "TSUpdateSync",
   config = function ()
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
-        "c", "lua", "vim", "vimdoc", "query",
+        "c", "lua", "luadoc", "vim", "vimdoc", "query", "regex",
         "bash", "json", "yaml",
         "html", "css", "javascript",
         "go", "gomod",

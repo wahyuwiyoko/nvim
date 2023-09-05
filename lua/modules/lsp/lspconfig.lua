@@ -1,5 +1,15 @@
+local servers = require("settings.servers")
+
 return {
   "neovim/nvim-lspconfig",
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    "williamboman/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = servers,
+      automatic_installation = false
+    }
+  },
   config = function ()
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -34,7 +44,6 @@ return {
     end
 
     local lspconfig = require("lspconfig")
-    local servers = require("settings.servers")
 
     for _, server in ipairs(servers) do
       local opts = {
