@@ -44,9 +44,6 @@ keymap("n", "<leader>tx", ":tabclose<CR>", opts("Close focused tab"))
 keymap("n", "<leader>tn", ":tabn<CR>", opts("Focus next tab"))
 keymap("n", "<leader>tp", ":tabp<CR>", opts("Focus previous tab"))
 
-keymap("n", "-", ":Oil<CR>", opts("Open parent directory"))
-keymap("n", "<leader>tt", ":TroubleToggle<CR>", opts("Git show diff"))
-
 -- Telescope
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts("Search files"))
 keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts("Search Git files"))

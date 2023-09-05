@@ -45,16 +45,17 @@ opt.splitbelow = true
 -- Buffer
 opt.completeopt = "menu,menuone,noselect"
 opt.conceallevel = 0
+opt.confirm = true
 opt.timeoutlen = 300
 opt.updatetime = 300
 
 -- Editor
-opt.clipboard:append("unnamedplus")
+opt.clipboard = "unnamedplus"
 opt.wrap = false
 opt.showcmd = false
 opt.mouse = "a"
 opt.backspace = "indent,eol,start"
-opt.scrolloff = 8
-opt.sidescrolloff = 8
+opt.scrolloff = 4
+opt.sidescrolloff = 4
 opt.wildmenu = true
 opt.ruler = false
