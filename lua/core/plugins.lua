@@ -22,7 +22,6 @@ local plugins = {
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   "lewis6991/gitsigns.nvim",
   "stevearc/oil.nvim",
-  "nvim-lualine/lualine.nvim",
   "lukas-reineke/indent-blankline.nvim",
 
   -- Autocompletion
