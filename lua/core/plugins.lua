@@ -13,45 +13,10 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-  -- Dependencies
-  "nvim-lua/plenary.nvim",
-
-  -- Editor
-  { "rose-pine/neovim", name = "rose-pine" },
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  "lewis6991/gitsigns.nvim",
-  "stevearc/oil.nvim",
-  "lukas-reineke/indent-blankline.nvim",
-
-  -- Autocompletion
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-path",
-  "saadparwaiz1/cmp_luasnip",
-  "hrsh7th/cmp-nvim-lsp",
-
-  -- Snippets
-  "L3MON4D3/LuaSnip",
-  "rafamadriz/friendly-snippets",
-
-  -- LSP
-  "williamboman/mason.nvim",
-  "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
-  "ray-x/lsp_signature.nvim",
-
-  -- Telescope
-  "nvim-telescope/telescope.nvim",
-  { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-
-  -- Miscellaneous
-  { "creativenull/efmls-configs-nvim", version = "v0.1.4" },
-  "numToStr/Comment.nvim",
-  "windwp/nvim-autopairs",
-  "kylechui/nvim-surround",
-  "folke/todo-comments.nvim",
-  "folke/trouble.nvim"
+local modules = {
+  { import = "modules.editor" },
+  { import = "modules.tools" },
+  { import = "modules.lsp" },
 }
 
 local opts = {
@@ -79,10 +44,4 @@ local opts = {
   }
 }
 
-local setup, lazy = pcall(require, "lazy")
-
-if not setup then
-  return
-end
-
-lazy.setup(plugins, opts)
+require("lazy").setup(modules, opts)

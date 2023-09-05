@@ -1,7 +1,6 @@
-local setup, surround = pcall(require, "nvim-surround")
-
-if not setup then
-  return
-end
-
-surround.setup()
+return {
+  "kylechui/nvim-surround",
+  version = "*",
+  event = "VeryLazy",
+  config = true
+}

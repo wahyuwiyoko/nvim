@@ -1,9 +1,13 @@
-local setup, telescope = pcall(require, "telescope")
+return {
+  "nvim-telescope/telescope.nvim",
+  dependencies = {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make"
+  },
+  config = function ()
+    local telescope = require("telescope")
 
-if not setup then
-  return
-end
-
-telescope.setup()
-
-telescope.load_extension("fzf")
+    telescope.setup()
+    telescope.load_extension("fzf")
+  end
+}

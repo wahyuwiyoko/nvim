@@ -36,6 +36,7 @@ opt.showtabline = 2
 opt.signcolumn = "yes"
 opt.colorcolumn = "80"
 opt.pumheight = 10
+opt.laststatus = 3
 
 -- Split window
 opt.splitright = true

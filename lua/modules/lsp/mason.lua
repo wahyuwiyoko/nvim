@@ -1,28 +1,22 @@
-local mason_setup, mason = pcall(require, "mason")
+return {
+  "williamboman/mason.nvim",
+  dependencies = { "williamboman/mason-lspconfig.nvim" },
+  config = function ()
+    local servers = require("settings.servers")
 
-if not mason_setup then
-  return
-end
+    require("mason").setup({
+      ui = {
+        icons = {
+          package_installed = "+",
+          package_pending = "p",
+          package_uninstalled = "x"
+        }
+      }
+    })
 
-local mason_lspconfig_setup, mason_lspconfig = pcall(require, "mason-lspconfig")
-
-if not mason_lspconfig_setup then
-  return
-end
-
-local servers = require("modules.lsp.servers")
-
-mason.setup({
-  ui = {
-    icons = {
-      package_installed = "+",
-      package_pending = "p",
-      package_uninstalled = "x"
-    }
-  }
-})
-
-mason_lspconfig.setup({
-  ensure_installed = servers,
-  automatic_installation = false
-})
+    require("mason-lspconfig").setup({
+      ensure_installed = servers,
+      automatic_installation = false
+    })
+  end
+}

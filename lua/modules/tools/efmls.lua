@@ -1,15 +1,14 @@
-local setup, efmls = pcall(require, "efmls-configs")
+return {
+  "creativenull/efmls-configs-nvim",
+  version = "v0.1.4",
+  config = function ()
+    local efmls = require("efmls-configs")
 
-if not setup then
-  return
-end
+    efmls.init({ default_config = false })
 
-local shellcheck = require("efmls-configs.linters.shellcheck")
-local luacheck = require("efmls-configs.linters.luacheck")
-
-efmls.init({ default_config = false })
-
-efmls.setup({
-  sh = { linter = shellcheck },
-  lua = { linter = luacheck }
-})
+    efmls.setup({
+      sh = { linter = require("efmls-configs.linters.shellcheck") },
+      lua = { linter = require("efmls-configs.linters.luacheck") }
+    })
+  end
+}
