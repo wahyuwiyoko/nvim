@@ -2,7 +2,7 @@
 
 My simple Neovim configuration with no patched fonts included.
 
-![Neovim](https://raw.githubusercontent.com/wahyuwiyoko/dotfiles/main/screenshots/neovim.png)
+<!-- ![Neovim](https://raw.githubusercontent.com/wahyuwiyoko/dotfiles/main/screenshots/neovim.png) -->
 
 ## Requirements
 
@@ -32,6 +32,9 @@ each Linux distribution:
 - Formatter
   - `shfmt`
 
+To know list of events that is available for lazy loading plugins,
+enter `:help events`.
+
 ## Structure
 
 ```
@@ -39,48 +42,37 @@ each Linux distribution:
 ├── init.lua
 └── lua
     ├── core
-    │   ├── init.lua
     │   ├── keymaps.lua
     │   ├── options.lua
     │   ├── plugins.lua
     │   └── settings.lua
     ├── modules
-    │   ├── completions
-    │   │   ├── init.lua
-    │   │   └── nvim_cmp.lua
     │   ├── editor
-    │   │   ├── autopairs.lua
+    │   │   ├── cmp.lua
     │   │   ├── colorscheme.lua
     │   │   ├── comment.lua
     │   │   ├── gitsigns.lua
-    │   │   ├── indent_blankline.lua
-    │   │   ├── init.lua
-    │   │   ├── lualine.lua
-    │   │   ├── oil.lua
-    │   │   ├── surround.lua
+    │   │   ├── maximize.lua
+    │   │   ├── mini.lua
     │   │   ├── todo_comments.lua
     │   │   ├── treesitter.lua
     │   │   └── trouble.lua
-    │   ├── init.lua
     │   ├── lsp
-    │   │   ├── init.lua
-    │   │   ├── lsp_signature.lua
     │   │   ├── lspconfig.lua
-    │   │   ├── mason.lua
-    │   │   └── servers.lua
+    │   │   ├── lsp_signature.lua
+    │   │   └── mason.lua
     │   └── tools
     │       ├── efmls.lua
-    │       ├── init.lua
     │       └── telescope.lua
     └── settings
         ├── gopls.lua
         ├── jsonls.lua
-        └── lua_ls.lua
+        ├── lua_ls.lua
+        └── servers.lua
 ```
 
 - `core` => Base editor for Vim options, keymaps, and plugins manager.
 - `modules` => All Neovim plugins within the sub-directories.
-  - `completions` => Code completions plugins.
   - `editor` => Any plugins for editor functionality just like an IDE.
   - `lsp` => For manage and configure LSP.
   - `tools` => An everyday used tools like linter, formatter, and Telescope.
