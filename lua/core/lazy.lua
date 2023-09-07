@@ -19,6 +19,7 @@ require("lazy").setup({
     { import = "modules.tools" },
     { import = "modules.lsp" }
   },
+  change_detection = { notify = false },
   ui = {
     icons = {
       cmd = "cmd",
