@@ -16,7 +16,8 @@ keymap("n", "<C-l>", "<C-w>l", opts("Focus right window"))
 
 keymap("n", "<leader>nh", ":nohl<CR>", opts("Disable highlight search"))
 
-keymap("n", "x", '"_x') -- Will not copied to register
+-- Will not copied to register
+keymap("n", "x", '"_x')
 
 -- Resize with arrow key
 keymap("n", "<C-Up>", ":resize -2<CR>", opts("Resize up window"))
@@ -53,6 +54,7 @@ keymap("n", "<leader>sb", ":Telescope buffers<CR>", opts("Search buffers"))
 keymap("n", "<leader>sd", ":Telescope diagnostics<CR>", opts("Search diagnostics"))
 keymap("n", "<leader>sp", ":Telescope help_tags<CR>", opts("Search help"))
 keymap("n", "<leader>sk", ":Telescope keymaps<CR>", opts("Search keymaps"))
+keymap("n", "<leader>rr", ":Telescope registers<CR>", opts("Search registers"))
 keymap("n", "<leader>td", ":TodoTelescope<CR>", opts("Search todo"))
 
 -- Gitsigns
@@ -61,7 +63,7 @@ keymap("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", opts("Git previous hunk"))
 keymap("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", opts("Git preview hunk"))
 keymap("n", "<leader>gs", ":Gitsigns diffthis<CR>", opts("Git show diff"))
 
--- Diagnostic
+-- Diagnostics
 keymap("n", "<leader>o", diagnostic.open_float, opts("Open float diagnostic"))
 keymap("n", "]d", diagnostic.goto_next, opts("Go to next diagnostic"))
 keymap("n", "[d", diagnostic.goto_prev, opts("Go to previous diagnostic"))
@@ -80,7 +82,8 @@ keymap("v", ">", ">gv^", opts("Indent line to right"))
 keymap("v", "<S-k>", ":m '<-2<CR>gv=gv", opts("Move line up"))
 keymap("v", "<S-j>", ":m '>+1<CR>gv=gv", opts("Move line down"))
 
-keymap("v", "p", '"_dP') -- Will keep to register after yank/delete
+-- Will keep to register after yank/delete
+keymap("v", "p", '"_dP')
 
 -- Visual block
 -- Move line up & down using Alt key
