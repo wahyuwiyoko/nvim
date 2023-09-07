@@ -25,22 +25,15 @@ return {
       end
 
       keymap("n", "gD", lsp.declaration, opts("LSP declaration"))
-      keymap("n", "gd", lsp.definition, opts("LSP definition"))
-      keymap("n", "K", lsp.hover, opts("LSP hover"))
-      keymap("n", "gi", lsp.implementation, opts("LSP implementation"))
+      keymap("n", "K", lsp.hover, opts("LSP hover to show documentation under cursor"))
       keymap("n", "<space>hs", lsp.signature_help, opts("LSP signature help"))
-      keymap("n", "<space>wa", lsp.add_workspace_folder, opts("LSP add workspace folder"))
-      keymap("n", "<space>wr", lsp.remove_workspace_folder, opts("LSP remove workspace folder"))
-      keymap("n", "<space>wl", function()
-        print(vim.inspect(lsp.list_workspace_folders()))
-      end, opts("LSP list workspace folders"))
-      keymap("n", "<space>D", lsp.type_definition, opts("LSP type definition"))
       keymap("n", "<space>rn", lsp.rename, opts("LSP rename"))
       keymap({ "n", "v" }, "<space>ca", lsp.code_action, opts("LSP code action"))
-      keymap("n", "gr", lsp.references, opts("LSP references"))
-      keymap("n", "<space>f", function()
-        lsp.format { async = true }
-      end, opts("LSP format"))
+      keymap("n", "gd", ":Telescope lsp_definitions<CR>", opts("LSP definition"))
+      keymap("n", "gi", ":Telescope lsp_implementations<CR>", opts("LSP implementation"))
+      keymap("n", "<space>gt", ":Telescope lsp_type_definitions<CR>", opts("LSP type definition"))
+      keymap("n", "<space>D", ":Telescope diagnostics bufnr=0<CR>", opts("LSP diagnostics current buffer"))
+      keymap("n", "gr", ":Telescope lsp_references<CR>", opts("LSP references"))
     end
 
     local lspconfig = require("lspconfig")
