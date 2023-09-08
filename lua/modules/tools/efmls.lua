@@ -1,15 +1,19 @@
 return {
   "creativenull/efmls-configs-nvim",
-  version = "v0.1.4",
+  version = "v1.x.x",
   event = { "BufReadPre", "BufNewFile" },
   config = function ()
-    local efmls = require("efmls-configs")
+    local languages = {
+      sh = { require("efmls-configs.linters.shellcheck") },
+      lua = { require("efmls-configs.linters.selene") },
+      markdown = { require("efmls-configs.linters.markdownlint") }
+    }
 
-    efmls.init({ default_config = false })
+    local efmls_config = {
+      filetypes = vim.tbl_keys(languages),
+      settings = { languages = languages }
+    }
 
-    efmls.setup({
-      sh = { linter = require("efmls-configs.linters.shellcheck") },
-      lua = { linter = require("efmls-configs.linters.luacheck") }
-    })
+    require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {}))
   end
 }
