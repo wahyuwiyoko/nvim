@@ -37,6 +37,7 @@ opt.signcolumn = "yes"
 opt.colorcolumn = "80"
 opt.pumheight = 10
 opt.laststatus = 3
+opt.shortmess:append "sI"
 
 -- Split window
 opt.splitright = true
