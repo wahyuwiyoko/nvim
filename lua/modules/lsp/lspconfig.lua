@@ -1,4 +1,8 @@
-local servers = require("settings.servers")
+local servers = {
+  "lua_ls", "bashls", "jsonls",
+  "html", "cssls", "tsserver",
+  "gopls", "marksman", "efm"
+}
 
 return {
   "neovim/nvim-lspconfig",
