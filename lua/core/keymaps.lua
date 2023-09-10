@@ -5,9 +5,6 @@ local function opts(desc)
   return { noremap = true, silent = true, desc = desc }
 end
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", opts("Focus left window"))
 keymap("n", "<C-j>", "<C-w>j", opts("Focus down window"))
