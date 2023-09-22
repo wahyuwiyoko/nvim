@@ -3,7 +3,7 @@ return {
   branch = "0.1.x",
   cmd = "Telescope",
   dependencies = {
-    { "nvim-lua/plenary.nvim", lazy = true },
+    "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
   },
   config = function ()
