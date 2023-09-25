@@ -47,6 +47,7 @@ enter `:help events`.
 ├── init.lua
 └── lua
     ├── core
+    │   ├── autocmd.lua
     │   ├── keymaps.lua
     │   ├── lazy.lua
     │   ├── options.lua
