@@ -31,8 +31,8 @@ opt.incsearch = true
 opt.termguicolors = true
 opt.background = "dark"
 opt.showmode = false
-opt.cursorline = true
-opt.showtabline = 2
+opt.cursorline = false
+opt.showtabline = 1
 opt.signcolumn = "yes"
 opt.colorcolumn = "80"
 opt.pumheight = 10
@@ -51,12 +51,15 @@ opt.timeoutlen = 300
 opt.updatetime = 300
 
 -- Editor
+opt.fileformat = "unix"
 opt.clipboard = "unnamedplus"
 opt.wrap = false
 opt.showcmd = false
-opt.mouse = "a"
+opt.mouse = ""
 opt.backspace = "indent,eol,start"
 opt.scrolloff = 4
 opt.sidescrolloff = 4
 opt.wildmenu = true
 opt.ruler = false
+opt.emoji = false
+opt.belloff = "all"
