@@ -66,10 +66,6 @@ keymap("n", "]d", diagnostic.goto_next, opts("Go to next diagnostic"))
 keymap("n", "[d", diagnostic.goto_prev, opts("Go to previous diagnostic"))
 keymap("n", "<leader>q", diagnostic.setloclist, opts("Setloclist diagnostic"))
 
--- Insert mode
-keymap("i", "jk", "<ESC>", opts("Escape from insert mode"))
-keymap("i", "kj", "<ESC>", opts("Escape from insert mode"))
-
 -- Visual mode
 -- Stay in indent mode
 keymap("v", "<", "<gv^", opts("Indent line to left"))
