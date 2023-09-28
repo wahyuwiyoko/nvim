@@ -19,6 +19,15 @@ require("lazy").setup({
     { import = "modules.tools" },
     { import = "modules.lsp" }
   },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "editorconfig", "gzip", "netrwPlugin",
+        "rplugin", "spellfile", "tarPlugin",
+        "tohtml", "tutor", "zipPlugin"
+      }
+    }
+  },
   change_detection = { notify = false },
   ui = {
     icons = {
