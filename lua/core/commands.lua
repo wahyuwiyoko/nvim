@@ -2,9 +2,10 @@ local function augroup(group_name)
   return vim.api.nvim_create_augroup(group_name, { clear = true })
 end
 
-local autocmd = vim.api.nvim_create_autocmd
+local auto = vim.api.nvim_create_autocmd
+local user = vim.api.nvim_create_user_command
 
-autocmd("BufWritePre", {
+auto("BufWritePre", {
   group = augroup("RemoveTrailingWhitespace"),
   pattern = "*",
   callback = function ()
@@ -14,7 +15,18 @@ autocmd("BufWritePre", {
   end
 })
 
-autocmd("TermOpen", {
+auto("TermOpen", {
   group = augroup("StartTerminalInInsertMode"),
   command = "startinsert | set winfixheight"
 })
+
+user("MasonInstallLinters", function ()
+  local registry = require("mason-registry")
+  local linters = { "selene", "shellcheck", "markdownlint" }
+
+  for _, linter in ipairs(linters) do
+    if not registry.is_installed(linter) then
+      vim.cmd("MasonInstall " .. linter)
+    end
+  end
+end, { force = true })

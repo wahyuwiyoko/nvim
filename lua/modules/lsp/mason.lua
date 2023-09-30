@@ -10,15 +10,5 @@ return {
         package_uninstalled = "x"
       }
     }
-  },
-  init = function ()
-    local registry = require("mason-registry")
-    local linters = { "selene", "shellcheck", "markdownlint" }
-
-    for _, linter in ipairs(linters) do
-      if not registry.is_installed(linter) then
-        vim.cmd("MasonInstall " .. linter)
-      end
-    end
-  end
+  }
 }
