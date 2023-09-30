@@ -9,7 +9,7 @@ autocmd("BufWritePre", {
   pattern = "*",
   callback = function ()
     local save_cursor = vim.fn.winsaveview()
-    vim.cmd([[ %s/\s\+$//e ]])
+    vim.cmd([[%s/\s\+$//e]])
     vim.fn.winrestview(save_cursor)
   end
 })
