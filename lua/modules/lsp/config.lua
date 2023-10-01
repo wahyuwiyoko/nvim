@@ -48,10 +48,10 @@ return {
         capabilities = capabilities
       }
 
-      local settings_setup, settings = pcall(require, "settings." .. server)
+      local languages_setup, languages = pcall(require, "languages." .. server)
 
-      if settings_setup then
-        opts = vim.tbl_deep_extend("force", settings, opts)
+      if languages_setup then
+        opts = vim.tbl_deep_extend("force", languages, opts)
       end
 
       lspconfig[server].setup(opts)
