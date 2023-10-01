@@ -14,7 +14,7 @@ keymap("n", "<C-l>", "<C-w>l", opts("Focus right window"))
 keymap("n", "<leader>nh", ":nohl<CR>", opts("Disable highlight search"))
 
 -- Will not copied to register
-keymap("n", "x", '"_x')
+keymap("n", "x", "\"_x")
 
 -- Resize with arrow key
 keymap("n", "<C-Up>", ":resize -2<CR>", opts("Resize up window"))
@@ -76,7 +76,7 @@ keymap("v", "<S-k>", ":m '<-2<CR>gv=gv", opts("Move line up"))
 keymap("v", "<S-j>", ":m '>+1<CR>gv=gv", opts("Move line down"))
 
 -- Will keep to register after yank/delete
-keymap("v", "p", '"_dP')
+keymap("v", "p", "\"_dP")
 
 -- Visual block
 -- Move line up & down using Alt key
