@@ -11,8 +11,8 @@ My simple Neovim configuration with no patched fonts included.
 - [ripgrep](https://github.com/BurntSushi/ripgrep) for `live_grep` of Telescope
 - [Node.js](https://nodejs.org/) for installing several LSP through Mason
 
-For the linter to work, `shellcheck` (for shell scripts), `selene` (for Lua),
-and `markdownlint` (for Markdown) need to be installed manually through Mason.
+For the linter to work, run `MasonInstallLinters` command in Neovim to
+install all linter through Mason.
 
 ## Tips
 
@@ -22,7 +22,6 @@ Some of these packages may be available in several official repositories in
 each Linux distribution. Although it can also be installed with Mason.
 
 - LSP
-  - `efm-langserver`
   - `gopls`
 - Linter
   - `shellcheck`
@@ -47,37 +46,35 @@ enter `:help events`.
 ├── init.lua
 └── lua
     ├── core
-    │   ├── autocmd.lua
+    │   ├── commands.lua
     │   ├── keymaps.lua
     │   ├── lazy.lua
     │   ├── options.lua
     │   └── settings.lua
-    ├── modules
-    │   ├── editor
-    │   │   ├── autopairs.lua
-    │   │   ├── cmp.lua
-    │   │   ├── colorscheme.lua
-    │   │   ├── comment.lua
-    │   │   ├── gitsigns.lua
-    │   │   ├── indent_blankline.lua
-    │   │   ├── lualine.lua
-    │   │   ├── maximize.lua
-    │   │   ├── oil.lua
-    │   │   ├── surround.lua
-    │   │   ├── todo_comments.lua
-    │   │   ├── treesitter.lua
-    │   │   └── trouble.lua
-    │   ├── lsp
-    │   │   ├── lspconfig.lua
-    │   │   ├── lsp_signature.lua
-    │   │   └── mason.lua
-    │   └── tools
-    │       ├── efmls.lua
-    │       └── telescope.lua
-    └── settings
-        ├── gopls.lua
-        ├── jsonls.lua
-        ├── lua_ls.lua
+    ├── languages
+    │   ├── gopls.lua
+    │   ├── jsonls.lua
+    │   └── lua_ls.lua
+    └── modules
+        ├── editor
+        │   ├── auto_pairs.lua
+        │   ├── colorscheme.lua
+        │   ├── comment.lua
+        │   ├── completion.lua
+        │   ├── escape.lua
+        │   ├── git.lua
+        │   ├── maximize.lua
+        │   ├── oil.lua
+        │   ├── surround.lua
+        │   ├── todo_comments.lua
+        │   ├── treesitter.lua
+        │   └── trouble.lua
+        ├── lsp
+        │   ├── config.lua
+        │   └── mason.lua
+        └── tools
+            ├── linting.lua
+            └── telescope.lua
 ```
 
 - `core` => Base editor for Vim options, keymaps, and plugins manager.
@@ -85,7 +82,7 @@ enter `:help events`.
   - `editor` => Any plugins for editor functionality just like an IDE.
   - `lsp` => For manage and configure LSP.
   - `tools` => Very useful editor functionality like linter, formatter, and Telescope.
-- `settings` => Every languages server configuration.
+- `languages` => Every languages server configuration.
 
 ## References
 
