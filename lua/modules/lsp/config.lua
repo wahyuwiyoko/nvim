@@ -1,7 +1,7 @@
 local servers = {
   "lua_ls", "bashls", "jsonls",
   "html", "cssls", "tsserver",
-  "gopls", "marksman", "efm"
+  "gopls", "marksman"
 }
 
 return {
