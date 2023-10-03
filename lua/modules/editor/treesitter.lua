@@ -5,8 +5,9 @@ return {
   main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = {
-      "c", "lua", "luadoc", "vim", "vimdoc", "query", "regex",
-      "bash", "json", "yaml",
+      "luadoc", "vimdoc", "query", "regex", "diff",
+      "c", "lua", "vim", "bash",
+      "json", "yaml", "toml",
       "html", "css", "javascript",
       "go", "gomod",
       "markdown", "markdown_inline",
