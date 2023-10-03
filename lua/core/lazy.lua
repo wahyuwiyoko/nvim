@@ -20,6 +20,7 @@ require("lazy").setup({
     { import = "modules.lsp" }
   },
   performance = {
+    cache = { enabled = true },
     rtp = {
       disabled_plugins = {
         "editorconfig", "gzip", "netrwPlugin",
@@ -29,6 +30,9 @@ require("lazy").setup({
     }
   },
   defaults = { lazy = true },
+  install = {
+    colorscheme = { "rose-pine", "habamax" }
+  },
   change_detection = { notify = false },
   ui = {
     icons = {
