@@ -27,10 +27,6 @@ keymap("n", "<S-l>", ":bnext<CR>", opts("Focus next buffer"))
 keymap("n", "<S-h>", ":bprevious<CR>", opts("Focus previous buffer"))
 keymap("n", "<S-x>", ":bdelete<CR>", opts("Close buffer"))
 
--- Move text up & down
-keymap("n", "<S-k>", ":m .-2<CR>==", opts("Move text up"))
-keymap("n", "<S-j>", ":m .+1<CR>==", opts("Move text down"))
-
 -- Split windows
 keymap("n", "<leader>sv", "<C-w>v", opts("Split window vertically"))
 keymap("n", "<leader>sh", "<C-w>s", opts("Split window horizontally"))
