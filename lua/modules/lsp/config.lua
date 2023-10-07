@@ -29,14 +29,14 @@ return {
       end
 
       keymap("n", "gD", lsp.declaration, opts("LSP declaration"))
-      keymap("n", "K", lsp.hover, opts("LSP hover to show documentation under cursor"))
-      keymap("n", "<space>hs", lsp.signature_help, opts("LSP signature help"))
-      keymap("n", "<space>rn", lsp.rename, opts("LSP rename"))
-      keymap({ "n", "v" }, "<space>ca", lsp.code_action, opts("LSP code action"))
+      keymap("n", "<leader>k", lsp.hover, opts("LSP hover to show documentation under cursor"))
+      keymap("n", "<leader>hs", lsp.signature_help, opts("LSP signature help"))
+      keymap("n", "<leader>rn", lsp.rename, opts("LSP rename"))
+      keymap({ "n", "v" }, "<leader>ca", lsp.code_action, opts("LSP code action"))
       keymap("n", "gd", ":Telescope lsp_definitions<CR>", opts("LSP definition"))
       keymap("n", "gi", ":Telescope lsp_implementations<CR>", opts("LSP implementation"))
-      keymap("n", "<space>gt", ":Telescope lsp_type_definitions<CR>", opts("LSP type definition"))
-      keymap("n", "<space>D", ":Telescope diagnostics bufnr=0<CR>", opts("LSP diagnostics current buffer"))
+      keymap("n", "<leader>gt", ":Telescope lsp_type_definitions<CR>", opts("LSP type definition"))
+      keymap("n", "<leader>D", ":Telescope diagnostics bufnr=0<CR>", opts("LSP diagnostics current buffer"))
       keymap("n", "gr", ":Telescope lsp_references<CR>", opts("LSP references"))
     end
 
