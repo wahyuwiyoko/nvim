@@ -22,7 +22,7 @@ auto("TermOpen", {
 
 user("MasonInstallLinters", function ()
   local registry = require("mason-registry")
-  local linters = { "selene", "shellcheck", "markdownlint" }
+  local linters = { "selene", "shellcheck" }
 
   for _, linter in ipairs(linters) do
     if not registry.is_installed(linter) then

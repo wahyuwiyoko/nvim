@@ -6,8 +6,7 @@ return {
 
     lint.linters_by_ft = {
       lua = { "selene" },
-      sh = { "shellcheck" },
-      markdown = { "markdownlint" }
+      sh = { "shellcheck" }
     }
 
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
