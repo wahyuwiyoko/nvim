@@ -2,7 +2,7 @@ return {
   "folke/trouble.nvim",
   cmd = { "TroubleToggle", "Trouble" },
   keys = {
-    { "<leader>tt", ":TroubleToggle<CR>" }
+    { mode = "n", "<leader>tt", ":TroubleToggle<CR>" }
   },
   opts = {
     icons = false,
