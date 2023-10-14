@@ -9,13 +9,11 @@ return {
     "saadparwaiz1/cmp_luasnip",
     {
       "L3MON4D3/LuaSnip",
-      dependencies = {
-        "rafamadriz/friendly-snippets",
-        config = function ()
-          require("luasnip.loaders.from_vscode").lazy_load()
-        end
-      }
-    },
+      dependencies = { "rafamadriz/friendly-snippets" },
+      config = function ()
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end
+    }
   },
   config = function ()
     local cmp = require("cmp")
