@@ -48,6 +48,7 @@ keymap("n", "<leader>sd", ":Telescope diagnostics<CR>", opts("Search diagnostics
 keymap("n", "<leader>sp", ":Telescope help_tags<CR>", opts("Search help"))
 keymap("n", "<leader>sk", ":Telescope keymaps<CR>", opts("Search keymaps"))
 keymap("n", "<leader>rr", ":Telescope registers<CR>", opts("Search registers"))
+keymap("n", "<leader>qq", ":Telescope quickfixhistory<CR>", opts("Search quickfix list"))
 
 -- Gitsigns
 keymap("n", "<leader>gn", ":Gitsigns next_hunk<CR>", opts("Git next hunk"))
