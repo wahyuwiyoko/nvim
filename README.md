@@ -61,7 +61,6 @@ enter `:help events`.
         │   ├── colorscheme.lua
         │   ├── comment.lua
         │   ├── completion.lua
-        │   ├── escape.lua
         │   ├── git.lua
         │   ├── maximize.lua
         │   ├── surround.lua
