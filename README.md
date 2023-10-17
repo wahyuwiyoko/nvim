@@ -64,7 +64,6 @@ enter `:help events`.
         │   ├── escape.lua
         │   ├── git.lua
         │   ├── maximize.lua
-        │   ├── oil.lua
         │   ├── surround.lua
         │   └── treesitter.lua
         ├── lsp
