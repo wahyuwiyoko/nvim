@@ -66,9 +66,7 @@ enter `:help events`.
         │   ├── maximize.lua
         │   ├── oil.lua
         │   ├── surround.lua
-        │   ├── todo_comments.lua
-        │   ├── treesitter.lua
-        │   └── trouble.lua
+        │   └── treesitter.lua
         ├── lsp
         │   ├── config.lua
         │   └── mason.lua
