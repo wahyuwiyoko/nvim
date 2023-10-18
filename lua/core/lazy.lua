@@ -21,6 +21,7 @@ require("lazy").setup({
   },
   performance = {
     cache = { enabled = true },
+    reset_packpath = true,
     rtp = {
       disabled_plugins = {
         "editorconfig", "gzip", "netrwPlugin",
@@ -31,23 +32,26 @@ require("lazy").setup({
   },
   defaults = { lazy = true },
   install = {
+    missing = true,
     colorscheme = { "rose-pine", "habamax" }
   },
   change_detection = { notify = false },
   ui = {
+    pills = false,
     icons = {
-      cmd = "cmd",
-      config = "conf",
+      cmd = "command",
+      config = "config",
       event = "event",
-      ft = "ft",
+      ft = "filetype",
       init = "init",
       import = "import",
       keys = "keys",
-      lazy = "lazy",
-      loaded = "loaded",
-      not_loaded = "not loaded",
+      lazy = "",
+      loaded = "",
+      not_loaded = "",
       plugin = "plugin",
       runtime = "runtime",
+      require = "require",
       source = "source",
       start = "start",
       task = "task",
