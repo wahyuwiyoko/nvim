@@ -29,7 +29,14 @@ return {
         end
       },
       window = {
-        documentation = cmp.config.window.bordered()
+        completion = {
+          border = "single",
+          scrolloff = 2
+        },
+        documentation = {
+          border = "single",
+          winhighlight = "FloatBorder:Pmenu"
+        }
       },
       mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item(),
