@@ -1,10 +1,20 @@
 return {
   "nvim-telescope/telescope.nvim",
-  branch = "0.1.x",
+  version = "0.x.x",
   cmd = "Telescope",
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }
+    {
+      "nvim-lua/plenary.nvim",
+      version = "0.x.x"
+    },
+    {
+      "nvim-telescope/telescope-fzf-native.nvim",
+      enabled = vim.fn.executable("make") == 1,
+      build = "make",
+      config = function ()
+        require("telescope").load_extension("fzf")
+      end
+    }
   },
   config = function ()
     local telescope = require("telescope")
@@ -20,7 +30,5 @@ return {
         }
       }
     })
-
-    telescope.load_extension("fzf")
   end
 }

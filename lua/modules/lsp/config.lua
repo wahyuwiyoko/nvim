@@ -9,6 +9,7 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
+    version = "1.x.x",
     opts = {
       ensure_installed = servers,
       automatic_installation = false

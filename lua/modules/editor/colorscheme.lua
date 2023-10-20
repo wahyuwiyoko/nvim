@@ -1,5 +1,6 @@
 return {
   "rose-pine/neovim",
+  version = "1.x",
   lazy = false,
   priority = 1000,
   name = "rose-pine",
