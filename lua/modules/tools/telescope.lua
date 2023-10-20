@@ -1,11 +1,11 @@
 return {
   "nvim-telescope/telescope.nvim",
-  version = "0.x.x",
+  version = "0.1.x",
   cmd = "Telescope",
   dependencies = {
     {
       "nvim-lua/plenary.nvim",
-      version = "0.x.x"
+      version = "0.1.x"
     },
     {
       "nvim-telescope/telescope-fzf-native.nvim",
