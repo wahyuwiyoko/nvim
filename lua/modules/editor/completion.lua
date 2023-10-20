@@ -61,13 +61,28 @@ return {
           end
         end, { "i", "s" })
       }),
-      sources = cmp.config.sources({
+      sources = {
         { name = "nvim_lsp" },
+        { name = "nvim_lua" },
         { name = "nvim_lsp_signature_help" },
-        { name = "luasnip" },
+        { name = "luasnip", option = { show_autosnippets = true } },
         { name = "buffer" },
         { name = "path" }
-      })
+      },
+      formatting = {
+        format = function (entry, vim_item)
+          vim_item.menu = ({
+            nvim_lsp = "[LSP]",
+            nvim_lua = "[Lua]",
+            nvim_lsp_signature_help = "[Help]",
+            luasnip = "[LuaSnip]",
+            buffer = "[Buffer]",
+            path = "[Path]"
+          })[entry.source.name]
+
+          return vim_item
+        end
+      }
     })
 
     cmp.event:on(
