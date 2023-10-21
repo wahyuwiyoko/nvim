@@ -31,10 +31,13 @@ return {
       window = {
         completion = {
           border = "single",
+          scrollbar = false,
           scrolloff = 2
         },
         documentation = {
           border = "single",
+          max_height = 15,
+          max_width = 60,
           winhighlight = "FloatBorder:Pmenu"
         }
       },
