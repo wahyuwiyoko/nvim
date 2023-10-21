@@ -17,6 +17,7 @@ require("lazy").setup({
   spec = {
     { import = "modules.editor" },
     { import = "modules.tools" },
+    { import = "modules.completion" },
     { import = "modules.lsp" }
   },
   performance = {

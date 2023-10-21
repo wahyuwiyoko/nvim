@@ -3,28 +3,20 @@ return {
   event = "InsertEnter",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    "hrsh7th/cmp-nvim-lsp-signature-help",
     "hrsh7th/cmp-nvim-lua",
-    "saadparwaiz1/cmp_luasnip",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    {
-      "L3MON4D3/LuaSnip",
-      version = "2.x.x",
-      build = "make install_jsregexp",
-      dependencies = { "rafamadriz/friendly-snippets" },
-      config = function ()
-        require("luasnip.loaders.from_vscode").lazy_load()
-      end
-    }
+    "hrsh7th/cmp-nvim-lsp-signature-help",
+    "saadparwaiz1/cmp_luasnip"
   },
   config = function ()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+    local auto_pairs = require("nvim-autopairs.completion.cmp")
 
     cmp.setup({
       snippet = {
-        expand = function(args)
+        expand = function (args)
           luasnip.lsp_expand(args.body)
         end
       },
@@ -41,7 +33,7 @@ return {
           winhighlight = "FloatBorder:Pmenu"
         }
       },
-      mapping = cmp.mapping.preset.insert({
+      mapping = {
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
         ["<C-u>"] = cmp.mapping.scroll_docs(-4),
@@ -49,7 +41,7 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.abort(),
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ["<Tab>"] = cmp.mapping(function (fallback)
           if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
           elseif luasnip.jumpable(1) then
@@ -58,38 +50,38 @@ return {
             fallback()
           end
         end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        ["<S-Tab>"] = cmp.mapping(function (fallback)
           if luasnip.jumpable(-1) then
             luasnip.jump(-1)
           else
             fallback()
           end
         end, { "i", "s" }),
-        ["<C-l>"] = cmp.mapping(function(fallback)
+        ["<C-l>"] = cmp.mapping(function (fallback)
           if luasnip.choice_active() then
             luasnip.change_choice(1)
           else
             fallback()
           end
         end, { "i", "s" })
-      }),
+      },
       sources = {
         { name = "nvim_lsp" },
         { name = "nvim_lua" },
-        { name = "nvim_lsp_signature_help" },
         { name = "luasnip", option = { show_autosnippets = true } },
         { name = "buffer" },
-        { name = "path" }
+        { name = "path" },
+        { name = "nvim_lsp_signature_help" }
       },
       formatting = {
         format = function (entry, vim_item)
           vim_item.menu = ({
             nvim_lsp = "[LSP]",
             nvim_lua = "[Lua]",
-            nvim_lsp_signature_help = "[Help]",
             luasnip = "[LuaSnip]",
             buffer = "[Buffer]",
-            path = "[Path]"
+            path = "[Path]",
+            nvim_lsp_signature_help = "[Help]"
           })[entry.source.name]
 
           return vim_item
@@ -97,13 +89,10 @@ return {
       }
     })
 
-    cmp.event:on(
-      "confirm_done",
-      require("nvim-autopairs.completion.cmp").on_confirm_done({
-        filetypes = {
-          sh = false
-        }
-      })
-    )
+    cmp.event:on("confirm_done", auto_pairs.on_confirm_done({
+      filetypes = {
+        sh = false
+      }
+    }))
   end
 }
