@@ -27,10 +27,7 @@ return {
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       enabled = vim.fn.executable("make") == 1,
-      build = "make",
-      config = function ()
-        require("telescope").load_extension("fzf")
-      end
+      build = "make"
     }
   },
   config = function ()
@@ -39,13 +36,29 @@ return {
 
     telescope.setup({
       defaults = {
+        layout_config = {
+          horizontal = {
+            prompt_position = "top",
+            preview_width = 0.55
+          }
+        },
+        sorting_strategy = "ascending",
+        preview = { filesize_limit = 5 },
+        set_env = { COLORTERM = "truecolor" },
+        color_devicons = false,
         mappings = {
+          n = {
+            ["q"] = actions.close
+          },
           i = {
             ["<C-k>"] = actions.move_selection_previous,
-            ["<C-j>"] = actions.move_selection_next
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-h>"] = actions.file_split
           }
         }
       }
     })
+
+    telescope.load_extension("fzf")
   end
 }
