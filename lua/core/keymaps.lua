@@ -68,16 +68,11 @@ keymap("v", "<", "<gv^", opts("Indent line to left"))
 keymap("v", ">", ">gv^", opts("Indent line to right"))
 
 -- Move line up & down
-keymap("v", "<S-k>", ":m '<-2<CR>gv=gv", opts("Move line up"))
-keymap("v", "<S-j>", ":m '>+1<CR>gv=gv", opts("Move line down"))
+keymap({ "v", "x" }, "<S-k>", ":m '<-2<CR>gv=gv", opts("Move line up"))
+keymap({ "v", "x" }, "<S-j>", ":m '>+1<CR>gv=gv", opts("Move line down"))
 
 -- Will keep to register after yank/delete
 keymap("v", "p", "\"_dP")
-
--- Visual block
--- Move line up & down using Alt key
-keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts("Move line up"))
-keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts("Move line down"))
 
 -- Terminal
 -- Open terminal
