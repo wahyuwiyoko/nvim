@@ -38,18 +38,6 @@ keymap("n", "<leader>tx", ":tabclose<CR>", opts("Close focused tab"))
 keymap("n", "<leader>tn", ":tabn<CR>", opts("Focus next tab"))
 keymap("n", "<leader>tp", ":tabp<CR>", opts("Focus previous tab"))
 
--- Telescope
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts("Search files"))
-keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts("Search Git files"))
-keymap("n", "<leader>sg", ":Telescope live_grep<CR>", opts("Search by grep"))
-keymap("n", "<leader>sw", ":Telescope grep_string<CR>", opts("Search current word"))
-keymap("n", "<leader>sb", ":Telescope buffers<CR>", opts("Search buffers"))
-keymap("n", "<leader>sd", ":Telescope diagnostics<CR>", opts("Search diagnostics"))
-keymap("n", "<leader>sp", ":Telescope help_tags<CR>", opts("Search help"))
-keymap("n", "<leader>sk", ":Telescope keymaps<CR>", opts("Search keymaps"))
-keymap("n", "<leader>rr", ":Telescope registers<CR>", opts("Search registers"))
-keymap("n", "<leader>qq", ":Telescope quickfixhistory<CR>", opts("Search quickfix list"))
-
 -- Gitsigns
 keymap("n", "<leader>gn", ":Gitsigns next_hunk<CR>", opts("Git next hunk"))
 keymap("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", opts("Git previous hunk"))
