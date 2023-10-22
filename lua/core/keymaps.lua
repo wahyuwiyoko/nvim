@@ -1,5 +1,4 @@
 local keymap = vim.keymap.set
-local diagnostic = vim.diagnostic
 
 local function opts(desc)
   return { noremap = true, silent = true, desc = desc }
@@ -43,12 +42,6 @@ keymap("n", "<leader>gn", ":Gitsigns next_hunk<CR>", opts("Git next hunk"))
 keymap("n", "<leader>gp", ":Gitsigns prev_hunk<CR>", opts("Git previous hunk"))
 keymap("n", "<leader>gh", ":Gitsigns preview_hunk<CR>", opts("Git preview hunk"))
 keymap("n", "<leader>gs", ":Gitsigns diffthis<CR>", opts("Git show diff"))
-
--- Diagnostics
-keymap("n", "<leader>o", diagnostic.open_float, opts("Open float diagnostic"))
-keymap("n", "]d", diagnostic.goto_next, opts("Go to next diagnostic"))
-keymap("n", "[d", diagnostic.goto_prev, opts("Go to previous diagnostic"))
-keymap("n", "<leader>q", diagnostic.setloclist, opts("Setloclist diagnostic"))
 
 -- Visual mode
 -- Stay in indent mode

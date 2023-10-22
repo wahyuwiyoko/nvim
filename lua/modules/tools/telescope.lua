@@ -15,8 +15,7 @@ return {
       { "<leader>sp", telescope.help_tags, desc = "Search help" },
       { "<leader>qq", telescope.quickfixhistory, desc = "Search quickfix history" },
       { "<leader>rr", telescope.registers, desc = "Search registers" },
-      { "<leader>sk", telescope.keymaps, desc = "Search keymaps" },
-      { "<leader>sd", telescope.diagnostics, desc = "Search diagnostics" }
+      { "<leader>sk", telescope.keymaps, desc = "Search keymaps" }
     }
   end,
   dependencies = {

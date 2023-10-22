@@ -27,26 +27,31 @@ return {
 
     local on_attach = function (_, bufnr)
       local keymap = vim.keymap.set
-      local lsp_buf = vim.lsp.buf
-      local telescope = require("telescope.builtin")
+      local lsp_buf = lsp.buf
+      local diagnostic = vim.diagnostic
 
       local function opts(desc)
         return { noremap = true, silent = true, buffer = bufnr, desc = desc }
       end
 
-      keymap("n", "gD", lsp_buf.declaration, opts("LSP declaration"))
-      keymap("n", "<leader>k", lsp_buf.hover, opts("LSP hover to show documentation under cursor"))
-      keymap("n", "<leader>hs", lsp_buf.signature_help, opts("LSP signature help"))
-      keymap("n", "<leader>rn", lsp_buf.rename, opts("LSP rename"))
-      keymap({ "n", "v" }, "<leader>ca", lsp_buf.code_action, opts("LSP code action"))
-      keymap({ "n", "v" }, "<leader>lf", lsp_buf.format, opts("LSP format"))
-      keymap("n", "gd", telescope.lsp_definitions, opts("LSP definition"))
-      keymap("n", "gi", telescope.lsp_implementations, opts("LSP implementation"))
-      keymap("n", "<leader>gt", telescope.lsp_type_definitions, opts("LSP type definition"))
-      keymap("n", "gr", telescope.lsp_references, opts("LSP references"))
-      keymap("n", "<leader>D", function ()
-        telescope.diagnostics({ bufnr = 0 })
-      end, opts("LSP diagnostics current buffer"))
+      -- LSP
+      keymap("n", "gd", lsp_buf.definition, opts("Go to definition"))
+      keymap("n", "gD", lsp_buf.declaration, opts("Go to declaration"))
+      keymap("n", "gr", lsp_buf.references, opts("Go to references"))
+      keymap("n", "gi", lsp_buf.implementation, opts("Go to implementation"))
+      keymap("n", "gt", lsp_buf.type_definition, opts("Go to type definition"))
+      keymap("n", "<leader>k", lsp_buf.hover, opts("Show documentation under the cursor"))
+      keymap("n", "<leader>hs", lsp_buf.signature_help, opts("Show signature help under the cursor"))
+      keymap("n", "<leader>rn", lsp_buf.rename, opts("Rename all references under the cursor"))
+      keymap({ "n", "v" }, "<leader>ca", lsp_buf.code_action, opts("Select a code action"))
+      keymap({ "n", "v" }, "<leader>lf", lsp_buf.format, opts("Format a buffer"))
+
+      -- Diagnostics
+      keymap("n", "<leader>dj", diagnostic.goto_next, opts("Go to next diagnostic"))
+      keymap("n", "<leader>dk", diagnostic.goto_prev, opts("Go to previous diagnostic"))
+      keymap("n", "<leader>dl", diagnostic.open_float, opts("Open diagnostic for the current line"))
+      keymap("n", "<leader>da", diagnostic.setqflist, opts("Add all diagnostic to the quickfix list"))
+      keymap("n", "<leader>db", diagnostic.setloclist, opts("Add buffer diagnostic to the location list"))
     end
 
     local lspconfig = require("lspconfig")
