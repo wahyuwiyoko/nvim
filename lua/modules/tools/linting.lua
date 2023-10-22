@@ -16,7 +16,7 @@ return {
       end
     })
 
-    vim.keymap.set("n", "<leader>l", function ()
+    vim.keymap.set("n", "<Leader>l", function ()
       lint.try_lint()
     end, { noremap = true, silent = true, desc = "Trigger linter" })
   end

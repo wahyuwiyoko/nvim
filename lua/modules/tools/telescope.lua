@@ -5,17 +5,17 @@ return {
     local telescope = require("telescope.builtin")
 
     return {
-      { "<leader>ff", telescope.find_files, desc = "Search files" },
-      { "<leader>fg", telescope.git_files, desc = "Search Git files" },
-      { "<leader>sw", telescope.grep_string, desc = "Search current word" },
-      { "<leader>sg", telescope.live_grep, desc = "Search by grep" },
-      { "<leader>sb", telescope.buffers, desc = "Search buffers" },
-      { "<leader>sc", telescope.commands, desc = "Search commands" },
-      { "<leader>ch", telescope.command_history, desc = "Search command history" },
-      { "<leader>sp", telescope.help_tags, desc = "Search help" },
-      { "<leader>qq", telescope.quickfixhistory, desc = "Search quickfix history" },
-      { "<leader>rr", telescope.registers, desc = "Search registers" },
-      { "<leader>sk", telescope.keymaps, desc = "Search keymaps" }
+      { "<Leader>ff", telescope.find_files, desc = "Search files" },
+      { "<Leader>fg", telescope.git_files, desc = "Search Git files" },
+      { "<Leader>sw", telescope.grep_string, desc = "Search current word" },
+      { "<Leader>sg", telescope.live_grep, desc = "Search by grep" },
+      { "<Leader>sb", telescope.buffers, desc = "Search buffers" },
+      { "<Leader>sc", telescope.commands, desc = "Search commands" },
+      { "<Leader>ch", telescope.command_history, desc = "Search command history" },
+      { "<Leader>sp", telescope.help_tags, desc = "Search help" },
+      { "<Leader>qq", telescope.quickfixhistory, desc = "Search quickfix history" },
+      { "<Leader>rr", telescope.registers, desc = "Search registers" },
+      { "<Leader>sk", telescope.keymaps, desc = "Search keymaps" }
     }
   end,
   dependencies = {

@@ -40,18 +40,18 @@ return {
       keymap("n", "gr", lsp_buf.references, opts("Go to references"))
       keymap("n", "gi", lsp_buf.implementation, opts("Go to implementation"))
       keymap("n", "gt", lsp_buf.type_definition, opts("Go to type definition"))
-      keymap("n", "<leader>k", lsp_buf.hover, opts("Show documentation under the cursor"))
-      keymap("n", "<leader>hs", lsp_buf.signature_help, opts("Show signature help under the cursor"))
-      keymap("n", "<leader>rn", lsp_buf.rename, opts("Rename all references under the cursor"))
-      keymap({ "n", "v" }, "<leader>ca", lsp_buf.code_action, opts("Select a code action"))
-      keymap({ "n", "v" }, "<leader>lf", lsp_buf.format, opts("Format a buffer"))
+      keymap("n", "<Leader>k", lsp_buf.hover, opts("Show documentation under the cursor"))
+      keymap("n", "<Leader>hs", lsp_buf.signature_help, opts("Show signature help under the cursor"))
+      keymap("n", "<Leader>rn", lsp_buf.rename, opts("Rename all references under the cursor"))
+      keymap({ "n", "v" }, "<Leader>ca", lsp_buf.code_action, opts("Select a code action"))
+      keymap({ "n", "v" }, "<Leader>lf", lsp_buf.format, opts("Format a buffer"))
 
       -- Diagnostics
-      keymap("n", "<leader>dj", diagnostic.goto_next, opts("Go to next diagnostic"))
-      keymap("n", "<leader>dk", diagnostic.goto_prev, opts("Go to previous diagnostic"))
-      keymap("n", "<leader>dl", diagnostic.open_float, opts("Open diagnostic for the current line"))
-      keymap("n", "<leader>da", diagnostic.setqflist, opts("Add all diagnostic to the quickfix list"))
-      keymap("n", "<leader>db", diagnostic.setloclist, opts("Add buffer diagnostic to the location list"))
+      keymap("n", "<Leader>dj", diagnostic.goto_next, opts("Go to next diagnostic"))
+      keymap("n", "<Leader>dk", diagnostic.goto_prev, opts("Go to previous diagnostic"))
+      keymap("n", "<Leader>dl", diagnostic.open_float, opts("Open diagnostic for the current line"))
+      keymap("n", "<Leader>da", diagnostic.setqflist, opts("Add all diagnostic to the quickfix list"))
+      keymap("n", "<Leader>db", diagnostic.setloclist, opts("Add buffer diagnostic to the location list"))
     end
 
     local lspconfig = require("lspconfig")
