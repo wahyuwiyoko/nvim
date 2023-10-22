@@ -1,6 +1,13 @@
 return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPre", "BufNewFile" },
+  keys = {
+    {
+      "<Leader>tl",
+      function () require("lint").try_lint() end,
+      desc = "Trigger linter"
+    }
+  },
   config = function ()
     local lint = require("lint")
 
@@ -15,9 +22,5 @@ return {
         lint.try_lint()
       end
     })
-
-    vim.keymap.set("n", "<Leader>l", function ()
-      lint.try_lint()
-    end, { noremap = true, silent = true, desc = "Trigger linter" })
   end
 }
