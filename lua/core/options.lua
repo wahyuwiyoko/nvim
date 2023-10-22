@@ -44,7 +44,7 @@ opt.splitright = true
 opt.splitbelow = true
 
 -- Buffer
-opt.completeopt = "menu,menuone,noselect"
+opt.completeopt = { "menu", "menuone", "noselect" }
 opt.conceallevel = 0
 opt.confirm = true
 opt.timeoutlen = 300
@@ -56,7 +56,7 @@ opt.clipboard = "unnamedplus"
 opt.wrap = false
 opt.showcmd = false
 opt.mouse = ""
-opt.backspace = "indent,eol,start"
+opt.backspace = { "indent", "eol", "start" }
 opt.scrolloff = 4
 opt.sidescrolloff = 4
 opt.wildmenu = true
