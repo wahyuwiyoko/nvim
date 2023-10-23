@@ -82,6 +82,20 @@ return {
       }
     })
 
+    handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
+      signs = false,
+      virtual_text = false,
+      update_in_insert = false
+    })
+
+    handlers["textDocument/definition"] = function (_, result)
+      if result == nil or vim.tbl_isempty(result) then
+        print("[LSP] Cannot find definition")
+      else
+        lsp.util.jump_to_location(result[1], "utf-8")
+      end
+    end
+
     handlers["textDocument/hover"] = lsp.with(handlers.hover, {
       border = "single"
     })
