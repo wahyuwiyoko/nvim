@@ -37,12 +37,6 @@ keymap("n", "<Leader>tx", "<Cmd>tabclose<CR>", opts("Close focused tab"))
 keymap("n", "<Leader>tn", "<Cmd>tabn<CR>", opts("Focus next tab"))
 keymap("n", "<Leader>tp", "<Cmd>tabp<CR>", opts("Focus previous tab"))
 
--- Gitsigns
-keymap("n", "<Leader>gn", "<Cmd>Gitsigns next_hunk<CR>", opts("Git next hunk"))
-keymap("n", "<Leader>gp", "<Cmd>Gitsigns prev_hunk<CR>", opts("Git previous hunk"))
-keymap("n", "<Leader>gh", "<Cmd>Gitsigns preview_hunk<CR>", opts("Git preview hunk"))
-keymap("n", "<Leader>gs", "<Cmd>Gitsigns diffthis<CR>", opts("Git show diff"))
-
 -- Visual mode
 -- Stay in indent mode
 keymap("v", "<", "<gv^", opts("Indent line to left"))
