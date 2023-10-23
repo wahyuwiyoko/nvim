@@ -23,7 +23,7 @@ return {
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
-    capabilities = cmp.default_capabilities(capabilities)
+    vim.tbl_deep_extend("force", capabilities, cmp.default_capabilities())
 
     local on_attach = function (_, bufnr)
       local keymap = vim.keymap.set
