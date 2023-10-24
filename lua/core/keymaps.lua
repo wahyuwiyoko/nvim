@@ -1,63 +1,37 @@
-local keymap = vim.keymap.set
+local function map(mode, key, command, opts)
+  local options = { noremap = true }
 
-local function opts(desc)
-  return { noremap = true, silent = true, desc = desc }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+
+  vim.keymap.set(mode, key, command, opts)
 end
 
--- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts("Focus left window"))
-keymap("n", "<C-j>", "<C-w>j", opts("Focus down window"))
-keymap("n", "<C-k>", "<C-w>k", opts("Focus up window"))
-keymap("n", "<C-l>", "<C-w>l", opts("Focus right window"))
-
-keymap("n", "<Leader>nh", "<Cmd>nohl<CR>", opts("Disable highlight search"))
-
 -- Will not copied to register
-keymap("n", "x", "\"_x")
+map("n", "x", "\"_x")
 
--- Resize with arrow key
-keymap("n", "<C-Up>", "<Cmd>resize -2<CR>", opts("Resize up window"))
-keymap("n", "<C-Down>", "<Cmd>resize +2<CR>", opts("Resize down window"))
-keymap("n", "<C-Left>", "<Cmd>vertical resize -2<CR>", opts("Resize left window"))
-keymap("n", "<C-Right>", "<Cmd>vertical resize +2<CR>", opts("Resize right window"))
+-- Yanking or deleting will keep to the register
+map("v", "p", "\"_dP")
 
--- Buffers
-keymap("n", "<S-l>", "<Cmd>bnext<CR>", opts("Focus next buffer"))
-keymap("n", "<S-h>", "<Cmd>bprevious<CR>", opts("Focus previous buffer"))
-keymap("n", "<S-x>", "<Cmd>bdelete<CR>", opts("Close buffer"))
+map("n", "<Leader>nh", "<Cmd>nohlsearch<CR>", { desc = "Turn off highlighted matches" })
 
--- Split windows
-keymap("n", "<Leader>sv", "<C-w>v", opts("Split window vertically"))
-keymap("n", "<Leader>sh", "<C-w>s", opts("Split window horizontally"))
-keymap("n", "<Leader>se", "<C-w>=", opts("Make split windows equal width"))
-keymap("n", "<Leader>sx", "<Cmd>close<CR>", opts("Close focused split window"))
+map("n", "<C-k>", "<Cmd>resize +2<CR>", { desc = "Increase the current window height" })
+map("n", "<C-j>", "<Cmd>resize -2<CR>", { desc = "Decrease the current window height" })
+map("n", "<C-l>", "<Cmd>vertical resize +2<CR>", { desc = "Increase the current window width" })
+map("n", "<C-h>", "<Cmd>vertical resize -2<CR>", { desc = "Decrease the current window width" })
 
-keymap("n", "<Leader>to", "<Cmd>tabnew<CR>", opts("Open new tab"))
-keymap("n", "<Leader>tx", "<Cmd>tabclose<CR>", opts("Close focused tab"))
-keymap("n", "<Leader>tn", "<Cmd>tabn<CR>", opts("Focus next tab"))
-keymap("n", "<Leader>tp", "<Cmd>tabp<CR>", opts("Focus previous tab"))
+map("n", "<S-l>", "<Cmd>bnext<CR>", { desc = "Go to the next buffer" })
+map("n", "<S-h>", "<Cmd>bprevious<CR>", { desc = "Go to the previous buffer" })
+map("n", "<S-c>", "<Cmd>bdelete<CR>", { desc = "Close the buffer" })
 
--- Visual mode
--- Stay in indent mode
-keymap("v", "<", "<gv^", opts("Indent line to left"))
-keymap("v", ">", ">gv^", opts("Indent line to right"))
+map("n", "<Leader>tn", "<Cmd>tabnew<CR>", { desc = "Open a new tab page" })
+map("n", "<Leader>tl", "<Cmd>tabnext<CR>", { desc = "Go to the next tab page" })
+map("n", "<Leader>th", "<Cmd>tabprevious<CR>", { desc = "Go to the previous tab page" })
+map("n", "<Leader>tc", "<Cmd>tabclose<CR>", { desc = "Close the current tab page" })
 
--- Move line up & down
-keymap({ "v", "x" }, "<S-k>", "<Cmd>m '<-2<CR>gv=gv", opts("Move line up"))
-keymap({ "v", "x" }, "<S-j>", "<Cmd>m '>+1<CR>gv=gv", opts("Move line down"))
+map({ "v", "x" }, "<", "<gv", { desc = "Indent line to left" })
+map({ "v", "x" }, ">", ">gv", { desc = "Indent line to right" })
 
--- Will keep to register after yank/delete
-keymap("v", "p", "\"_dP")
-
--- Terminal
--- Open terminal
-keymap("n", "<C-\\>", "<Cmd>terminal<CR>", opts("Open terminal"))
-
--- Escape from terminal mode
-keymap("t", "<C-[>", "<C-\\><C-n>", opts("Escape from terminal mode"))
-
--- Switch between windows from terminal mode
-keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", opts("Focus left window in terminal mode"))
-keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", opts("Focus down window in terminal mode"))
-keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", opts("Focus up window in terminal mode"))
-keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", opts("Focus right window in terminal mode"))
+map("n", "<C-\\>", "<Cmd>terminal<CR>", { desc = "Open a new terminal buffer" })
+map("t", "<C-[>", "<C-\\><C-n>", { desc = "Escape from terminal mode" })
