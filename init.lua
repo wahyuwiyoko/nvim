@@ -1,5 +1,5 @@
 require("core.options")
-require("core.settings")
+require("core.globals")
 require("core.keymaps")
 require("core.commands")
 require("core.lazy")
