@@ -9,7 +9,10 @@ return {
     variant = "main",
     disable_italics = true,
     highlight_groups = {
-      EndOfBuffer = { fg = "base" }
+      EndOfBuffer = { fg = "base" },
+      StatusLine = { fg = "text", bg = "surface" },
+      TabLine = { fg = "subtle", bg = "base" },
+      TabLineSel = { fg = "text", bg = "highlight_med", bold = true }
     }
   },
   init = function ()
