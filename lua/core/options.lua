@@ -39,6 +39,7 @@ opt.pumheight = 10
 opt.laststatus = 3
 opt.shortmess:append "sI"
 opt.statusline = require("custom.ui.status_line")
+opt.tabline = "%!v:lua.require'custom.ui.tab_line'.tab_line()"
 
 -- Split window
 opt.splitright = true
