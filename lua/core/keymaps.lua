@@ -1,12 +1,4 @@
-local function map(mode, key, command, opts)
-  local options = { noremap = true }
-
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
-
-  vim.keymap.set(mode, key, command, opts)
-end
+local map = require("core.utils").map
 
 -- Delete using x will not put into register
 map("n", "x", "\"_x")
@@ -43,6 +35,6 @@ map("n", "<C-\\>", "<Cmd>terminal<CR>", { desc = "Open a new terminal buffer" })
 map("t", "<C-[>", "<C-\\><C-n>", { desc = "Escape from terminal mode" })
 
 -- Changing text will not put into register
-map({ "n", "v", "x" }, "c", "\"_c")
+map({ "n", "x" }, "c", "\"_c")
 map("n", "C", "\"_C")
 map("n", "cc", "\"_cc")
