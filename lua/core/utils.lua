@@ -3,9 +3,11 @@ local M = {}
 M.executable = function (name)
   if vim.fn.executable(name) > 0 then
     return true
-  end
+  else
+    vim.notify(name .. " executable not found!", vim.log.levels.INFO)
 
-  return false
+    return false
+  end
 end
 
 M.has = function (feat)
