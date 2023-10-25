@@ -11,8 +11,7 @@ return {
     highlight_groups = {
       EndOfBuffer = { fg = "base" },
       StatusLine = { fg = "text", bg = "surface" },
-      TabLine = { fg = "subtle", bg = "base" },
-      TabLineSel = { fg = "text", bg = "highlight_med", bold = true }
+      TabLine = { fg = "subtle", bg = "base" }
     }
   },
   init = function ()
