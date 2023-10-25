@@ -90,7 +90,7 @@ return {
 
     handlers["textDocument/definition"] = function (_, result)
       if result == nil or vim.tbl_isempty(result) then
-        print("[LSP] Cannot find definition")
+        vim.notify("[LSP] Cannot find definition", vim.log.levels.INFO)
       else
         lsp.util.jump_to_location(result[1], "utf-8")
       end
