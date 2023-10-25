@@ -1,17 +1,18 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  version = "0.x.x",
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   main = "nvim-treesitter.configs",
   opts = {
     ensure_installed = {
-      "luadoc", "vimdoc", "query", "regex", "diff",
       "c", "lua", "vim", "bash",
-      "json", "yaml", "toml",
       "html", "css", "javascript",
       "go", "gomod",
+      "json", "yaml", "toml", "dockerfile",
       "markdown", "markdown_inline",
-      "gitcommit", "gitignore", "git_config"
+      "gitcommit", "gitignore", "git_config",
+      "luadoc", "vimdoc", "query", "regex", "diff", "comment"
     },
     sync_install = false,
     auto_install = false,
