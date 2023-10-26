@@ -26,32 +26,32 @@ return {
     vim.tbl_deep_extend("force", capabilities, cmp.default_capabilities())
 
     local on_attach = function (_, bufnr)
-      local keymap = vim.keymap.set
+      local map = require("core.utils").map
       local lsp_buf = lsp.buf
       local diagnostic = vim.diagnostic
 
       local function opts(desc)
-        return { noremap = true, silent = true, buffer = bufnr, desc = desc }
+        return { buffer = bufnr, desc = desc }
       end
 
       -- LSP
-      keymap("n", "gd", lsp_buf.definition, opts("Go to definition"))
-      keymap("n", "gD", lsp_buf.declaration, opts("Go to declaration"))
-      keymap("n", "gr", lsp_buf.references, opts("Go to references"))
-      keymap("n", "gi", lsp_buf.implementation, opts("Go to implementation"))
-      keymap("n", "gt", lsp_buf.type_definition, opts("Go to type definition"))
-      keymap("n", "<Leader>k", lsp_buf.hover, opts("Show documentation under the cursor"))
-      keymap("n", "<Leader>hs", lsp_buf.signature_help, opts("Show signature help under the cursor"))
-      keymap("n", "<Leader>rn", lsp_buf.rename, opts("Rename all references under the cursor"))
-      keymap({ "n", "v" }, "<Leader>ca", lsp_buf.code_action, opts("Select a code action"))
-      keymap({ "n", "v" }, "<Leader>lf", lsp_buf.format, opts("Format a buffer"))
+      map("n", "gd", lsp_buf.definition, opts("Go to definition"))
+      map("n", "gD", lsp_buf.declaration, opts("Go to declaration"))
+      map("n", "gr", lsp_buf.references, opts("Go to references"))
+      map("n", "gi", lsp_buf.implementation, opts("Go to implementation"))
+      map("n", "gt", lsp_buf.type_definition, opts("Go to type definition"))
+      map("n", "<Leader>k", lsp_buf.hover, opts("Show documentation under the cursor"))
+      map("n", "<Leader>hs", lsp_buf.signature_help, opts("Show signature help under the cursor"))
+      map("n", "<Leader>rn", lsp_buf.rename, opts("Rename all references under the cursor"))
+      map({ "n", "v" }, "<Leader>ca", lsp_buf.code_action, opts("Select a code action"))
+      map({ "n", "v" }, "<Leader>lf", lsp_buf.format, opts("Format a buffer"))
 
       -- Diagnostics
-      keymap("n", "<Leader>dj", diagnostic.goto_next, opts("Go to next diagnostic"))
-      keymap("n", "<Leader>dk", diagnostic.goto_prev, opts("Go to previous diagnostic"))
-      keymap("n", "<Leader>dl", diagnostic.open_float, opts("Open diagnostic for the current line"))
-      keymap("n", "<Leader>da", diagnostic.setqflist, opts("Add all diagnostic to the quickfix list"))
-      keymap("n", "<Leader>db", diagnostic.setloclist, opts("Add buffer diagnostic to the location list"))
+      map("n", "<Leader>dj", diagnostic.goto_next, opts("Go to next diagnostic"))
+      map("n", "<Leader>dk", diagnostic.goto_prev, opts("Go to previous diagnostic"))
+      map("n", "<Leader>dl", diagnostic.open_float, opts("Open diagnostic for the current line"))
+      map("n", "<Leader>da", diagnostic.setqflist, opts("Add all diagnostic to the quickfix list"))
+      map("n", "<Leader>db", diagnostic.setloclist, opts("Add buffer diagnostic to the location list"))
     end
 
     local lspconfig = require("lspconfig")
