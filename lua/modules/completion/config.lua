@@ -6,7 +6,6 @@ return {
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
-    "hrsh7th/cmp-nvim-lsp-signature-help",
     "saadparwaiz1/cmp_luasnip"
   },
   config = function ()
@@ -70,8 +69,7 @@ return {
         { name = "nvim_lua" },
         { name = "luasnip", option = { show_autosnippets = true } },
         { name = "buffer" },
-        { name = "path" },
-        { name = "nvim_lsp_signature_help" }
+        { name = "path" }
       },
       formatting = {
         format = function (entry, vim_item)
@@ -80,8 +78,7 @@ return {
             nvim_lua = "[Lua]",
             luasnip = "[LuaSnip]",
             buffer = "[Buffer]",
-            path = "[Path]",
-            nvim_lsp_signature_help = "[Help]"
+            path = "[Path]"
           })[entry.source.name]
 
           return vim_item
