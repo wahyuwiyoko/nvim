@@ -1,6 +1,6 @@
 local map = require("core.utils").map
 
--- Delete using x will not put into register
+-- Delete using x will not save to register
 map("n", "x", "\"_x")
 
 -- Yanking or deleting will keep the register after pasting
@@ -8,6 +8,11 @@ map("v", "p", "\"_dP")
 
 -- Don't include whitespace character when using $
 map("x", "$", "g_")
+
+-- Changing text will not save to register
+map({ "n", "x" }, "c", "\"_c")
+map("n", "C", "\"_C")
+map("n", "cc", "\"_cc")
 
 map("n", "<Leader>nh", "<Cmd>nohlsearch<CR>", { desc = "Turn off highlighted matches" })
 
@@ -33,8 +38,3 @@ map({ "v", "x" }, ">", ">gv", { desc = "Indent line to right" })
 
 map("n", "<C-\\>", "<Cmd>terminal<CR>", { desc = "Open a new terminal buffer" })
 map("t", "<C-[>", "<C-\\><C-n>", { desc = "Escape from terminal mode" })
-
--- Changing text will not put into register
-map({ "n", "x" }, "c", "\"_c")
-map("n", "C", "\"_C")
-map("n", "cc", "\"_cc")
