@@ -11,7 +11,6 @@ return {
   config = function ()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
-    local auto_pairs = require("nvim-autopairs.completion.cmp")
 
     cmp.setup({
       snippet = {
@@ -86,10 +85,13 @@ return {
       }
     })
 
-    cmp.event:on("confirm_done", auto_pairs.on_confirm_done({
-      filetypes = {
-        sh = false
-      }
-    }))
+    cmp.event:on(
+      "confirm_done",
+      require("nvim-autopairs.completion.cmp").on_confirm_done({
+        filetypes = {
+          sh = false
+        }
+      })
+    )
   end
 }

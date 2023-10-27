@@ -43,7 +43,6 @@ return {
         },
         sorting_strategy = "ascending",
         preview = { filesize_limit = 5 },
-        set_env = { COLORTERM = "truecolor" },
         color_devicons = false,
         mappings = {
           n = {

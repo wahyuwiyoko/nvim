@@ -5,7 +5,7 @@ opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 4
 
--- Tabs & indentation
+-- Indentation
 opt.tabstop = 2
 opt.softtabstop = 2
 opt.shiftwidth = 2
@@ -16,6 +16,7 @@ opt.smartindent = true
 
 -- File
 opt.fileencoding = "utf-8"
+opt.fileformat = "unix"
 opt.backup = false
 opt.writebackup = false
 opt.undofile = true
@@ -30,6 +31,7 @@ opt.incsearch = true
 -- Appearance
 opt.termguicolors = true
 opt.background = "dark"
+opt.showcmd = false
 opt.showmode = false
 opt.cursorline = false
 opt.showtabline = 1
@@ -39,6 +41,8 @@ opt.pumheight = 10
 opt.laststatus = 3
 opt.list = true
 opt.shortmess:append "sI"
+opt.emoji = false
+opt.ruler = false
 opt.statusline = require("custom.status_line")
 opt.tabline = "%!v:lua.require'custom.tab_line'.tab_line()"
 
@@ -54,15 +58,11 @@ opt.timeoutlen = 300
 opt.updatetime = 300
 
 -- Editor
-opt.fileformat = "unix"
 opt.clipboard = "unnamedplus"
 opt.wrap = false
-opt.showcmd = false
 opt.mouse = ""
 opt.backspace = { "indent", "eol", "start" }
 opt.scrolloff = 4
 opt.sidescrolloff = 4
 opt.wildmenu = true
-opt.ruler = false
-opt.emoji = false
 opt.belloff = "all"

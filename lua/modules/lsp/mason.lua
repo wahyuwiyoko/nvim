@@ -7,7 +7,7 @@ return {
     ui = {
       icons = {
         package_installed = "+",
-        package_pending = "p",
+        package_pending = "~",
         package_uninstalled = "x"
       }
     }

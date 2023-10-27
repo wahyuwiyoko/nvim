@@ -23,7 +23,7 @@ auto("BufWritePre", {
 
 auto("TermOpen", {
   group = group("StartTerminalInInsertMode"),
-  command = "startinsert | set winfixheight"
+  command = "startinsert"
 })
 
 auto("BufWritePre", {

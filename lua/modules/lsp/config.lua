@@ -82,11 +82,13 @@ return {
       }
     })
 
-    handlers["textDocument/publishDiagnostics"] = lsp.with(lsp.diagnostic.on_publish_diagnostics, {
-      signs = false,
-      virtual_text = false,
-      update_in_insert = false
-    })
+    handlers["textDocument/publishDiagnostics"] = lsp.with(
+      lsp.diagnostic.on_publish_diagnostics, {
+        signs = false,
+        virtual_text = false,
+        update_in_insert = false
+      }
+    )
 
     handlers["textDocument/definition"] = function (_, result)
       if result == nil or vim.tbl_isempty(result) then
@@ -96,12 +98,12 @@ return {
       end
     end
 
-    handlers["textDocument/hover"] = lsp.with(handlers.hover, {
-      border = "single"
-    })
+    handlers["textDocument/hover"] = lsp.with(
+      handlers.hover, { border = "single" }
+    )
 
-    handlers["textDocument/signatureHelp"] = lsp.with(handlers.signature_help, {
-      border = "single"
-    })
+    handlers["textDocument/signatureHelp"] = lsp.with(
+      handlers.signature_help, { border = "single" }
+    )
   end
 }
