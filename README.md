@@ -23,6 +23,7 @@ each Linux distribution. Although it can also be installed with Mason.
 
 - LSP
   - `gopls`
+  - `efm-langserver`
 - Linter
   - `shellcheck`
   - `lua-check`
@@ -47,22 +48,27 @@ enter `:help events`.
 └── lua
     ├── core
     │   ├── commands.lua
+    │   ├── globals.lua
     │   ├── keymaps.lua
     │   ├── lazy.lua
     │   ├── options.lua
-    │   └── settings.lua
+    │   └── utils.lua
+    ├── custom
+    │   ├── status_line.lua
+    │   └── tab_line.lua
     ├── languages
     │   ├── gopls.lua
     │   ├── jsonls.lua
     │   └── lua_ls.lua
     └── modules
+        ├── completion
+        │   ├── config.lua
+        │   └── snippet.lua
         ├── editor
         │   ├── auto_pairs.lua
         │   ├── colorscheme.lua
         │   ├── comment.lua
-        │   ├── completion.lua
         │   ├── git.lua
-        │   ├── maximize.lua
         │   ├── surround.lua
         │   └── treesitter.lua
         ├── lsp
@@ -75,9 +81,10 @@ enter `:help events`.
 
 - `core` => Base editor for Vim options, keymaps, and plugins manager.
 - `modules` => All Neovim plugins within the sub-directories.
+  - `completion` => Completion sources with snippets.
   - `editor` => Any plugins for editor functionality just like an IDE.
   - `lsp` => For manage and configure LSP.
-  - `tools` => Very useful editor functionality like linter, formatter, and Telescope.
+  - `tools` => Any tools like linter, formatter, and Telescope.
 - `languages` => Every languages server configuration.
 
 ## References
