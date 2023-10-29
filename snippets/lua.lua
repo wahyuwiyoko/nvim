@@ -25,5 +25,6 @@ return {
       }),
       i(1, "value")
     })
-  }))
+  })),
+  s("inspect", fmt("print(vim.inspect({}))", { i(1) }))
 }
