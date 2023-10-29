@@ -14,6 +14,53 @@ My simple Neovim configuration with no patched fonts included.
 For the linter to work, run `MasonInstallLinters` command in Neovim to
 install all linter through Mason.
 
+## Installation
+
+These have two ways, the
+[override way](#override-configuration) and backup your Neovim configuration,
+and the
+[safe way to load different configuration](#load-different-configuration).
+
+### Override Configuration
+
+First off, if you have your own configuration, you need to backup the `nvim`
+directory:
+
+```sh
+mv ~/.config/nvim ~/.config/nvim.bak
+```
+
+Then clone the repository:
+
+```sh
+git clone https://github.com/wahyuwiyoko/nvim.git ~/.config/nvim
+```
+
+Run `nvim` and wait until all plugin and parser installed.
+
+### Load Different Configuration
+
+If you want to keep your own Neovim configuration and want to try this Neovim
+configuration, you can do by following steps below.
+
+Create an alias to load different Neovim configuration:
+
+```sh
+alias wnvim="NVIM_APPNAME=wnvim nvim"
+```
+
+Clone the repository:
+
+```sh
+git clone https://github.com/wahyuwiyoko/nvim.git ~/.config/wnvim
+```
+
+Run and load the configuration:
+
+```sh
+wnvim
+```
+
 ## Tips
 
 ### Packages From Repositories
@@ -40,52 +87,34 @@ each Linux distribution. Although it can also be installed with Mason.
 To know list of events that is available for lazy loading plugins,
 enter `:help events`.
 
-## File Structure
+## Directory Structure
 
 ```
 .
-├── init.lua
-└── lua
-    ├── core
-    │   ├── commands.lua
-    │   ├── globals.lua
-    │   ├── keymaps.lua
-    │   ├── lazy.lua
-    │   ├── options.lua
-    │   └── utils.lua
-    ├── custom
-    │   ├── status_line.lua
-    │   └── tab_line.lua
-    ├── languages
-    │   ├── gopls.lua
-    │   ├── jsonls.lua
-    │   └── lua_ls.lua
-    └── modules
-        ├── completion
-        │   ├── config.lua
-        │   └── snippet.lua
-        ├── editor
-        │   ├── auto_pairs.lua
-        │   ├── colorscheme.lua
-        │   ├── comment.lua
-        │   ├── git.lua
-        │   ├── surround.lua
-        │   └── treesitter.lua
-        ├── lsp
-        │   ├── config.lua
-        │   └── mason.lua
-        └── tools
-            ├── linting.lua
-            └── telescope.lua
+├── after
+│   └── ftplugin
+├── lua
+│   ├── core
+│   ├── custom
+│   ├── languages
+│   └── modules
+│       ├── completion
+│       ├── editor
+│       ├── lsp
+│       └── tools
+└── snippets
 ```
 
-- `core` => Base editor for Vim options, keymaps, and plugins manager.
+- `after/ftplugin` => Store various settings for specific file types.
+- `snippets` => Snippets with LuaSnip for each languages.
+- `core` => Base editor for Vim options, keymaps, and plugin manager.
+- `custom` => Custom functionality and UI such as status line and tab line.
+- `languages` => Every languages server configuration.
 - `modules` => All Neovim plugins within the sub-directories.
   - `completion` => Completion sources with snippets.
   - `editor` => Any plugins for editor functionality just like an IDE.
   - `lsp` => For manage and configure LSP.
   - `tools` => Any tools like linter, formatter, and Telescope.
-- `languages` => Every languages server configuration.
 
 ## References
 
