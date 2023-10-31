@@ -34,7 +34,7 @@ require("lazy").setup({
   defaults = { lazy = true },
   install = {
     missing = true,
-    colorscheme = { "rose-pine", "habamax" }
+    colorscheme = { "rose-pine", "slate" }
   },
   change_detection = { notify = false },
   ui = {
