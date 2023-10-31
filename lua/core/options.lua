@@ -1,9 +1,51 @@
 local opt = vim.opt
 
+-- Editor
+opt.clipboard = "unnamedplus"
+opt.mouse = ""
+opt.wrap = false
+opt.wildmenu = true
+opt.scrolloff = 4
+opt.sidescrolloff = 4
+opt.belloff = "all"
+opt.backspace = { "indent", "eol", "start" }
+
+-- File
+opt.fileencoding = "utf-8"
+opt.fileformat = "unix"
+opt.undofile = true
+opt.backup = false
+opt.writebackup = false
+opt.swapfile = false
+
+-- Appearance
+opt.termguicolors = true
+opt.background = "dark"
+opt.showtabline = 1
+opt.signcolumn = "auto"
+opt.colorcolumn = "80"
+opt.shortmess:append "sI"
+opt.pumheight = 10
+opt.laststatus = 3
+opt.showcmd = false
+opt.showmode = false
+opt.cursorline = false
+opt.ruler = false
+opt.emoji = false
+opt.statusline = require("custom.status_line")
+opt.tabline = "%!v:lua.require'custom.tab_line'.tab_line()"
+
 -- Line numbers
 opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 4
+
+-- Buffer
+opt.confirm = true
+opt.conceallevel = 0
+opt.timeoutlen = 300
+opt.updatetime = 300
+opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Indentation
 opt.tabstop = 2
@@ -14,55 +56,12 @@ opt.smarttab = true
 opt.autoindent = true
 opt.smartindent = true
 
--- File
-opt.fileencoding = "utf-8"
-opt.fileformat = "unix"
-opt.backup = false
-opt.writebackup = false
-opt.undofile = true
-opt.swapfile = false
-
 -- Search
 opt.ignorecase = true
 opt.smartcase = true
 opt.hlsearch = true
 opt.incsearch = true
 
--- Appearance
-opt.termguicolors = true
-opt.background = "dark"
-opt.showcmd = false
-opt.showmode = false
-opt.cursorline = false
-opt.showtabline = 1
-opt.signcolumn = "yes"
-opt.colorcolumn = "80"
-opt.pumheight = 10
-opt.laststatus = 3
-opt.list = true
-opt.shortmess:append "sI"
-opt.emoji = false
-opt.ruler = false
-opt.statusline = require("custom.status_line")
-opt.tabline = "%!v:lua.require'custom.tab_line'.tab_line()"
-
 -- Split window
 opt.splitright = true
 opt.splitbelow = true
-
--- Buffer
-opt.completeopt = { "menu", "menuone", "noselect" }
-opt.conceallevel = 0
-opt.confirm = true
-opt.timeoutlen = 300
-opt.updatetime = 300
-
--- Editor
-opt.clipboard = "unnamedplus"
-opt.wrap = false
-opt.mouse = ""
-opt.backspace = { "indent", "eol", "start" }
-opt.scrolloff = 4
-opt.sidescrolloff = 4
-opt.wildmenu = true
-opt.belloff = "all"
