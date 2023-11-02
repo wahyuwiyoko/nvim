@@ -18,11 +18,15 @@ M.has = function (feat)
   return false
 end
 
+M.merge = function (...)
+  return vim.tbl_deep_extend("force", ...)
+end
+
 M.map = function (mode, key, commands, opts)
-  local options = { noremap = true }
+  local options = { noremap = true, silent = true }
 
   if opts then
-    options = vim.tbl_extend("force", options, opts)
+    options = M.merge(options, opts)
   end
 
   vim.keymap.set(mode, key, commands, opts)

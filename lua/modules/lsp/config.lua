@@ -19,14 +19,15 @@ return {
     local lsp = vim.lsp
     local handlers = lsp.handlers
     local cmp = require("cmp_nvim_lsp")
+    local utils = require("core.utils")
 
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
-    vim.tbl_deep_extend("force", capabilities, cmp.default_capabilities())
+    utils.merge(capabilities, cmp.default_capabilities())
 
     local on_attach = function (_, bufnr)
-      local map = require("core.utils").map
+      local map = utils.map
       local lsp_buf = lsp.buf
       local diagnostic = vim.diagnostic
 
@@ -65,7 +66,7 @@ return {
       local languages_setup, languages = pcall(require, "languages." .. server)
 
       if languages_setup then
-        opts = vim.tbl_deep_extend("force", languages, opts)
+        opts = utils.merge(languages, opts)
       end
 
       lspconfig[server].setup(opts)
