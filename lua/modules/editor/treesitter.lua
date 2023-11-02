@@ -15,7 +15,12 @@ return {
     },
     sync_install = false,
     auto_install = false,
-    highlight = { enable = true },
+    highlight = {
+      enable = true,
+      disable = function (_, bufnr)
+        return vim.api.nvim_buf_line_count(bufnr) > 10000
+      end
+    },
     indent = { enable = true }
   }
 }
