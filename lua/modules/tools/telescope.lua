@@ -7,6 +7,7 @@ return {
     return {
       { "<Leader>ff", telescope.find_files, desc = "Search files" },
       { "<Leader>fg", telescope.git_files, desc = "Search Git files" },
+      { "<Leader>gt", telescope.git_status, desc = "Search Git status" },
       { "<Leader>sw", telescope.grep_string, desc = "Search current word" },
       { "<Leader>sg", telescope.live_grep, desc = "Search by grep" },
       { "<Leader>sb", telescope.buffers, desc = "Search buffers" },
