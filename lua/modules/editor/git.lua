@@ -8,6 +8,7 @@ return {
     { "<Leader>gh", "<Cmd>Gitsigns preview_hunk<CR>", desc = "Git preview hunk" },
     { "<Leader>gsh", "<Cmd>Gitsigns stage_hunk<CR>", desc = "Git stage hunk" },
     { "<Leader>gsb", "<Cmd>Gitsigns stage_buffer<CR>", desc = "Git stage buffer" },
+    { "<Leader>grh", "<Cmd>Gitsigns reset_hunk<CR>", desc = "Git reset hunk" },
     { "<Leader>gdf", "<Cmd>Gitsigns diffthis<CR>", desc = "Git show diff" }
   },
   opts = {
