@@ -8,6 +8,7 @@ opt.wildmenu = true
 opt.scrolloff = 4
 opt.sidescrolloff = 4
 opt.belloff = "all"
+opt.grepprg = "rg --vimgrep"
 opt.backspace = { "indent", "eol", "start" }
 
 -- File
