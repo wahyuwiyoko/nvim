@@ -23,7 +23,7 @@ auto("BufWritePre", {
 
 auto("TermOpen", {
   group = group("StartTerminalInInsertMode"),
-  command = "startinsert"
+  command = "set filetype=term | startinsert"
 })
 
 auto("BufWritePre", {
