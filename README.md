@@ -82,17 +82,20 @@ each Linux distribution. Although it can also be installed with Mason.
 - Formatter
   - `shfmt`
 
-### Lazy Load Plugins
+### Documentation
 
-To know list of events that is available for lazy loading plugins,
-enter `:help events`.
+- For more tips: `:help tips`
+- Available events for lazy loading plugins: `:help events`
+- Available key notation for creating keymaps: `:help keycodes`
+- Insert mode completion: `:help ins-completion`
 
 ## Directory Structure
 
 ```
 .
 ├── after
-│   └── ftplugin
+│   ├── ftplugin
+│   └── plugin
 ├── lua
 │   ├── core
 │   ├── custom
@@ -105,7 +108,9 @@ enter `:help events`.
 └── snippets
 ```
 
-- `after/ftplugin` => Store various settings for specific file types.
+- `after` => Loaded configuration after opened Neovim.
+  - `ftplugin` => Store various settings for specific file types.
+  - `plugin` => Store various settings for specific plugins.
 - `snippets` => Snippets with LuaSnip for each languages.
 - `core` => Base editor for Vim options, keymaps, and plugin manager.
 - `custom` => Custom functionality and UI such as status line and tab line.
@@ -130,3 +135,4 @@ Some of these are references I took to create a custom Neovim configuration:
 - [Christian Chiarulli](https://github.com/ChristianChiarulli)
 - [Josean Martinez](https://github.com/josean-dev)
 - [ThePrimeagen](https://github.com/ThePrimeagen)
+- [TJ DeVries](https://github.com/tjdevries)
