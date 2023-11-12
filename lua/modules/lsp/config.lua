@@ -73,19 +73,21 @@ return {
     end
 
     vim.diagnostic.config({
-      signs = false,
+      underline = true,
+      signs = true,
       virtual_text = false,
       update_in_insert = false,
       float = {
         focusable = true,
         border = "single",
-        style = "minimal"
+        style = "minimal",
+        max_width = 50
       }
     })
 
     handlers["textDocument/publishDiagnostics"] = lsp.with(
       lsp.diagnostic.on_publish_diagnostics, {
-        signs = false,
+        signs = true,
         virtual_text = false,
         update_in_insert = false
       }
