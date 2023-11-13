@@ -12,6 +12,7 @@ opt.grepprg = "rg --vimgrep"
 opt.backspace = { "indent", "eol", "start" }
 
 -- File
+opt.encoding = "utf-8"
 opt.fileencoding = "utf-8"
 opt.fileformat = "unix"
 opt.undofile = true
@@ -49,9 +50,9 @@ opt.updatetime = 300
 opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Indentation
-opt.tabstop = 2
-opt.softtabstop = 2
-opt.shiftwidth = 2
+opt.tabstop = 4
+opt.softtabstop = 4
+opt.shiftwidth = 4
 opt.expandtab = true
 opt.smarttab = true
 opt.autoindent = true
