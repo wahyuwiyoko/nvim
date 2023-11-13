@@ -7,7 +7,6 @@ g.maplocalleader = " "
 -- Disable some built-in plugins
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
-g.editorconfig = false
 g.loaded_gzip = 1
 g.loaded_tarPlugin = 1
 g.loaded_tar = 1
