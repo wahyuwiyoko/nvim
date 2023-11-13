@@ -45,6 +45,7 @@ return {
         sorting_strategy = "ascending",
         preview = { filesize_limit = 5 },
         color_devicons = false,
+        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
         mappings = {
           n = {
             ["q"] = actions.close
