@@ -8,7 +8,7 @@ return {
       "c", "lua", "vim", "bash",
       "html", "css", "javascript",
       "go", "gomod",
-      "json", "yaml", "toml", "dockerfile",
+      "json", "yaml", "toml", "dockerfile", "hurl",
       "markdown", "markdown_inline",
       "gitcommit", "gitignore", "git_config",
       "luadoc", "vimdoc", "query", "regex", "diff", "comment"
