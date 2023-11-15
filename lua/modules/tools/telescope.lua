@@ -16,6 +16,7 @@ return {
       { "<Leader>sp", telescope.help_tags, desc = "Search help" },
       { "<Leader>qq", telescope.quickfixhistory, desc = "Search quickfix history" },
       { "<Leader>rr", telescope.registers, desc = "Search registers" },
+      { "<Leader>mm", telescope.marks, desc = "Search marks" },
       { "<Leader>sk", telescope.keymaps, desc = "Search keymaps" }
     }
   end,
