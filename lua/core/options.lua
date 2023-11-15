@@ -10,6 +10,7 @@ opt.sidescrolloff = 4
 opt.belloff = "all"
 opt.grepprg = "rg --vimgrep"
 opt.backspace = { "indent", "eol", "start" }
+opt.nrformats:append("alpha")
 
 -- File
 opt.encoding = "utf-8"
@@ -26,7 +27,7 @@ opt.background = "dark"
 opt.showtabline = 1
 opt.signcolumn = "auto"
 opt.colorcolumn = "80"
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 opt.pumheight = 10
 opt.laststatus = 3
 opt.showcmd = false
