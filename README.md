@@ -84,10 +84,13 @@ each Linux distribution. Although it can also be installed with Mason.
 
 ### Documentation
 
-- For more tips: `:help tips`
-- Available events for lazy loading plugins: `:help events`
-- Available key notation for creating keymaps: `:help keycodes`
-- Insert mode completion: `:help ins-completion`
+- User manual: [`:help user-manual`](https://neovim.io/doc/user/usr_toc.html)
+- Lua guide: [`:help lua-guide`](https://neovim.io/doc/user/lua-guide.html)
+- For more tips: [`:help tips`](https://neovim.io/doc/user/tips.html)
+- Available events for lazy loading plugins: [`:help events`](https://neovim.io/doc/user/autocmd.html#events)
+- Available key notation for creating keymaps: [`:help key-notation`](https://neovim.io/doc/user/intro.html#key-notation)
+- Insert mode completion: [`:help ins-completion`](https://neovim.io/doc/user/insert.html#ins-completion)
+- Deprecated features: [`:help deprecated`](https://neovim.io/doc/user/deprecated.html)
 
 ## Directory Structure
 
