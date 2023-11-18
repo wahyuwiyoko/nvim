@@ -1,5 +1,5 @@
 local servers = {
-  "lua_ls", "bashls", "jsonls",
+  "lua_ls", "bashls", "jsonls", "yamlls",
   "html", "cssls", "tsserver",
   "gopls", "marksman"
 }
