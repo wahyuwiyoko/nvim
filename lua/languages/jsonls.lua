@@ -13,13 +13,8 @@ local schemas = {
   },
   {
     description = "OpenAPI specification file",
-    fileMatch = { "openapi.json" },
+    fileMatch = { "*api*.json" },
     url = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"
-  },
-  {
-    description = "Swagger API 2.0 specification file",
-    fileMatch = { "swagger.json" },
-    url = "https://json.schemastore.org/swagger-2.0.json"
   }
 }
 
