@@ -11,8 +11,9 @@ My simple Neovim configuration with no patched fonts included.
 - [ripgrep](https://github.com/BurntSushi/ripgrep) for `live_grep` of Telescope
 - [Node.js](https://nodejs.org/) for installing several LSP through Mason
 
-For the linter to work, run `MasonInstallLinters` command in Neovim to
-install all linter through Mason.
+> [!IMPORTANT]
+> For the linter to work, run `MasonInstallLinters` command in Neovim to
+> install all linter through Mason.
 
 ## Installation
 
