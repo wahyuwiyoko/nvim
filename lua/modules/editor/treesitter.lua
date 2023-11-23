@@ -6,8 +6,8 @@ return {
   opts = {
     ensure_installed = {
       "c", "lua", "vim", "bash",
-      "html", "css", "javascript",
       "go", "gomod",
+      "html", "css", "javascript", "typescript",
       "json", "yaml", "toml", "dockerfile", "hurl",
       "markdown", "markdown_inline",
       "gitcommit", "gitignore", "git_config",
