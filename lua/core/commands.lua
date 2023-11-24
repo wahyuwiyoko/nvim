@@ -48,6 +48,10 @@ auto("BufRead", {
   end
 })
 
+user("Term", function ()
+  vim.cmd("tabnew | terminal")
+end)
+
 user("MasonInstallLinters", function ()
   local registry = require("mason-registry")
   local linters = { "selene", "shellcheck" }
