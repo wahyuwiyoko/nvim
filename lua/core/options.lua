@@ -37,6 +37,11 @@ opt.ruler = false
 opt.emoji = false
 opt.statusline = require("custom.status_line")
 opt.tabline = "%!v:lua.require'custom.tab_line'.tab_line()"
+opt.fillchars = {
+  eob = " ",
+  foldopen = "v",
+  foldclose = ">"
+}
 
 -- Line numbers
 opt.number = true

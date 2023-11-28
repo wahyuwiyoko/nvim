@@ -9,7 +9,6 @@ return {
       disable_italics = true,
       highlight_groups = {
         -- Editor
-        EndOfBuffer = { fg = "base" },
         StatusLine = { fg = "text", bg = "surface" },
         TabLine = { fg = "subtle", bg = "base" },
 
@@ -19,8 +18,8 @@ return {
 
         -- Diff files
         ["@attribute.diff"] = { fg = "gold" },
-        ["@text.diff.add"] = { bg = "foam", blend = 20 },
-        ["@text.diff.delete"] = { bg = "love", blend = 20 }
+        ["@text.diff.add"] = { fg = "foam", bg = "foam", blend = 20 },
+        ["@text.diff.delete"] = { fg = "love", bg = "love", blend = 20 }
       }
     })
 
