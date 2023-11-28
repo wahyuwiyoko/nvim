@@ -1,4 +1,5 @@
 local opt = vim.opt
+local indent_size = 4
 
 -- Editor
 opt.clipboard = "unnamedplus"
@@ -56,9 +57,9 @@ opt.updatetime = 300
 opt.completeopt = { "menu", "menuone", "noselect" }
 
 -- Indentation
-opt.tabstop = 4
-opt.softtabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = indent_size
+opt.softtabstop = indent_size
+opt.shiftwidth = indent_size
 opt.expandtab = true
 opt.smarttab = true
 opt.autoindent = true
