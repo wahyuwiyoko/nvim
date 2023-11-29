@@ -24,7 +24,7 @@ return {
     -- Add additional capabilities supported by nvim-cmp
     local capabilities = lsp.protocol.make_client_capabilities()
     capabilities.textDocument.completion.completionItem.snippetSupport = true
-    utils.merge(capabilities, cmp.default_capabilities())
+    utils.merge_table(capabilities, cmp.default_capabilities())
 
     local on_attach = function (_, bufnr)
       local map = utils.map
@@ -66,7 +66,7 @@ return {
       local languages_setup, languages = pcall(require, "languages." .. server)
 
       if languages_setup then
-        opts = utils.merge(languages, opts)
+        opts = utils.merge_table(languages, opts)
       end
 
       lspconfig[server].setup(opts)
