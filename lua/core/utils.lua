@@ -32,4 +32,18 @@ M.map = function (mode, key, commands, opts)
   vim.keymap.set(mode, key, commands, opts)
 end
 
+M.highlight = function (group, attribute)
+  return vim.api.nvim_set_hl(0, group, attribute)
+end
+
+M.split_string = function (str, delimeter)
+  local result = {}
+
+  for match in (str .. delimeter):gmatch("(.-)" .. delimeter) do
+    table.insert(result, match)
+  end
+
+  return result
+end
+
 return M
