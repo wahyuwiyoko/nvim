@@ -91,6 +91,7 @@ each Linux distribution. Although it can also be installed with Mason.
 - Available events for lazy loading plugins: [`:help events`](https://neovim.io/doc/user/autocmd.html#events)
 - Available key notation for creating keymaps: [`:help key-notation`](https://neovim.io/doc/user/intro.html#key-notation)
 - Insert mode completion: [`:help ins-completion`](https://neovim.io/doc/user/insert.html#ins-completion)
+- Differences between Neovim and Vim: [`:help vim-differences`](https://neovim.io/doc/user/vim_diff.html)
 - Deprecated features: [`:help deprecated`](https://neovim.io/doc/user/deprecated.html)
 
 ## Directory Structure
