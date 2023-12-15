@@ -3,7 +3,6 @@ return {
   version = "2.x.x",
   event = "InsertEnter",
   build = "make install_jsregexp",
-  dependencies = { "rafamadriz/friendly-snippets" },
   config = function ()
     local types = require("luasnip.util.types")
 
@@ -11,7 +10,6 @@ return {
       history = true,
       update_events = { "TextChanged", "TextChangedI" },
       enable_autosnippets = false,
-      store_selection_keys = "<Tab>",
       ext_opts = {
         [types.choiceNode] = {
           active = {
@@ -21,10 +19,6 @@ return {
       }
     })
 
-    -- Load friendly-snippets
-    require("luasnip.loaders.from_vscode").lazy_load()
-
-    -- Load custom snippets
     require("luasnip.loaders.from_lua").load({
       paths = vim.fn.stdpath("config") .. "/snippets/"
     })
