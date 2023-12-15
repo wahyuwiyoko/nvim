@@ -16,19 +16,6 @@ return {
           luasnip.lsp_expand(args.body)
         end
       },
-      window = {
-        completion = {
-          border = "single",
-          scrollbar = false,
-          scrolloff = 2
-        },
-        documentation = {
-          border = "single",
-          max_height = 15,
-          max_width = 60,
-          winhighlight = "FloatBorder:Pmenu"
-        }
-      },
       mapping = {
         ["<C-k>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }),
         ["<C-j>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }),
@@ -65,17 +52,6 @@ return {
         { name = "nvim_lsp" },
         { name = "luasnip", option = { show_autosnippets = true } },
         { name = "buffer" }
-      },
-      formatting = {
-        format = function (entry, vim_item)
-          vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            luasnip = "[Snippet]",
-            buffer = "[Buffer]"
-          })[entry.source.name]
-
-          return vim_item
-        end
       }
     })
 
