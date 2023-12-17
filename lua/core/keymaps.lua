@@ -24,8 +24,8 @@ map("n", "<C-j>", "<Cmd>resize -2<CR>", { desc = "Decrease the current window he
 map("n", "<C-l>", "<Cmd>vertical resize +2<CR>", { desc = "Increase the current window width" })
 map("n", "<C-h>", "<Cmd>vertical resize -2<CR>", { desc = "Decrease the current window width" })
 
-map("n", "<Leader>bl", "<Cmd>bnext<CR>", { desc = "Go to the next buffer" })
-map("n", "<Leader>bh", "<Cmd>bprevious<CR>", { desc = "Go to the previous buffer" })
+map("n", "<Tab>", "<Cmd>bnext<CR>", { desc = "Go to the next buffer" })
+map("n", "<S-Tab>", "<Cmd>bprevious<CR>", { desc = "Go to the previous buffer" })
 map("n", "<Leader>bc", "<Cmd>bdelete<CR>", { desc = "Close the buffer" })
 
 map("n", "<Leader>tn", "<Cmd>tabnew<CR>", { desc = "Open a new tab page" })
