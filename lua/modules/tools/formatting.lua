@@ -1,6 +1,6 @@
 return {
   "stevearc/conform.nvim",
-  version = "4.x.x",
+  version = "5.x.x",
   event = "BufWritePre",
   keys = {
     {
@@ -9,7 +9,7 @@ return {
       function ()
         require("conform").format({ timeout_ms = 500 })
       end,
-      desc = "Format file"
+      desc = "Format buffer"
     }
   },
   opts = {
