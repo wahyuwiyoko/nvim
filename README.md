@@ -12,7 +12,7 @@ My simple Neovim configuration with no patched fonts included.
 - [Node.js](https://nodejs.org/) for installing several LSP through Mason
 
 > [!IMPORTANT]
-> For the linter to work, run `MasonInstallLinters` command in Neovim to
+> For the linter to work, run `MasonInstallTools` command in Neovim to
 > install all linter through Mason.
 
 ## Installation

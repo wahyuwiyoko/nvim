@@ -52,13 +52,13 @@ user("Term", function ()
   vim.cmd("tabnew | terminal")
 end)
 
-user("MasonInstallLinters", function ()
+user("MasonInstallTools", function ()
   local registry = require("mason-registry")
-  local linters = { "selene", "shellcheck" }
+  local tools = { "selene", "shellcheck" }
 
-  for _, linter in ipairs(linters) do
-    if not registry.is_installed(linter) then
-      vim.cmd("MasonInstall " .. linter)
+  for _, tool in ipairs(tools) do
+    if not registry.is_installed(tool) then
+      vim.cmd("MasonInstall " .. tool)
     end
   end
 end)
