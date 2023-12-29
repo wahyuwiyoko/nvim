@@ -54,14 +54,5 @@ return {
         { name = "buffer" }
       }
     })
-
-    cmp.event:on(
-      "confirm_done",
-      require("nvim-autopairs.completion.cmp").on_confirm_done({
-        filetypes = {
-          sh = false
-        }
-      })
-    )
   end
 }

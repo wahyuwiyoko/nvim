@@ -1,5 +1,10 @@
 return {
-  "windwp/nvim-autopairs",
+  "m4xshen/autoclose.nvim",
   event = "InsertEnter",
-  config = true
+  opts = {
+    options = {
+      disabled_filetypes = { "TelescopePrompt" },
+      pair_spaces = true
+    }
+  }
 }
