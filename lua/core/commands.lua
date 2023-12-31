@@ -21,6 +21,14 @@ auto("BufWritePre", {
   end
 })
 
+auto("InsertEnter", {
+  group = group("DisableAutoComment"),
+  pattern = "*",
+  callback = function ()
+    vim.opt.formatoptions = { c = false, r = false, o = false }
+  end
+})
+
 auto("TermOpen", {
   group = group("StartTerminalInInsertMode"),
   command = "set filetype=term | startinsert"
