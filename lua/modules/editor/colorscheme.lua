@@ -6,20 +6,15 @@ return {
   config = function ()
     require("rose-pine").setup({
       variant = "main",
-      disable_italics = true,
+      styles = {
+        bold = false,
+        italic = false
+      },
       highlight_groups = {
-        -- Editor
         StatusLine = { fg = "text", bg = "surface" },
         TabLine = { fg = "subtle", bg = "base" },
-
-        -- Telescope
         TelescopeBorder = { fg = "subtle", bg = "surface" },
-        TelescopeTitle = { fg = "text", bold = true },
-
-        -- Diff files
-        ["@attribute.diff"] = { fg = "gold" },
-        ["@text.diff.add"] = { fg = "foam", bg = "foam", blend = 20 },
-        ["@text.diff.delete"] = { fg = "love", bg = "love", blend = 20 }
+        TelescopeTitle = { fg = "text", bold = true }
       }
     })
 
