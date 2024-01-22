@@ -8,7 +8,7 @@ return {
       "c", "lua", "luadoc", "vim", "vimdoc", "bash",
       "query", "regex", "comment", "diff", "xml",
       "go", "gomod", "markdown", "markdown_inline",
-      "html", "css", "javascript", "typescript",
+      "html", "css", "javascript", "typescript", "svelte",
       "json", "yaml", "toml", "dockerfile", "hurl",
       "gitcommit", "gitignore", "git_config"
     },
