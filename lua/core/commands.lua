@@ -62,7 +62,7 @@ end)
 
 user("MasonInstallTools", function()
   local registry = require("mason-registry")
-  local tools = { "selene", "shellcheck", "stylua" }
+  local tools = { "selene", "shellcheck", "stylua", "golangci-lint" }
 
   for _, tool in ipairs(tools) do
     if not registry.is_installed(tool) then
