@@ -19,14 +19,20 @@ local html = [[
 ]]
 
 return {
-  s("!", fmt(html, {
-    i(1),
-    i(2, "favicon.ico"),
-    i(3, "style.css"),
-    i(4),
-    i(5)
-  })),
-  s("scr", fmt("<script src=\"{}\"></script>", {
-    i(1, "script.js")
-  }))
+  s(
+    "!",
+    fmt(html, {
+      i(1),
+      i(2, "favicon.ico"),
+      i(3, "style.css"),
+      i(4),
+      i(5),
+    })
+  ),
+  s(
+    "scr",
+    fmt('<script src="{}"></script>', {
+      i(1, "script.js"),
+    })
+  ),
 }

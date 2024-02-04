@@ -1,7 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   version = "0.1.x",
-  keys = function ()
+  keys = function()
     local telescope = require("telescope.builtin")
 
     return {
@@ -12,26 +12,34 @@ return {
       { "<Leader>sg", telescope.live_grep, desc = "Search by grep" },
       { "<Leader>sb", telescope.buffers, desc = "Search buffers" },
       { "<Leader>sc", telescope.commands, desc = "Search commands" },
-      { "<Leader>ch", telescope.command_history, desc = "Search command history" },
+      {
+        "<Leader>ch",
+        telescope.command_history,
+        desc = "Search command history",
+      },
       { "<Leader>sp", telescope.help_tags, desc = "Search help" },
-      { "<Leader>qq", telescope.quickfixhistory, desc = "Search quickfix history" },
+      {
+        "<Leader>qq",
+        telescope.quickfixhistory,
+        desc = "Search quickfix history",
+      },
       { "<Leader>rr", telescope.registers, desc = "Search registers" },
       { "<Leader>mm", telescope.marks, desc = "Search marks" },
-      { "<Leader>sk", telescope.keymaps, desc = "Search keymaps" }
+      { "<Leader>sk", telescope.keymaps, desc = "Search keymaps" },
     }
   end,
   dependencies = {
     {
       "nvim-lua/plenary.nvim",
-      version = "0.1.x"
+      version = "0.1.x",
     },
     {
       "nvim-telescope/telescope-fzf-native.nvim",
       enabled = vim.fn.executable("make") == 1,
-      build = "make"
-    }
+      build = "make",
+    },
   },
-  config = function ()
+  config = function()
     local telescope = require("telescope")
     local actions = require("telescope.actions")
 
@@ -40,26 +48,35 @@ return {
         layout_config = {
           horizontal = {
             prompt_position = "top",
-            preview_width = 0.55
-          }
+            preview_width = 0.55,
+          },
         },
         sorting_strategy = "ascending",
         preview = { filesize_limit = 5 },
         color_devicons = false,
-        borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
+        borderchars = {
+          "─",
+          "│",
+          "─",
+          "│",
+          "┌",
+          "┐",
+          "┘",
+          "└",
+        },
         mappings = {
           n = {
-            ["q"] = actions.close
+            ["q"] = actions.close,
           },
           i = {
             ["<C-k>"] = actions.move_selection_previous,
             ["<C-j>"] = actions.move_selection_next,
-            ["<C-s>"] = actions.file_split
-          }
-        }
-      }
+            ["<C-s>"] = actions.file_split,
+          },
+        },
+      },
     })
 
     telescope.load_extension("fzf")
-  end
+  end,
 }

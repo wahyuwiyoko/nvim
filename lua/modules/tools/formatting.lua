@@ -6,16 +6,17 @@ return {
     {
       mode = { "n", "v", "x" },
       "<Leader>mp",
-      function ()
+      function()
         require("conform").format({ timeout_ms = 500 })
       end,
-      desc = "Format buffer"
-    }
+      desc = "Format buffer",
+    },
   },
   opts = {
     formatters_by_ft = {
-      go = { "gofmt" }
+      lua = { "stylua" },
+      go = { "gofmt" },
     },
-    format_on_save = { timeout_ms = 500 }
-  }
+    format_on_save = { timeout_ms = 500 },
+  },
 }

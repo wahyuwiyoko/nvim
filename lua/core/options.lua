@@ -41,7 +41,7 @@ opt.tabline = "%!v:lua.require'custom.tab_line'.tab_line()"
 opt.fillchars = {
   eob = " ",
   foldopen = "v",
-  foldclose = ">"
+  foldclose = ">",
 }
 
 -- Line numbers

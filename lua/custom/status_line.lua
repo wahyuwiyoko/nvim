@@ -9,6 +9,13 @@ local separator = "|"
 
 return string.format(
   " %s %s %s %s %s %s %s %s %s ",
-  file_name, modified, read_only, align_right,
-  file_encoding, separator, file_format, separator, file_type
+  file_name,
+  modified,
+  read_only,
+  align_right,
+  file_encoding,
+  separator,
+  file_format,
+  separator,
+  file_type
 )

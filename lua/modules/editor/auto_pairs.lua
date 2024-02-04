@@ -4,7 +4,7 @@ return {
   opts = {
     options = {
       disabled_filetypes = { "TelescopePrompt" },
-      pair_spaces = true
-    }
-  }
+      pair_spaces = true,
+    },
+  },
 }

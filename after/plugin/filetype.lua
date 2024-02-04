@@ -1,9 +1,9 @@
 vim.filetype.add({
   extension = {
-    hurl = "hurl"
+    hurl = "hurl",
   },
   filename = {
     ["go.mod"] = "gomod",
-    ["go.sum"] = "gosum"
-  }
+    ["go.sum"] = "gosum",
+  },
 })

@@ -14,9 +14,6 @@ g.loaded_zipPlugin = 1
 g.loaded_zip = 1
 g.loaded_spellfile_plugin = 1
 
--- Disable "expandtab" for markdown
-g.markdown_recommended_style = 0
-
 -- Disable providers
 g.loaded_python3_provider = 0
 g.loaded_ruby_provider = 0

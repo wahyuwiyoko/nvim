@@ -24,18 +24,24 @@ local media_query = [[
 ]]
 
 return {
-  s("font-face", fmt(font_face, {
-    i(1),
-    i(2, "normal"),
-    i(3, "400"),
-    i(4, "swap"),
-    i(5),
-    c(6, { i(1, "woff2"), i(2, "woff") })
-  })),
+  s(
+    "font-face",
+    fmt(font_face, {
+      i(1),
+      i(2, "normal"),
+      i(3, "400"),
+      i(4, "swap"),
+      i(5),
+      c(6, { i(1, "woff2"), i(2, "woff") }),
+    })
+  ),
   s("dark", fmt(dark_color, { i(1) })),
-  s("media-query", fmt(media_query, {
-    c(1, { i(1, "min"), i(2, "max") }),
-    i(2),
-    i(3)
-  }))
+  s(
+    "media-query",
+    fmt(media_query, {
+      c(1, { i(1, "min"), i(2, "max") }),
+      i(2),
+      i(3),
+    })
+  ),
 }

@@ -8,8 +8,8 @@ return {
         unusedparams = true,
         unusedwrite = true,
         useany = true,
-        shadow = true
-      }
-    }
-  }
+        shadow = true,
+      },
+    },
+  },
 }

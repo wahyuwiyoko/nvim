@@ -1,6 +1,6 @@
 local M = {}
 
-M.get_tab_name = function (tab_page, tab_number)
+M.get_tab_name = function(tab_page, tab_number)
   local window = vim.api.nvim_tabpage_get_win(tab_page)
   local buffer = vim.api.nvim_win_get_buf(window)
   local buffer_name = vim.api.nvim_buf_get_name(buffer)
@@ -29,7 +29,7 @@ M.get_tab_name = function (tab_page, tab_number)
   return buffer_base_name
 end
 
-M.tab_line = function ()
+M.tab_line = function()
   local tab_line = "%#TabLine#"
 
   for tab_number, tab_page in ipairs(vim.api.nvim_list_tabpages()) do

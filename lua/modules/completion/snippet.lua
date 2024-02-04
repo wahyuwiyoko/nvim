@@ -3,7 +3,7 @@ return {
   version = "2.x.x",
   event = "InsertEnter",
   build = "make install_jsregexp",
-  config = function ()
+  config = function()
     local types = require("luasnip.util.types")
 
     require("luasnip").setup({
@@ -13,14 +13,14 @@ return {
       ext_opts = {
         [types.choiceNode] = {
           active = {
-            virt_text = { { "<= Choice Node", "Comment" } }
-          }
-        }
-      }
+            virt_text = { { "<= Choice Node", "Comment" } },
+          },
+        },
+      },
     })
 
     require("luasnip.loaders.from_lua").load({
-      paths = vim.fn.stdpath("config") .. "/snippets/"
+      paths = vim.fn.stdpath("config") .. "/snippets/",
     })
-  end
+  end,
 }

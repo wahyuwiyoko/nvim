@@ -16,15 +16,18 @@ end
 ]]
 
 return {
-  s("M", fmt(module, {
-    i(1, "module"),
-    c(2, {
-      fmt(func, {
-        i(1, "args"),
-        i(2)
+  s(
+    "M",
+    fmt(module, {
+      i(1, "module"),
+      c(2, {
+        fmt(func, {
+          i(1, "args"),
+          i(2),
+        }),
+        i(1, "value"),
       }),
-      i(1, "value")
     })
-  })),
-  s("inspect", fmt("print(vim.inspect({}))", { i(1) }))
+  ),
+  s("inspect", fmt("print(vim.inspect({}))", { i(1) })),
 }

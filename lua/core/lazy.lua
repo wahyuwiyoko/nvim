@@ -7,7 +7,7 @@ if not vim.loop.fs_stat(lazypath) then
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
     "--branch=stable",
-    lazypath
+    lazypath,
   })
 end
 
@@ -18,24 +18,26 @@ require("lazy").setup({
     { import = "modules.editor" },
     { import = "modules.tools" },
     { import = "modules.completion" },
-    { import = "modules.lsp" }
+    { import = "modules.lsp" },
   },
   performance = {
     cache = { enabled = true },
     reset_packpath = true,
     rtp = {
       disabled_plugins = {
-        "editorconfig", "gzip", "netrwPlugin",
-        "rplugin", "spellfile", "tarPlugin",
-        "tohtml", "tutor", "zipPlugin"
-      }
-    }
+        "gzip",
+        "netrwPlugin",
+        "rplugin",
+        "spellfile",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
   },
   defaults = { lazy = true },
-  install = {
-    missing = true,
-    colorscheme = { "rose-pine", "slate" }
-  },
+  install = { missing = true },
   change_detection = { notify = false },
   ui = {
     pills = false,
@@ -60,8 +62,8 @@ require("lazy").setup({
         "o",
         "=>",
         "*",
-        "-"
-      }
-    }
-  }
+        "-",
+      },
+    },
+  },
 })
