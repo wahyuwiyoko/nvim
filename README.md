@@ -2,7 +2,7 @@
 
 My simple Neovim configuration with no patched fonts included.
 
-![Neovim](https://raw.githubusercontent.com/wahyuwiyoko/dotfiles/main/screenshots/neovim.png)
+![Neovim](https://github.com/wahyuwiyoko/nvim/assets/137708513/27191900-94f2-45c9-8466-4691e7c7364c)
 
 ## Requirements
 
