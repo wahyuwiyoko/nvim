@@ -33,7 +33,7 @@ return {
     capabilities.textDocument.completion.completionItem.snippetSupport = true
     utils.merge_table(capabilities, cmp.default_capabilities())
 
-    local on_attach = function(_, bufnr)
+    local function on_attach(_, bufnr)
       local map = utils.map
       local lsp_buf = lsp.buf
       local diagnostic = vim.diagnostic

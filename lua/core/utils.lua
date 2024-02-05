@@ -1,6 +1,6 @@
 local M = {}
 
-M.executable = function(name)
+function M.executable(name)
   if vim.fn.executable(name) > 0 then
     return true
   else
@@ -10,7 +10,7 @@ M.executable = function(name)
   end
 end
 
-M.has = function(feat)
+function M.has(feat)
   if vim.fn.has(feat) == 1 then
     return true
   end
@@ -18,7 +18,7 @@ M.has = function(feat)
   return false
 end
 
-M.merge_table = function(table1, table2)
+function M.merge_table(table1, table2)
   if table1 == table2 == nil then
     return {}
   end
@@ -34,7 +34,7 @@ M.merge_table = function(table1, table2)
   return vim.tbl_deep_extend("force", table1, table2)
 end
 
-M.map = function(mode, key, commands, opts)
+function M.map(mode, key, commands, opts)
   local options = { noremap = true, silent = true }
 
   if opts then
@@ -44,11 +44,11 @@ M.map = function(mode, key, commands, opts)
   vim.keymap.set(mode, key, commands, opts)
 end
 
-M.highlight = function(group, attribute)
+function M.highlight(group, attribute)
   return vim.api.nvim_set_hl(0, group, attribute)
 end
 
-M.split_string = function(str, delimeter)
+function M.split_string(str, delimeter)
   local result = {}
 
   for match in (str .. delimeter):gmatch("(.-)" .. delimeter) do
