@@ -2,6 +2,7 @@
 --# selene: allow(undefined_variable)
 
 return {
+  s("dateYmd", t(os.date("%Y-%m-%d"))),
   s("dateBdY", t(os.date("%B %d, %Y"))),
   s(
     "todo",
