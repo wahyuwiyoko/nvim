@@ -17,20 +17,7 @@ require("lazy").setup({
   defaults = {
     lazy = true,
   },
-  spec = {
-    {
-      import = "plugins.editor",
-    },
-    {
-      import = "plugins.tools",
-    },
-    {
-      import = "plugins.completion",
-    },
-    {
-      import = "plugins.lsp",
-    },
-  },
+  spec = "plugins",
   lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
   ui = {
     pills = false,
