@@ -1,4 +1,3 @@
-local utils = require("core.utils")
 local auto = vim.api.nvim_create_autocmd
 
 local function group(name)
@@ -72,7 +71,7 @@ user("MasonInstallTools", function()
 end)
 
 user("JSONFormat", function()
-  if utils.executable("jq") then
+  if vim.fn.executable("jq") == 1 then
     vim.cmd("%!jq .")
   end
 end)
