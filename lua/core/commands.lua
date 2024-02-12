@@ -45,20 +45,6 @@ auto("BufWritePre", {
   end,
 })
 
-auto("BufRead", {
-  group = group("NonUTF8File"),
-  pattern = "*",
-  callback = function()
-    if vim.bo.fileencoding ~= "utf-8" then
-      vim.notify("File is not in UTF-8 format!", vim.log.levels.WARN)
-    end
-  end,
-})
-
-user("Term", function()
-  vim.cmd("tabnew | terminal")
-end)
-
 user("MasonInstallTools", function()
   local registry = require("mason-registry")
   local tools = { "selene", "shellcheck", "stylua", "golangci-lint" }
