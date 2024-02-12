@@ -14,31 +14,24 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  spec = {
-    { import = "modules.editor" },
-    { import = "modules.tools" },
-    { import = "modules.completion" },
-    { import = "modules.lsp" },
+  defaults = {
+    lazy = true,
   },
-  performance = {
-    cache = { enabled = true },
-    reset_packpath = true,
-    rtp = {
-      disabled_plugins = {
-        "gzip",
-        "netrwPlugin",
-        "rplugin",
-        "spellfile",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-      },
+  spec = {
+    {
+      import = "modules.editor",
+    },
+    {
+      import = "modules.tools",
+    },
+    {
+      import = "modules.completion",
+    },
+    {
+      import = "modules.lsp",
     },
   },
-  defaults = { lazy = true },
-  install = { missing = true },
-  change_detection = { notify = false },
+  lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
   ui = {
     pills = false,
     icons = {
@@ -60,9 +53,26 @@ require("lazy").setup({
       task = "task",
       list = {
         "o",
-        "=>",
+        "->",
         "*",
         "-",
+      },
+    },
+  },
+  change_detection = {
+    notify = false,
+  },
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "netrwPlugin",
+        "rplugin",
+        "spellfile",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
       },
     },
   },
