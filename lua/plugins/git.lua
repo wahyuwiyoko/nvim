@@ -1,6 +1,5 @@
 return {
   "lewis6991/gitsigns.nvim",
-  version = "0.x",
   event = { "BufReadPre", "BufNewFile" },
   keys = {
     { "<Leader>gn", "<Cmd>Gitsigns next_hunk<CR>", desc = "Git next hunk" },
