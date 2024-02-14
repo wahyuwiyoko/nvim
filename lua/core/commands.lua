@@ -11,6 +11,7 @@ end
 auto("BufWritePre", {
   group = group("RemoveTrailingWhitespace"),
   pattern = "*",
+  desc = "Remove trailing whitespace",
   callback = function()
     local save_cursor = vim.fn.winsaveview()
 
@@ -23,6 +24,7 @@ auto("BufWritePre", {
 auto("InsertEnter", {
   group = group("DisableAutoComment"),
   pattern = "*",
+  desc = "Disable auto comment",
   callback = function()
     vim.opt.formatoptions = { c = false, r = false, o = false }
   end,
@@ -30,12 +32,13 @@ auto("InsertEnter", {
 
 auto("TermOpen", {
   group = group("StartTerminalInInsertMode"),
+  desc = "Start terminal in insert mode",
   command = "set filetype=term | startinsert",
 })
 
 auto("BufWritePre", {
   group = group("AutoCreateDirectory"),
-  pattern = "*",
+  desc = "Auto create directory",
   callback = function(context)
     local directory = vim.fn.fnamemodify(context.file, ":p:h")
 
