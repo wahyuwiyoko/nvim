@@ -1,43 +1,48 @@
-local auto = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+local usercmd = vim.api.nvim_create_user_command
 
-local function group(name)
-  vim.api.nvim_create_augroup(name, { clear = true })
-end
+local clear = { clear = true }
+local force = { force = true }
 
-local function user(name, callback)
-  vim.api.nvim_create_user_command(name, callback, { force = true })
-end
+augroup("FileFormat", clear)
+augroup("TerminalMode", clear)
+augroup("CommandMode", clear)
 
-auto("BufWritePre", {
-  group = group("RemoveTrailingWhitespace"),
+autocmd("BufWritePre", {
+  group = "FileFormat",
   pattern = "*",
   desc = "Remove trailing whitespace",
   callback = function()
-    local save_cursor = vim.fn.winsaveview()
+    local save_cursor_position = vim.fn.winsaveview()
 
     vim.cmd([[%s/\s\+$//e]])
 
-    vim.fn.winrestview(save_cursor)
+    vim.fn.winrestview(save_cursor_position)
   end,
 })
 
-auto("InsertEnter", {
-  group = group("DisableAutoComment"),
+autocmd("InsertEnter", {
+  group = "FileFormat",
   pattern = "*",
-  desc = "Disable auto comment",
+  desc = "Disable auto comment at new line",
   callback = function()
-    vim.opt.formatoptions = { c = false, r = false, o = false }
+    vim.opt_local.formatoptions = {
+      c = false,
+      r = false,
+      o = false,
+    }
   end,
 })
 
-auto("TermOpen", {
-  group = group("StartTerminalInInsertMode"),
+autocmd("TermOpen", {
+  group = "TerminalMode",
   desc = "Start terminal in insert mode",
   command = "set filetype=term | startinsert",
 })
 
-auto("BufWritePre", {
-  group = group("AutoCreateDirectory"),
+autocmd("BufWritePre", {
+  group = "CommandMode",
   desc = "Auto create directory",
   callback = function(context)
     local directory = vim.fn.fnamemodify(context.file, ":p:h")
@@ -48,7 +53,7 @@ auto("BufWritePre", {
   end,
 })
 
-user("MasonInstallTools", function()
+usercmd("MasonInstallTools", function()
   local registry = require("mason-registry")
   local tools = { "selene", "shellcheck", "stylua", "golangci-lint" }
 
@@ -57,10 +62,10 @@ user("MasonInstallTools", function()
       vim.cmd("MasonInstall " .. tool)
     end
   end
-end)
+end, force)
 
-user("JSONFormat", function()
+usercmd("JSONFormat", function()
   if vim.fn.executable("jq") == 1 then
     vim.cmd("%!jq .")
   end
-end)
+end, force)

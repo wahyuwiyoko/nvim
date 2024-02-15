@@ -1,81 +1,84 @@
-return {
-  "nvim-telescope/telescope.nvim",
-  keys = function()
-    local telescope = require("telescope.builtin")
+local telescope = { "nvim-telescope/telescope.nvim" }
 
-    return {
-      { "<Leader>ff", telescope.find_files, desc = "Search files" },
-      { "<Leader>fg", telescope.git_files, desc = "Search Git files" },
-      { "<Leader>gt", telescope.git_status, desc = "Search Git status" },
-      { "<Leader>sw", telescope.grep_string, desc = "Search current word" },
-      { "<Leader>sg", telescope.live_grep, desc = "Search by grep" },
-      { "<Leader>sb", telescope.buffers, desc = "Search buffers" },
-      { "<Leader>sc", telescope.commands, desc = "Search commands" },
-      {
-        "<Leader>ch",
-        telescope.command_history,
-        desc = "Search command history",
-      },
-      { "<Leader>sp", telescope.help_tags, desc = "Search help" },
-      {
-        "<Leader>qq",
-        telescope.quickfixhistory,
-        desc = "Search quickfix history",
-      },
-      { "<Leader>rr", telescope.registers, desc = "Search registers" },
-      { "<Leader>mm", telescope.marks, desc = "Search marks" },
-      { "<Leader>sk", telescope.keymaps, desc = "Search keymaps" },
-    }
-  end,
-  dependencies = {
-    {
-      "nvim-lua/plenary.nvim",
-      version = false,
-    },
-    {
-      "nvim-telescope/telescope-fzf-native.nvim",
-      enabled = vim.fn.executable("make") == 1,
-      build = "make",
-    },
+telescope.dependencies = {
+  {
+    "nvim-lua/plenary.nvim",
+    version = false,
   },
-  config = function()
-    local telescope = require("telescope")
-    local actions = require("telescope.actions")
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    enabled = vim.fn.executable("make") == 1,
+    build = "make",
+  },
+}
 
-    telescope.setup({
-      defaults = {
-        layout_config = {
-          horizontal = {
-            prompt_position = "top",
-            preview_width = 0.55,
-          },
-        },
-        sorting_strategy = "ascending",
-        preview = { filesize_limit = 5 },
-        color_devicons = false,
-        borderchars = {
-          "─",
-          "│",
-          "─",
-          "│",
-          "┌",
-          "┐",
-          "┘",
-          "└",
-        },
-        mappings = {
-          n = {
-            ["q"] = actions.close,
-          },
-          i = {
-            ["<C-k>"] = actions.move_selection_previous,
-            ["<C-j>"] = actions.move_selection_next,
-            ["<C-s>"] = actions.file_split,
-          },
+function telescope.keys()
+  local builtin = require("telescope.builtin")
+
+  return {
+    { "<Leader>ff", builtin.find_files, desc = "Search files" },
+    { "<Leader>fg", builtin.git_files, desc = "Search Git files" },
+    { "<Leader>gt", builtin.git_status, desc = "Search Git status" },
+    { "<Leader>sw", builtin.grep_string, desc = "Search current word" },
+    { "<Leader>sg", builtin.live_grep, desc = "Search by grep" },
+    { "<Leader>sb", builtin.buffers, desc = "Search buffers" },
+    { "<Leader>sc", builtin.commands, desc = "Search commands" },
+    {
+      "<Leader>ch",
+      builtin.command_history,
+      desc = "Search command history",
+    },
+    { "<Leader>sp", builtin.help_tags, desc = "Search help" },
+    {
+      "<Leader>qq",
+      builtin.quickfixhistory,
+      desc = "Search quickfix history",
+    },
+    { "<Leader>rr", builtin.registers, desc = "Search registers" },
+    { "<Leader>mm", builtin.marks, desc = "Search marks" },
+    { "<Leader>sk", builtin.keymaps, desc = "Search keymaps" },
+  }
+end
+
+function telescope.config()
+  local plugin = require("telescope")
+  local actions = require("telescope.actions")
+
+  plugin.setup({
+    defaults = {
+      layout_config = {
+        horizontal = {
+          prompt_position = "top",
+          preview_width = 0.55,
         },
       },
-    })
+      sorting_strategy = "ascending",
+      preview = { filesize_limit = 5 },
+      color_devicons = false,
+      borderchars = {
+        "─",
+        "│",
+        "─",
+        "│",
+        "┌",
+        "┐",
+        "┘",
+        "└",
+      },
+      mappings = {
+        n = {
+          ["q"] = actions.close,
+        },
+        i = {
+          ["<C-k>"] = actions.move_selection_previous,
+          ["<C-j>"] = actions.move_selection_next,
+          ["<C-s>"] = actions.file_split,
+        },
+      },
+    },
+  })
 
-    telescope.load_extension("fzf")
-  end,
-}
+  plugin.load_extension("fzf")
+end
+
+return telescope
