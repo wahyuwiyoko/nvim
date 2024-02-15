@@ -1,6 +1,6 @@
 # Neovim
 
-My simple Neovim configuration with no patched fonts included.
+My minimalist Neovim configuration with no patched fonts included.
 
 ![Neovim](https://github.com/wahyuwiyoko/nvim/assets/137708513/27191900-94f2-45c9-8466-4691e7c7364c)
 
@@ -86,6 +86,7 @@ each Linux distribution. Although it can also be installed with Mason.
 ### Documentation
 
 - User manual: [`:help user-manual`](https://neovim.io/doc/user/usr_toc.html)
+- Starting Vim: [`:help starting`](https://neovim.io/doc/user/starting.html)
 - Lua guide: [`:help lua-guide`](https://neovim.io/doc/user/lua-guide.html)
 - For more tips: [`:help tips`](https://neovim.io/doc/user/tips.html)
 - Available events for lazy loading plugins: [`:help events`](https://neovim.io/doc/user/autocmd.html#events)
@@ -94,48 +95,7 @@ each Linux distribution. Although it can also be installed with Mason.
 - Differences between Neovim and Vim: [`:help vim-differences`](https://neovim.io/doc/user/vim_diff.html)
 - Deprecated features: [`:help deprecated`](https://neovim.io/doc/user/deprecated.html)
 
-## Directory Structure
-
-```
-.
-├── after
-│   ├── ftplugin
-│   └── plugin
-├── lua
-│   ├── core
-│   ├── custom
-│   ├── languages
-│   └── modules
-│       ├── completion
-│       ├── editor
-│       ├── lsp
-│       └── tools
-└── snippets
-```
-
-- `after` => Loaded configuration after opened Neovim.
-  - `ftplugin` => Store various settings for specific file types.
-  - `plugin` => Store various settings for specific plugins.
-- `snippets` => Snippets with LuaSnip for each languages.
-- `core` => Base editor for Vim options, keymaps, and plugin manager.
-- `custom` => Custom functionality and UI such as status line and tab line.
-- `languages` => Every languages server configuration.
-- `modules` => All Neovim plugins within the sub-directories.
-  - `completion` => Completion sources with snippets.
-  - `editor` => Any plugins for editor functionality just like an IDE.
-  - `lsp` => For manage and configure LSP.
-  - `tools` => Any tools like linter, formatter, and Telescope.
-
-## References
-
-Some of these are references I took to create a custom Neovim configuration:
-
-- Vim options and keymaps: [Neovim from scratch](https://github.com/lunarvim/neovim-from-scratch)
-- File structure: [dope](https://github.com/nvimdev/dope)
-- Lazy load: [LazyVim](https://github.com/LazyVim/LazyVim)
-- Plugins: [Josean Martinez](https://github.com/josean-dev/dev-environment-files)
-
-## Special Thanks
+## Acknowledgements
 
 - [Christian Chiarulli](https://github.com/ChristianChiarulli)
 - [Josean Martinez](https://github.com/josean-dev)
