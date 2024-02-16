@@ -1,5 +1,7 @@
 local linting = { "mfussenegger/nvim-lint" }
 
+linting.enabled = false
+
 linting.event = { "BufReadPre", "BufNewFile" }
 
 function linting.config()

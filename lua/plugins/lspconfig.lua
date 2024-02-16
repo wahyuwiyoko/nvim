@@ -13,6 +13,8 @@ local servers = {
   "marksman",
 }
 
+lspconfig.enabled = false
+
 lspconfig.version = false
 
 lspconfig.event = { "BufReadPre", "BufNewFile" }
