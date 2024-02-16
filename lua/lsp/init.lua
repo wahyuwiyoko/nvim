@@ -1,9 +1,5 @@
 local commands = require("lsp.commands")
--- local config = require("lsp.config")
--- local handler = require("lsp.handler")
--- local keymaps = require("lsp.keymaps")
-
-local lsp = {}
+local keymaps = require("lsp.keymaps")
 
 local function servers()
   local server_names = {}
@@ -19,26 +15,20 @@ local function servers()
 end
 
 local function start_server(opts)
-  vim.notify(
-    string.format("Server %s is started!", opts.name),
-    vim.log.levels.INFO
-  )
+  local client_id = vim.lsp.start(opts)
 
-  -- print(vim.inspect(config.options(opts)))
+  vim.lsp.buf_attach_client(0, client_id)
 
-  -- local client_id = vim.lsp.start(config.options(opts))
-  -- vim.lsp.buf_attach_client(0, client_id)
+  if vim.lsp.buf_is_attached(0, client_id) then
+    commands.attach("LSP actions", function(event)
+      keymaps.mapping(event.buf)
+    end)
 
-  -- if vim.lsp.buf_is_attached(0, client_id) then
-  --   commands.attach("LSP actions", function(event)
-  --     keymaps.mapping(event.buf)
-  --   end)
-  --
-  --   commands.user(client_id)
-  -- end
+    commands.user(client_id)
+  end
 end
 
-function lsp.load()
+local function load()
   for _, server in ipairs(servers()) do
     local server_opts = require("lsp.servers." .. server)
 
@@ -48,4 +38,4 @@ function lsp.load()
   end
 end
 
-return lsp
+load()

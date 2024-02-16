@@ -1,4 +1,5 @@
--- local options = require("lsp.options")
+local handler = require("lsp.handler")
+local options = require("lsp.options")
 local merge_table = require("core.utils").merge_table
 
 local config = {}
@@ -62,18 +63,9 @@ function config.options(opts)
   local default_options = {
     name = opts.name,
     cmd = opts.cmd,
-    -- cmd_cwd = opts.cmd_cwd,
     root_dir = root_dir(opts.root_pattern),
-    -- capabilities = opts.capabilities,
-    -- handlers = opts.handlers,
-    -- settings = opts.settings,
-    -- init_options = opts.init_options,
-    -- on_init = options.on_init,
-    -- on_exit = options.on_exit,
-    -- on_attach = opts.on_attach,
-    -- flags = {
-    --   debounce_text_changes = 150,
-    -- },
+    handlers = handler.text_document,
+    on_exit = options.on_exit,
   }
 
   return merge_table(default_options, opts)

@@ -15,6 +15,7 @@ local server = config.options({
     "jsconfig.json",
     ".git",
   },
+  init_options = { hostInfo = "neovim" },
 })
 
 return server

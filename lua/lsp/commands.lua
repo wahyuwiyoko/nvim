@@ -3,17 +3,16 @@ local commands = {}
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local usercmd = vim.api.nvim_create_user_command
+local fmt = string.format
 
 local clear = { clear = true }
 local force = { force = true }
 
-local filetype_lsp = augroup("FileTypeLSP", clear)
-
 function commands.autostart(server, callback)
   autocmd("FileType", {
-    group = filetype_lsp,
+    group = augroup(fmt("LSP_%s", server.name), clear),
     pattern = server.filetypes,
-    desc = string.format(
+    desc = fmt(
       "Check whether server %s should start a new instance",
       server.name
     ),
@@ -23,8 +22,7 @@ end
 
 function commands.attach(desc, callback)
   autocmd("LspAttach", {
-    -- TODO: Initialize augroup name
-    -- group = "StartLSP",
+    group = augroup("LspAttached", clear),
     desc = desc,
     callback = callback,
   })
