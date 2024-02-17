@@ -6,12 +6,14 @@ local server = config.options({
   filetypes = {
     "javascript",
     "javascriptreact",
+    "javascript.jsx",
     "typescript",
     "typescriptreact",
+    "typescript.tsx",
   },
   root_pattern = {
-    "package.json",
     "tsconfig.json",
+    "package.json",
     "jsconfig.json",
     ".git",
   },

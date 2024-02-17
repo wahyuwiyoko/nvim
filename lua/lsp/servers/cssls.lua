@@ -6,10 +6,11 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local validate = { validate = true }
 
 local server = config.options({
-  name = "css",
+  name = "cssls",
   cmd = { "vscode-css-language-server", "--stdio" },
   filetypes = { "css", "scss", "less" },
   root_pattern = { "package.json", ".git" },
+  init_options = { provideFormatter = true },
   capabilities = capabilities,
   settings = {
     css = validate,
