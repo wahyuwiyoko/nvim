@@ -21,10 +21,14 @@ local function root_dir(root_pattern)
 end
 
 function config.options(opts)
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+
   local default_options = {
     name = opts.name,
     cmd = opts.cmd,
     root_dir = root_dir(opts.root_pattern),
+    capabilities = capabilities,
     handlers = handler.text_document,
     on_exit = options.on_exit,
   }
