@@ -20,6 +20,18 @@ local function root_dir(root_pattern)
   return root_dir_path
 end
 
+function config.options(opts)
+  local default_options = {
+    name = opts.name,
+    cmd = opts.cmd,
+    root_dir = root_dir(opts.root_pattern),
+    handlers = handler.text_document,
+    on_exit = options.on_exit,
+  }
+
+  return merge_table(default_options, opts)
+end
+
 function config.diagnostic()
   -- NOTE: Diagnostic sign text for Neovim 0.9 or lower
   local function sign(opts)
@@ -48,33 +60,18 @@ function config.diagnostic()
   -- })
 
   vim.diagnostic.config({
+    underline = true,
     virtual_text = false,
     signs = true,
     update_in_insert = false,
-    underline = true,
     severity_sort = true,
     float = {
       focusable = false,
-      style = "minimal",
       border = "single",
-      source = "always",
+      style = "minimal",
       max_width = 50,
-      header = "",
-      prefix = "",
     },
   })
-end
-
-function config.options(opts)
-  local default_options = {
-    name = opts.name,
-    cmd = opts.cmd,
-    root_dir = root_dir(opts.root_pattern),
-    handlers = handler.text_document,
-    on_exit = options.on_exit,
-  }
-
-  return merge_table(default_options, opts)
 end
 
 return config

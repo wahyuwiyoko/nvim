@@ -25,6 +25,7 @@ local function start_server(opts)
       keymaps.mapping(event.buf)
     end)
 
+    config.diagnostic()
     commands.user(client_id)
   end
 end
