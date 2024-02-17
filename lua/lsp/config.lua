@@ -11,7 +11,13 @@ local function root_dir(root_pattern)
     stop = vim.env.HOME,
   })
 
-  return vim.fs.dirname(dir_path[1])
+  local root_dir_path = vim.fs.dirname(dir_path[1])
+
+  if root_dir_path == "." then
+    return vim.fn.getcwd()
+  end
+
+  return root_dir_path
 end
 
 function config.diagnostic()

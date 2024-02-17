@@ -1,4 +1,5 @@
 local commands = require("lsp.commands")
+local config = require("lsp.config")
 local keymaps = require("lsp.keymaps")
 
 local function servers()
@@ -15,7 +16,7 @@ local function servers()
 end
 
 local function start_server(opts)
-  local client_id = vim.lsp.start(opts)
+  local client_id = vim.lsp.start(config.options(opts))
 
   vim.lsp.buf_attach_client(0, client_id)
 
