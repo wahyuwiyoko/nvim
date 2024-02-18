@@ -32,7 +32,7 @@ function keymaps.mapping(bufnr)
     opts("Rename all references under the cursor")
   )
   map({ "n", "v" }, "<Leader>ca", lsp.code_action, opts("Select a code action"))
-  map({ "n", "v" }, "<Leader>lf", lsp.format, opts("Format a buffer"))
+  map({ "n", "v" }, "<Leader>fm", lsp.format, opts("Format a buffer"))
 
   map("n", "<Leader>dj", diagnostic.goto_next, opts("Go to next diagnostic"))
   map(
@@ -43,19 +43,19 @@ function keymaps.mapping(bufnr)
   )
   map(
     "n",
-    "<Leader>dl",
+    "<Leader>df",
     diagnostic.open_float,
     opts("Open diagnostic for the current line")
   )
   map(
     "n",
-    "<Leader>da",
+    "<Leader>dq",
     diagnostic.setqflist,
     opts("Add all diagnostic to the quickfix list")
   )
   map(
     "n",
-    "<Leader>db",
+    "<Leader>dl",
     diagnostic.setloclist,
     opts("Add buffer diagnostic to the location list")
   )
