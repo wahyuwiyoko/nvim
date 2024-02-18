@@ -20,14 +20,6 @@ function commands.autostart(server, callback)
   })
 end
 
-function commands.attach(desc, callback)
-  autocmd("LspAttach", {
-    group = augroup("LspAttached", clear),
-    desc = desc,
-    callback = callback,
-  })
-end
-
 function commands.user(client_id)
   usercmd("LspInfo", function()
     print(vim.inspect(vim.lsp.get_client_by_id(client_id)))

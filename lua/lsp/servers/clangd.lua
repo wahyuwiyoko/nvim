@@ -1,11 +1,5 @@
 local config = require("lsp.config")
 
-local function on_init(client, result)
-  if result.offsetEncoding then
-    client.offset_encoding = result.offsetEncoding
-  end
-end
-
 local server = config.options({
   name = "clangd",
   cmd = { "clangd" },
@@ -26,7 +20,6 @@ local server = config.options({
     "configure.ac",
     ".git",
   },
-  on_init = on_init,
   capabilities = {
     offsetEncoding = { "utf-8", "utf-16" },
     textDocument = {

@@ -1,6 +1,5 @@
 local commands = require("lsp.commands")
 local config = require("lsp.config")
-local keymaps = require("lsp.keymaps")
 
 local function servers()
   local server_names = {}
@@ -19,18 +18,11 @@ local function start_server(opts)
   local client_id = vim.lsp.start(config.options(opts))
 
   vim.lsp.buf_attach_client(0, client_id)
-
-  if vim.lsp.buf_is_attached(0, client_id) then
-    commands.attach("LSP actions", function(event)
-      keymaps.mapping(event.buf)
-    end)
-
-    config.diagnostic()
-    commands.user(client_id)
-  end
 end
 
 local function load()
+  config.diagnostic()
+
   for _, server in ipairs(servers()) do
     local server_opts = require("lsp.servers." .. server)
 
