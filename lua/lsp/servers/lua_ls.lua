@@ -15,6 +15,9 @@ local server = config.options({
   },
   settings = {
     Lua = {
+      completion = {
+        callSnippet = "Replace",
+      },
       diagnostics = {
         globals = { "vim" },
       },
