@@ -1,5 +1,4 @@
 --- @diagnostic disable: undefined-global
---# selene: allow(undefined_variable)
 
 return {
   s("v", fmt("{} := {}", { i(1, "name"), i(2, "value") })),
