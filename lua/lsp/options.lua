@@ -1,5 +1,7 @@
+local cmp = require("cmp_nvim_lsp")
 local commands = require("lsp.commands")
 local keymaps = require("lsp.keymaps")
+local utils = require("core.utils")
 
 local options = {}
 
@@ -23,15 +25,19 @@ function options.root_dir(root_pattern)
   return root_dir_path
 end
 
-options.capabilities = lsp.protocol.make_client_capabilities()
+function options.capabilities()
+  local capabilities = lsp.protocol.make_client_capabilities()
 
-options.capabilities.textDocument.completion.completionItem = {
-  commitCharactersSupport = true,
-  deprecatedSupport = true,
-  documentationFormat = { "markdown", "plaintext" },
-  preselectSupport = true,
-  snippetSupport = true,
-}
+  capabilities.textDocument.completion.completionItem = {
+    commitCharactersSupport = true,
+    deprecatedSupport = true,
+    documentationFormat = { "markdown", "plaintext" },
+    preselectSupport = true,
+    snippetSupport = true,
+  }
+
+  return utils.merge_table(capabilities, cmp.default_capabilities())
+end
 
 options.handlers = {
   ["textDocument/publishDiagnostics"] = lsp.with(

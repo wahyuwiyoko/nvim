@@ -8,7 +8,7 @@ function config.options(opts)
     name = opts.name,
     cmd = opts.cmd,
     root_dir = options.root_dir(opts.root_pattern),
-    capabilities = options.capabilities,
+    capabilities = options.capabilities(),
     handlers = options.handlers,
     on_init = options.on_init,
     on_exit = options.on_exit,
