@@ -1,5 +1,6 @@
 local commands = require("lsp.commands")
 local config = require("lsp.config")
+local options = require("lsp.options")
 
 local function servers()
   local server_names = {}
@@ -15,9 +16,21 @@ local function servers()
 end
 
 local function start_server(opts)
-  local client_id = vim.lsp.start(config.options(opts))
+  vim.lsp.start(config.options(opts), {
+    reuse_client = function(client, client_config)
+      client_config.root_dir = options.root_dir(opts.root_pattern)
 
-  vim.lsp.buf_attach_client(0, client_id)
+      local root_dir = client.config.root_dir == client_config.root_dir
+      local filetypes = client.config.filetypes == client_config.filetypes
+
+      if root_dir and filetypes then
+        return true
+      end
+
+      return false
+    end,
+    bufnr = vim.api.nvim_win_get_buf(0),
+  })
 end
 
 local function load()

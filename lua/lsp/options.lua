@@ -5,21 +5,27 @@ local utils = require("core.utils")
 
 local options = {}
 
+local api = vim.api
+local fs = vim.fs
 local lsp = vim.lsp
 local handlers = lsp.handlers
 local fmt = string.format
 
 function options.root_dir(root_pattern)
-  local dir_path = vim.fs.find(root_pattern, {
-    path = vim.fs.dirname(vim.api.nvim_buf_get_name(0)),
+  local dir_path = fs.find(root_pattern, {
+    path = fs.dirname(api.nvim_buf_get_name(0)),
     upward = true,
     stop = vim.env.HOME,
   })
 
-  local root_dir_path = vim.fs.dirname(dir_path[1])
+  local root_dir_path = fs.dirname(dir_path[1])
 
   if root_dir_path == "." then
     return vim.fn.getcwd()
+  end
+
+  if root_dir_path == nil then
+    return fs.dirname(api.nvim_buf_get_name(0))
   end
 
   return root_dir_path
