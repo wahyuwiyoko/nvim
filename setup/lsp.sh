@@ -14,11 +14,11 @@ has_executable() {
 for server in "${!lsp[@]}"; do
   if ! has_executable "$server"; then
     if [ "${lsp[$server]}" == "typescript-language-server" ]; then
-      bun install --global typescript typescript-language-server
+      npm install -g typescript typescript-language-server
       continue
     fi
 
-    bun install --global "${lsp[$server]}"
+    npm install -g "${lsp[$server]}"
   fi
 done
 
@@ -27,14 +27,22 @@ if ! (
   has_executable vscode-css-language-server &&
   has_executable vscode-json-language-server
   ); then
-  bun install --global vscode-langservers-extracted
+  npm install -g vscode-langservers-extracted
 fi
 
-# Create local binary directory
-mkdir -p "$HOME/.local/bin"
+is_dir_exists() {
+  [ -d "$1" ]
+}
 
-# Create directory for LSP that have libraries
-mkdir -p "$HOME/software"
+if ! is_dir_exists "$HOME/.local/bin"; then
+  # Local binary directory
+  mkdir -p "$HOME/.local/bin"
+fi
+
+if ! is_dir_exists "$HOME/software"; then
+  # For LSP that have libraries
+  mkdir -p "$HOME/software"
+fi
 
 if ! has_executable lua-language-server; then
   mkdir -p "$HOME/software/lua-language-server"

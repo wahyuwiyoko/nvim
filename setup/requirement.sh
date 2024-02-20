@@ -18,6 +18,24 @@ for program in "${!programs[@]}"; do
   fi
 done
 
-if ! has_executable bun; then
-  curl -fsSL https://bun.sh/install | bash
+is_dir_exists() {
+  [ -d "$1" ]
+}
+
+if ! is_dir_exists "$HOME/.local/bin"; then
+  # Local binary directory
+  mkdir -p "$HOME/.local/bin"
+fi
+
+if ! is_dir_exists "$HOME/software"; then
+  # For runtime that have libraries
+  mkdir -p "$HOME/software"
+fi
+
+if ! has_executable node; then
+  wget -c --show-progress https://nodejs.org/dist/v20.11.1/node-v20.11.1-linux-x64.tar.xz
+  tar -xvf node-v20.11.1-linux-x64.tar.xz -C "$HOME/software"
+  rm node-v20.11.1-linux-x64.tar.xz
+  mv "$HOME/software/node-v20.11.1-linux-x64" "$HOME/software/node"
+  ln -s "$HOME/software/node/bin/"* "$HOME/.local/bin"
 fi

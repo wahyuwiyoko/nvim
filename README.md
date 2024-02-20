@@ -9,8 +9,7 @@ Minimalist Neovim configuration with no patched fonts included.
 - [Neovim stable release](https://github.com/neovim/neovim/releases/tag/stable)
 - Git, `gcc`, and `make` installed
 - [ripgrep](https://github.com/BurntSushi/ripgrep) for `live_grep` of Telescope
-- [Bun](https://bun.sh/) for installing LSP servers
-- [Node.js](https://nodejs.org/) for running some LSP that depends on Node.js
+- [Node.js](https://nodejs.org/) for install and run LSP server
 
 ## Installation
 
