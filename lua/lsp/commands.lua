@@ -3,14 +3,13 @@ local commands = {}
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 local usercmd = vim.api.nvim_create_user_command
-local fmt = string.format
 
-local clear = { clear = true }
-local force = { force = true }
+local lsp = vim.lsp
+local fmt = string.format
 
 function commands.autostart(server, callback)
   autocmd("FileType", {
-    group = augroup(fmt("LSP_%s", server.name), clear),
+    group = augroup(fmt("LSP_%s", server.name), { clear = true }),
     pattern = server.filetypes,
     desc = fmt(
       "Check whether server %s should start a new instance",
@@ -20,18 +19,22 @@ function commands.autostart(server, callback)
   })
 end
 
-function commands.user(client_id)
+function commands.user()
   usercmd("LspInfo", function()
-    print(vim.inspect(vim.lsp.get_client_by_id(client_id)))
-  end, force)
+    print(
+      vim.inspect(
+        lsp.get_active_clients({ bufnr = vim.api.nvim_win_get_buf(0) })[1]
+      )
+    )
+  end, {
+    desc = "Show active LSP client information",
+  })
 
   usercmd("LspLog", function()
-    -- TODO: Debug log level for more details
-    -- vim.lsp.set_log_level("debug")
-
-    vim.cmd("tabnew")
-    vim.cmd.edit(vim.lsp.get_log_path())
-  end, force)
+    vim.cmd(fmt("tabnew %s", lsp.get_log_path()))
+  end, {
+    desc = "Open the LSP client log",
+  })
 end
 
 return commands

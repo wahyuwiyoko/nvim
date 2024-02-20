@@ -91,14 +91,14 @@ function options.on_exit(code, signal, client_id)
     local group = fmt("LSP_%s", lsp.get_client_by_id(client_id).config.name)
 
     if vim.fn.exists(fmt("#%s", group)) == 1 then
-      vim.api.nvim_del_augroup_by_name(group)
+      api.nvim_del_augroup_by_name(group)
     end
   end)
 end
 
 function options.on_attach(client, bufnr)
   keymaps.mapping(bufnr)
-  commands.user(client.id)
+  commands.user()
 
   if not client.supports_method("textDocument/semanticTokens") then
     client.server_capabilities.semanticTokensProvider = nil
