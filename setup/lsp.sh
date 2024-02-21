@@ -56,14 +56,6 @@ if ! has_executable gopls; then
   fi
 fi
 
-if ! has_executable clangd; then
-  wget -c --show-progress https://github.com/clangd/clangd/releases/download/17.0.3/clangd-linux-17.0.3.zip
-  unzip clangd-linux-17.0.3.zip -d "$HOME/software"
-  mv "$HOME/software/clangd_17.0.3" "$HOME/software/clangd"
-  ln -s "$HOME/software/clangd/bin/clangd" "$HOME/.local/bin"
-  rm clangd-linux-17.0.3.zip
-fi
-
 if ! has_executable marksman; then
   wget -c --show-progress https://github.com/artempyanykh/marksman/releases/download/2023-12-09/marksman-linux-x64
   chmod +x marksman-linux-x64
