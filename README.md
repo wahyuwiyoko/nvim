@@ -1,89 +1,26 @@
 # Neovim
 
-My minimalist Neovim configuration with no patched fonts included.
+Minimalist Neovim configuration with no patched fonts included.
 
 ![Neovim](https://github.com/wahyuwiyoko/nvim/assets/137708513/27191900-94f2-45c9-8466-4691e7c7364c)
 
 ## Requirements
 
 - [Neovim stable release](https://github.com/neovim/neovim/releases/tag/stable)
-- Git, `gcc` or `clang`, and `make` installed
+- Git, `gcc`, and `make` installed
 - [ripgrep](https://github.com/BurntSushi/ripgrep) for `live_grep` of Telescope
-- [Node.js](https://nodejs.org/) for installing several LSP through Mason
-
-> [!IMPORTANT]
-> For the linter to work, run `MasonInstallTools` command in Neovim to
-> install all linter through Mason.
+- [Node.js](https://nodejs.org/) for install and run LSP server
 
 ## Installation
 
-These have two ways, the
-[override way](#override-configuration) and backup your Neovim configuration,
-and the
-[safe way to load different configuration](#load-different-configuration).
+Installing packages can be done by running some of these scripts:
 
-### Override Configuration
+- [`./setup/requirement.sh`](setup/requirement.sh) to install the required software
+- [`./setup/lsp.sh`](setup/lsp.sh) to install LSP servers
+- [`./setup/linter.sh`](setup/linter.sh) to install linters
+- [`./setup/formatter.sh`](setup/formatter.sh) to install formatters
 
-First off, if you have your own configuration, you need to backup the `nvim`
-directory:
-
-```sh
-mv ~/.config/nvim ~/.config/nvim.bak
-```
-
-Then clone the repository:
-
-```sh
-git clone https://github.com/wahyuwiyoko/nvim.git ~/.config/nvim
-```
-
-Run `nvim` and wait until all plugin and parser installed.
-
-### Load Different Configuration
-
-If you want to keep your own Neovim configuration and want to try this Neovim
-configuration, you can do by following steps below.
-
-Create an alias to load different Neovim configuration:
-
-```sh
-alias wnvim="NVIM_APPNAME=wnvim nvim"
-```
-
-Clone the repository:
-
-```sh
-git clone https://github.com/wahyuwiyoko/nvim.git ~/.config/wnvim
-```
-
-Run and load the configuration:
-
-```sh
-wnvim
-```
-
-## Tips
-
-### Packages From Repositories
-
-Some of these packages may be available in several official repositories in
-each Linux distribution. Although it can also be installed with Mason.
-
-- LSP
-  - `gopls`
-  - `efm-langserver`
-- Linter
-  - `shellcheck`
-  - `lua-check`
-  - `go-staticcheck`
-  - `eslint`
-  - `jsonlint`
-  - `yamllint`
-  - `gitlint`
-- Formatter
-  - `shfmt`
-
-### Documentation
+## Documentation
 
 - User manual: [`:help user-manual`](https://neovim.io/doc/user/usr_toc.html)
 - Starting Vim: [`:help starting`](https://neovim.io/doc/user/starting.html)

@@ -53,17 +53,6 @@ autocmd("BufWritePre", {
   end,
 })
 
-usercmd("MasonInstallTools", function()
-  local registry = require("mason-registry")
-  local tools = { "selene", "shellcheck", "stylua", "golangci-lint" }
-
-  for _, tool in ipairs(tools) do
-    if not registry.is_installed(tool) then
-      vim.cmd("MasonInstall " .. tool)
-    end
-  end
-end, force)
-
 usercmd("JSONFormat", function()
   if vim.fn.executable("jq") == 1 then
     vim.cmd("%!jq .")

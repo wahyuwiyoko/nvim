@@ -6,9 +6,7 @@ function linting.config()
   local lint = require("lint")
 
   lint.linters_by_ft = {
-    lua = { "selene" },
     sh = { "shellcheck" },
-    go = { "golangcilint" },
   }
 
   vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {

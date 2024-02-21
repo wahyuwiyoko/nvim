@@ -1,5 +1,6 @@
--- Find more: https://www.schemastore.org/json
+local config = require("lsp.config")
 
+-- Find more: https://www.schemastore.org/json
 local schemas = {
   {
     description = "TypeScript compiler configuration file",
@@ -18,19 +19,17 @@ local schemas = {
   },
 }
 
-return {
+local server = config.options({
+  name = "jsonls",
+  cmd = { "vscode-json-language-server", "--stdio" },
+  filetypes = { "json", "jsonc" },
+  root_pattern = { ".git" },
+  init_options = { provideFormatter = true },
   settings = {
     json = {
       schemas = schemas,
     },
   },
-  setup = {
-    commands = {
-      Format = {
-        function()
-          vim.lsp.buf.range_formatting({}, { 0, 0 }, { vim.fn.line("$"), 0 })
-        end,
-      },
-    },
-  },
-}
+})
+
+return server
