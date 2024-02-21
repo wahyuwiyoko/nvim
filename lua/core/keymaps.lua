@@ -1,4 +1,15 @@
-local map = require("core.utils").map
+local function map(mode, key, commands, desc)
+  local options = {
+    noremap = true,
+    silent = true,
+  }
+
+  if desc then
+    options = vim.tbl_deep_extend("force", options, { desc = desc })
+  end
+
+  vim.keymap.set(mode, key, commands, options)
+end
 
 -- Delete using x will not save to register
 map("n", "x", '"_x')
@@ -14,67 +25,27 @@ map({ "n", "x" }, "c", '"_c')
 map("n", "C", '"_C')
 map("n", "cc", '"_cc')
 
-map(
-  "n",
-  "<Leader>nh",
-  "<Cmd>nohlsearch<CR>",
-  { desc = "Turn off highlighted matches" }
-)
+map("n", "<Leader>nh", "<Cmd>noh<CR>", "Turn off highlighted matches")
 
-map({ "n", "x" }, "<S-h>", "^", { desc = "Go to start of the line" })
-map({ "n", "x" }, "<S-l>", "g_", { desc = "Go to end of the line" })
+map({ "n", "x" }, "<S-h>", "^", "Go to start of the line")
+map({ "n", "x" }, "<S-l>", "g_", "Go to end of the line")
 
-map(
-  "n",
-  "<C-k>",
-  "<Cmd>resize +2<CR>",
-  { desc = "Increase the current window height" }
-)
-map(
-  "n",
-  "<C-j>",
-  "<Cmd>resize -2<CR>",
-  { desc = "Decrease the current window height" }
-)
-map(
-  "n",
-  "<C-l>",
-  "<Cmd>vertical resize +2<CR>",
-  { desc = "Increase the current window width" }
-)
-map(
-  "n",
-  "<C-h>",
-  "<Cmd>vertical resize -2<CR>",
-  { desc = "Decrease the current window width" }
-)
+map("n", "<C-k>", "<Cmd>res +2<CR>", "Increase the current window height")
+map("n", "<C-j>", "<Cmd>res -2<CR>", "Decrease the current window height")
+map("n", "<C-l>", "<Cmd>vert res +2<CR>", "Increase the current window width")
+map("n", "<C-h>", "<Cmd>vert res -2<CR>", "Decrease the current window width")
 
-map("n", "<Tab>", "<Cmd>bnext<CR>", { desc = "Go to the next buffer" })
-map(
-  "n",
-  "<S-Tab>",
-  "<Cmd>bprevious<CR>",
-  { desc = "Go to the previous buffer" }
-)
-map("n", "<Leader>bc", "<Cmd>bdelete<CR>", { desc = "Close the buffer" })
+map("n", "<Tab>", "<Cmd>bn<CR>", "Go to the next buffer")
+map("n", "<S-Tab>", "<Cmd>bp<CR>", "Go to the previous buffer")
+map("n", "<Leader>bc", "<Cmd>bd<CR>", "Close the current buffer")
 
-map("n", "<Leader>tn", "<Cmd>tabnew<CR>", { desc = "Open a new tab page" })
-map("n", "<Leader>tl", "<Cmd>tabnext<CR>", { desc = "Go to the next tab page" })
-map(
-  "n",
-  "<Leader>th",
-  "<Cmd>tabprevious<CR>",
-  { desc = "Go to the previous tab page" }
-)
-map(
-  "n",
-  "<Leader>tc",
-  "<Cmd>tabclose<CR>",
-  { desc = "Close the current tab page" }
-)
+map("n", "<Leader>tn", "<Cmd>tabe<CR>", "Open a new tab page")
+map("n", "<Leader>tl", "<Cmd>tabn<CR>", "Go to the next tab page")
+map("n", "<Leader>th", "<Cmd>tabp<CR>", "Go to the previous tab page")
+map("n", "<Leader>tc", "<Cmd>tabc<CR>", "Close the current tab page")
 
-map({ "v", "x" }, "<", "<gv", { desc = "Indent line to left" })
-map({ "v", "x" }, ">", ">gv", { desc = "Indent line to right" })
+map({ "v", "x" }, "<", "<gv", "Indent line to left")
+map({ "v", "x" }, ">", ">gv", "Indent line to right")
 
-map("n", "<C-\\>", "<Cmd>terminal<CR>", { desc = "Open a new terminal buffer" })
-map("t", "<C-[>", "<C-\\><C-n>", { desc = "Escape from terminal mode" })
+map("n", "<C-\\>", "<Cmd>terminal<CR>", "Open a new terminal buffer")
+map("t", "<C-[>", "<C-\\><C-n>", "Escape from terminal mode")

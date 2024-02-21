@@ -1,5 +1,4 @@
 local options = require("lsp.options")
-local merge_table = require("core.utils").merge_table
 
 local config = {}
 
@@ -15,7 +14,7 @@ function config.options(opts)
     on_attach = options.on_attach,
   }
 
-  return merge_table(default_options, opts)
+  return vim.tbl_deep_extend("force", default_options, opts)
 end
 
 function config.diagnostic()

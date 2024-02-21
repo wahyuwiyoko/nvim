@@ -1,7 +1,6 @@
 local cmp = require("cmp_nvim_lsp")
 local commands = require("lsp.commands")
 local keymaps = require("lsp.keymaps")
-local utils = require("core.utils")
 
 local options = {}
 
@@ -42,7 +41,7 @@ function options.capabilities()
     snippetSupport = true,
   }
 
-  return utils.merge_table(capabilities, cmp.default_capabilities())
+  return vim.tbl_deep_extend("force", capabilities, cmp.default_capabilities())
 end
 
 options.handlers = {
