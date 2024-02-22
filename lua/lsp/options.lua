@@ -1,4 +1,3 @@
-local cmp = require("cmp_nvim_lsp")
 local commands = require("lsp.commands")
 local keymaps = require("lsp.keymaps")
 
@@ -41,7 +40,51 @@ function options.capabilities()
     snippetSupport = true,
   }
 
-  return vim.tbl_deep_extend("force", capabilities, cmp.default_capabilities())
+  -- Extend capabilities with cmp-nvim-lsp
+  -- See `:lua = require("cmp_nvim_lsp").default_capabilities()`
+  local cmp = {
+    textDocument = {
+      completion = {
+        completionItem = {
+          insertReplaceSupport = true,
+          insertTextModeSupport = {
+            valueSet = { 1, 2 },
+          },
+          labelDetailsSupport = true,
+          resolveSupport = {
+            properties = {
+              "documentation",
+              "detail",
+              "additionalTextEdits",
+              "sortText",
+              "filterText",
+              "insertText",
+              "textEdit",
+              "insertTextFormat",
+              "insertTextMode",
+            },
+          },
+          tagSupport = {
+            valueSet = { 1 },
+          },
+        },
+        completionList = {
+          itemDefaults = {
+            "commitCharacters",
+            "editRange",
+            "insertTextFormat",
+            "insertTextMode",
+            "data",
+          },
+        },
+        contextSupport = true,
+        dynamicRegistration = false,
+        insertTextMode = 1,
+      },
+    },
+  }
+
+  return vim.tbl_deep_extend("force", capabilities, cmp)
 end
 
 options.handlers = {
