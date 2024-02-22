@@ -17,6 +17,10 @@ opt.fileformat = "unix"
 opt.undofile = true
 opt.writebackup = false
 opt.swapfile = false
+opt.path = { ".", "", "**" }
+opt.wildmode = { "longest:full", "full" }
+opt.wildignore = { "**/node_modules/**", "**/vendor/**", "**/.git/**" }
+opt.wildignorecase = true
 
 -- Appearance
 opt.termguicolors = true
