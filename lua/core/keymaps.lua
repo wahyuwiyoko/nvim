@@ -49,3 +49,11 @@ map({ "v", "x" }, ">", ">gv", "Indent line to right")
 
 map("n", "<C-\\>", "<Cmd>terminal<CR>", "Open a new terminal buffer")
 map("t", "<C-[>", "<C-\\><C-n>", "Escape from terminal mode")
+
+map("n", "Q", function()
+  local save_cursor_position = vim.fn.winsaveview()
+
+  vim.cmd("normal! gg gqG")
+
+  vim.fn.winrestview(save_cursor_position)
+end, "Format buffer")

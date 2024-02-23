@@ -1,2 +1,6 @@
 vim.opt_local.expandtab = false
-vim.opt_local.commentstring = "// %s"
+
+if vim.fn.executable("gofmt") then
+  vim.opt_local.formatexpr = ""
+  vim.opt_local.formatprg = "gofmt"
+end
