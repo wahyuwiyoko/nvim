@@ -14,11 +14,11 @@ autocmd("BufWritePre", {
   pattern = "*",
   desc = "Remove trailing whitespace",
   callback = function()
-    local save_cursor_position = vim.fn.winsaveview()
+    local cursor_position = vim.api.nvim_win_get_cursor(0)
 
     vim.cmd([[%s/\s\+$//e]])
 
-    vim.fn.winrestview(save_cursor_position)
+    vim.api.nvim_win_set_cursor(0, cursor_position)
   end,
 })
 
