@@ -10,21 +10,34 @@ local block_comment = "%s%s%s%s"
 
 local api = vim.api
 local fn = vim.fn
+local len = fn.len
+
+local sub = string.sub
+local find = string.find
+local fmt = string.format
+
+local function is_empty_string(str)
+  if fn.empty(str) == 1 then
+    return true
+  end
+
+  return false
+end
 
 local function is_comment(text, opts)
-  local _, indent_size = string.find(text, "^(%s*)")
-  local code = string.sub(text, indent_size + 1)
+  local _, indent_size = find(text, "^(%s*)")
+  local code = sub(text, indent_size + 1)
 
   return vim.startswith(code, opts.left)
 end
 
 local function comment_line(text, opts)
-  if text == "" then
+  if is_empty_string(text) then
     return text
   end
 
   local indent_sizes = opts.indent_sizes
-  local _, indent_size, padding = string.find(text, "^(%s*)")
+  local _, indent_size, padding = find(text, "^(%s*)")
   local default_indent = indent_size > indent_sizes[2]
 
   if default_indent then
@@ -32,45 +45,45 @@ local function comment_line(text, opts)
     padding = indent_sizes[3]
   end
 
-  local code = string.sub(text, indent_size + 1)
+  local code = sub(text, indent_size + 1)
 
-  if opts.right == "" then
-    return string.format(line_comment, padding, opts.left, code)
+  if is_empty_string(opts.right) then
+    return fmt(line_comment, padding, opts.left, code)
   end
 
-  return string.format(block_comment, padding, opts.left, code, opts.right)
+  return fmt(block_comment, padding, opts.left, code, fmt(" %s", opts.right))
 end
 
 local function uncomment_line(text, opts)
-  if text == "" then
+  if is_empty_string(text) then
     return text
   end
 
-  local start_comment_index = string.find(text, string.sub(opts.left, 1, 1))
-  local left_comment_index = start_comment_index + fn.len(opts.left)
+  local start_comment_index = find(text, sub(opts.left, 1, 1))
+  local left_comment_index = start_comment_index + len(opts.left)
   local end_comment_index
 
-  if opts.right == "" then
-    end_comment_index = fn.len(text)
+  if is_empty_string(opts.right) then
+    end_comment_index = len(text)
   else
-    end_comment_index = fn.len(text) - fn.len(opts.right)
+    end_comment_index = len(text) - len(opts.right)
   end
 
-  local code = string.sub(text, left_comment_index, end_comment_index)
+  local code = sub(text, left_comment_index, end_comment_index)
 
   if start_comment_index == 1 then
     return code
   end
 
-  local indent_code = string.sub(text, 1, start_comment_index - 1)
+  local indent_code = sub(text, 1, start_comment_index - 1)
 
-  return string.format("%s%s", indent_code, code)
+  return fmt("%s%s", indent_code, code)
 end
 
 function comment.toggle()
   local comment_string = vim.bo.commentstring
 
-  if comment_string == "" or comment_string == nil then
+  if is_empty_string(comment_string) or comment_string == nil then
     vim.notify(
       'Cannot comment line. "commentstring" option is empty for the current buffer!',
       vim.log.levels.WARN
@@ -104,10 +117,10 @@ function comment.toggle()
   end
 
   -- Get `commentstring` and remove `%s`
-  local left, right = comment_string:match("^%s*(.*)%%s(.-)%s*$")
+  local left, right = string.match(comment_string, "^%s*(.*)%%s(.-)%s*$")
 
   local input = {
-    left = left,
+    left = fmt("%s ", vim.trim(left)),
     right = vim.trim(right),
   }
 
@@ -118,9 +131,9 @@ function comment.toggle()
     api.nvim_buf_get_lines(0, line_range.start - 1, line_range.ends, true)
 
   for _, line in ipairs(lines) do
-    if fn.len(vim.trim(line)) >= 1 then
+    if len(vim.trim(line)) >= 1 then
       is_uncomment = is_comment(line, input)
-      start_indent_size = { string.find(line, "^(%s*)") }
+      start_indent_size = { find(line, "^(%s*)") }
       break
     end
   end
@@ -135,16 +148,10 @@ function comment.toggle()
   local transform = is_uncomment and uncomment_line or comment_line
 
   for _, line in ipairs(lines) do
-    new[fn.len(new) + 1] = transform(line, input)
+    new[len(new) + 1] = transform(line, input)
   end
 
-  vim.api.nvim_buf_set_lines(
-    0,
-    line_range.start - 1,
-    line_range.ends,
-    false,
-    new
-  )
+  api.nvim_buf_set_lines(0, line_range.start - 1, line_range.ends, false, new)
 end
 
 return comment
