@@ -100,9 +100,15 @@ options.handlers = {
   ["textDocument/definition"] = function(_, result)
     if result == nil or vim.tbl_isempty(result) then
       vim.notify("[LSP] Cannot find definition", vim.log.levels.INFO)
-    else
-      lsp.util.jump_to_location(result[1], "utf-8")
+
+      return nil
     end
+
+    if result[1].targetUri ~= fmt("file://%s", api.nvim_buf_get_name(0)) then
+      vim.cmd("vsplit")
+    end
+
+    lsp.util.jump_to_location(result[1], "utf-8")
   end,
 
   ["textDocument/hover"] = lsp.with(handlers.hover, { border = "single" }),
