@@ -52,9 +52,3 @@ autocmd("BufWritePre", {
     end
   end,
 })
-
-usercmd("JSONFormat", function()
-  if vim.fn.executable("jq") == 1 then
-    vim.cmd("%!jq .")
-  end
-end, force)

@@ -53,7 +53,7 @@ map("t", "<C-[>", "<C-\\><C-n>", "Escape from terminal mode")
 map("n", "Q", function()
   local cursor_position = vim.api.nvim_win_get_cursor(0)
 
-  vim.cmd("normal! gg gqG")
+  vim.cmd("normal! gg0gqG")
 
   vim.api.nvim_win_set_cursor(0, cursor_position)
 end, "Format buffer")
