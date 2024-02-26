@@ -88,31 +88,7 @@ function options.capabilities()
 end
 
 options.handlers = {
-  ["textDocument/publishDiagnostics"] = lsp.with(
-    lsp.diagnostic.on_publish_diagnostics,
-    {
-      signs = true,
-      virtual_text = false,
-      update_in_insert = false,
-    }
-  ),
-
-  ["textDocument/definition"] = function(_, result)
-    if result == nil or vim.tbl_isempty(result) then
-      vim.notify("[LSP] Cannot find definition", vim.log.levels.INFO)
-
-      return nil
-    end
-
-    if result[1].targetUri ~= fmt("file://%s", api.nvim_buf_get_name(0)) then
-      vim.cmd("vsplit")
-    end
-
-    lsp.util.jump_to_location(result[1], "utf-8")
-  end,
-
   ["textDocument/hover"] = lsp.with(handlers.hover, { border = "single" }),
-
   ["textDocument/signatureHelp"] = lsp.with(
     handlers.signature_help,
     { border = "single" }
