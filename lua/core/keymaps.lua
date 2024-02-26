@@ -50,11 +50,6 @@ map({ "v", "x" }, ">", ">gv", "Indent line to right")
 map("n", "<C-\\>", "<Cmd>terminal<CR>", "Open a new terminal buffer")
 map("t", "<C-[>", "<C-\\><C-n>", "Escape from terminal mode")
 
-map({ "n", "v", "x" }, "gc", function ()
-  require("custom.comment_line").toggle()
-  vim.cmd.execute([["normal! \<Esc>"]])
-end, "Toggle comment line")
-
 map("n", "Q", function()
   local cursor_position = vim.api.nvim_win_get_cursor(0)
 

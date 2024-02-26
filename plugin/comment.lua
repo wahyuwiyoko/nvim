@@ -1,5 +1,3 @@
-local comment = {}
-
 local modes = {
   with_range = { "v", "V", "\22", "\22s", "s", "S" },
   not_supported = { "o", "c", "cv", "ce", "!", "t" },
@@ -80,7 +78,7 @@ local function uncomment_line(text, opts)
   return fmt("%s%s", indent_code, code)
 end
 
-function comment.toggle()
+local function toggle_comment()
   local comment_string = vim.bo.commentstring
 
   if is_empty_string(comment_string) or comment_string == nil then
@@ -154,4 +152,11 @@ function comment.toggle()
   api.nvim_buf_set_lines(0, line_range.start - 1, line_range.ends, false, new)
 end
 
-return comment
+vim.keymap.set({ "n", "v", "x" }, "gc", function()
+  toggle_comment()
+  vim.cmd.execute([["normal! \<Esc>"]])
+end, {
+  noremap = true,
+  silent = true,
+  desc = "Toggle comment line",
+})
