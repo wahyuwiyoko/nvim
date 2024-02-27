@@ -13,12 +13,11 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
+require("lazy").setup("plugins", {
   defaults = {
     lazy = true,
     version = "*",
   },
-  spec = "plugins",
   lockfile = vim.fn.stdpath("data") .. "/lazy/lazy-lock.json",
   ui = {
     pills = false,
