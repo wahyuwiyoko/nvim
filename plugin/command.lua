@@ -3,7 +3,6 @@ local autocmd = vim.api.nvim_create_autocmd
 local usercmd = vim.api.nvim_create_user_command
 
 local clear = { clear = true }
-local force = { force = true }
 
 augroup("FileFormat", clear)
 augroup("TerminalMode", clear)
@@ -39,6 +38,17 @@ autocmd("TermOpen", {
   group = "TerminalMode",
   desc = "Start terminal in insert mode",
   command = "set filetype=term | startinsert",
+})
+
+usercmd("Fd", function(input)
+  vim.cmd.edit(input.args)
+end, {
+  nargs = 1,
+  desc = "Find files",
+  complete = function(arglead)
+    local cmd = string.format("fdfind --type file --color never '%s'", arglead)
+    return vim.fn.systemlist(cmd)
+  end,
 })
 
 autocmd("BufWritePre", {
