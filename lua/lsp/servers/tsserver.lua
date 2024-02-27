@@ -17,6 +17,11 @@ local server = config.options({
     "jsconfig.json",
     ".git",
   },
+  settings = {
+    completions = {
+      completeFunctionCalls = true,
+    },
+  },
   init_options = { hostInfo = "neovim" },
 })
 
