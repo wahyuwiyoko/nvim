@@ -11,6 +11,10 @@ local function map(mode, key, commands, desc)
   vim.keymap.set(mode, key, commands, options)
 end
 
+-- Set <Leader> to space key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 -- Delete using x will not save to register
 map("n", "x", '"_x')
 

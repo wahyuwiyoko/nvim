@@ -1,10 +1,6 @@
 local g = vim.g
 
--- Set <leader> to space key
-g.mapleader = " "
-g.maplocalleader = " "
-
--- Disable some built-in plugins
+-- Disable built-in plugins
 g.loaded_netrw = 1
 g.loaded_netrwPlugin = 1
 g.loaded_gzip = 1
