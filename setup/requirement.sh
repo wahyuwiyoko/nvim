@@ -7,6 +7,7 @@ declare -A programs
 programs[git]="git"
 programs[gcc]="build-essential"
 programs[rg]="ripgrep"
+programs[fdfind]="fd-find"
 
 has_executable() {
   [ -x "$(command -v "$1")" ]

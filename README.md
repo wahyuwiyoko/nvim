@@ -8,7 +8,8 @@ Minimalist Neovim configuration with no patched fonts included.
 
 - [Neovim stable release](https://github.com/neovim/neovim/releases/tag/stable)
 - Git, `gcc`, and `make` installed
-- [ripgrep](https://github.com/BurntSushi/ripgrep) for `live_grep` of Telescope
+- [ripgrep](https://github.com/BurntSushi/ripgrep) for `:grep` command
+- [fd](https://github.com/sharkdp/fd) for `:Fd` command
 - [Node.js](https://nodejs.org/) for install and run LSP server
 
 ## Installation
@@ -30,6 +31,7 @@ Installing packages can be done by running some of these scripts:
 - Available key notation for creating keymaps: [`:help key-notation`](https://neovim.io/doc/user/intro.html#key-notation)
 - Insert mode completion: [`:help ins-completion`](https://neovim.io/doc/user/insert.html#ins-completion)
 - Differences between Neovim and Vim: [`:help vim-differences`](https://neovim.io/doc/user/vim_diff.html)
+- Default options settings in Neovim: [`:help nvim-defaults`](https://neovim.io/doc/user/vim_diff.html#nvim-defaults)
 - Deprecated features: [`:help deprecated`](https://neovim.io/doc/user/deprecated.html)
 
 ## Acknowledgements
@@ -38,3 +40,4 @@ Installing packages can be done by running some of these scripts:
 - [Josean Martinez](https://github.com/josean-dev)
 - [ThePrimeagen](https://github.com/ThePrimeagen)
 - [TJ DeVries](https://github.com/tjdevries)
+- [VonHeikemen](https://github.com/VonHeikemen)
