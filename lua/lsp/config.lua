@@ -17,46 +17,4 @@ function config.options(opts)
   return vim.tbl_deep_extend("force", default_options, opts)
 end
 
-function config.diagnostic()
-  -- NOTE: Diagnostic sign text for Neovim 0.9 or lower
-  local function sign(opts)
-    vim.fn.sign_define(opts.name, {
-      texthl = opts.name,
-      text = opts.text,
-      numhl = "",
-    })
-  end
-
-  sign({ name = "DiagnosticSignError", text = "E" })
-  sign({ name = "DiagnosticSignWarn", text = "W" })
-  sign({ name = "DiagnosticSignHint", text = "H" })
-  sign({ name = "DiagnosticSignInfo", text = "I" })
-
-  -- NOTE: Diagnostic sign text for Neovim 0.10
-  -- vim.diagnostic.config({
-  --   signs = {
-  --     text = {
-  --       [vim.diagnostic.severity.ERROR] = "E",
-  --       [vim.diagnostic.severity.WARN] = "W",
-  --       [vim.diagnostic.severity.HINT] = "H",
-  --       [vim.diagnostic.severity.INFO] = "I",
-  --     },
-  --   },
-  -- })
-
-  vim.diagnostic.config({
-    underline = true,
-    virtual_text = false,
-    signs = true,
-    update_in_insert = false,
-    severity_sort = true,
-    float = {
-      focusable = false,
-      border = "single",
-      style = "minimal",
-      max_width = 50,
-    },
-  })
-end
-
 return config

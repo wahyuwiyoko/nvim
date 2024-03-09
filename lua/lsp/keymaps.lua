@@ -2,7 +2,6 @@ local keymaps = {}
 
 function keymaps.mapping(bufnr)
   local lsp = vim.lsp.buf
-  local diagnostic = vim.diagnostic
 
   local function map(mode, key, commands, desc)
     vim.keymap.set(mode, key, commands, {
@@ -28,27 +27,6 @@ function keymaps.mapping(bufnr)
   map("n", "<Leader>rn", lsp.rename, "Rename all references under the cursor")
   map({ "n", "v" }, "<Leader>ca", lsp.code_action, "Select a code action")
   map({ "n", "v" }, "<Leader>fm", lsp.format, "Format a buffer")
-
-  map("n", "<Leader>dj", diagnostic.goto_next, "Go to next diagnostic")
-  map("n", "<Leader>dk", diagnostic.goto_prev, "Go to previous diagnostic")
-  map(
-    "n",
-    "<Leader>df",
-    diagnostic.open_float,
-    "Open diagnostic for the current line"
-  )
-  map(
-    "n",
-    "<Leader>dq",
-    diagnostic.setqflist,
-    "Add all diagnostic to the quickfix list"
-  )
-  map(
-    "n",
-    "<Leader>dl",
-    diagnostic.setloclist,
-    "Add buffer diagnostic to the location list"
-  )
 end
 
 return keymaps

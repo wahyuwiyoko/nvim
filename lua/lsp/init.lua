@@ -34,8 +34,6 @@ local function start_server(opts)
 end
 
 local function load()
-  config.diagnostic()
-
   for _, server in ipairs(servers()) do
     local server_opts = require("lsp.servers." .. server)
 
