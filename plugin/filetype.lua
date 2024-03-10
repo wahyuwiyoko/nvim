@@ -12,6 +12,13 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("FileType", {
+  group = augroup("FileFormat", { clear = true }),
+  pattern = "*",
+  desc = "Disable auto comment at new line",
+  command = "setlocal formatoptions-=cro",
+})
+
+autocmd("FileType", {
   group = augroup("Filetype2Indent", { clear = true }),
   pattern = {
     "lua",

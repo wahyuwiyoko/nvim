@@ -21,19 +21,6 @@ autocmd("BufWritePre", {
   end,
 })
 
-autocmd("InsertEnter", {
-  group = "FileFormat",
-  pattern = "*",
-  desc = "Disable auto comment at new line",
-  callback = function()
-    vim.opt_local.formatoptions = {
-      c = false,
-      r = false,
-      o = false,
-    }
-  end,
-})
-
 autocmd("TermOpen", {
   group = "TerminalMode",
   desc = "Start terminal in insert mode",
