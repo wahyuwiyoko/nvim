@@ -32,11 +32,12 @@ autocmd("FileType", {
     "yaml",
   },
   desc = "Filetype with 2 indent size",
-  callback = function()
-    local indent_size = 2
+  command = "setlocal tabstop=2 softtabstop=2 shiftwidth=2",
+})
 
-    vim.opt_local.tabstop = indent_size
-    vim.opt_local.softtabstop = indent_size
-    vim.opt_local.shiftwidth = indent_size
-  end,
+autocmd({ "BufNewFile", "BufRead" }, {
+  group = augroup("GoTemplate", { clear = true }),
+  pattern = { "*.tmpl" },
+  desc = "Go HTML template filetype",
+  command = "setlocal filetype=html",
 })
