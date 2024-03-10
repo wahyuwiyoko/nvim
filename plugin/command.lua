@@ -24,7 +24,7 @@ autocmd("BufWritePre", {
 autocmd("TermOpen", {
   group = "TerminalMode",
   desc = "Start terminal in insert mode",
-  command = "set filetype=term | startinsert",
+  command = "setlocal nonumber norelativenumber filetype=term | startinsert",
 })
 
 usercmd("Fd", function(input)
