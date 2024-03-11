@@ -33,14 +33,10 @@ local function start_server(opts)
   })
 end
 
-local function load()
-  for _, server in ipairs(servers()) do
-    local server_opts = require("lsp.servers." .. server)
+for _, server in ipairs(servers()) do
+  local server_opts = require("lsp.servers." .. server)
 
-    commands.autostart(server_opts, function()
-      start_server(server_opts)
-    end)
-  end
+  commands.autostart(server_opts, function()
+    start_server(server_opts)
+  end)
 end
-
-load()
