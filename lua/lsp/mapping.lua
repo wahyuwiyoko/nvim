@@ -1,6 +1,4 @@
-local keymaps = {}
-
-function keymaps.mapping(bufnr)
+local function mapping(bufnr)
   local lsp = vim.lsp.buf
 
   local function map(mode, key, commands, desc)
@@ -29,4 +27,4 @@ function keymaps.mapping(bufnr)
   map({ "n", "v" }, "<Leader>fm", lsp.format, "Format a buffer")
 end
 
-return keymaps
+return mapping

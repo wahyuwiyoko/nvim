@@ -1,5 +1,5 @@
 local commands = require("lsp.commands")
-local keymaps = require("lsp.keymaps")
+local mapping = require("lsp.mapping")
 
 local options = {}
 
@@ -121,7 +121,7 @@ function options.on_exit(code, signal, client_id)
 end
 
 function options.on_attach(client, bufnr)
-  keymaps.mapping(bufnr)
+  mapping(bufnr)
   commands.user()
 
   if not client.supports_method("textDocument/semanticTokens") then
