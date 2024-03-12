@@ -33,7 +33,7 @@ if ! is_dir_exists "$HOME/software"; then
   mkdir -p "$HOME/software"
 fi
 
-if has_executable nvim; then
+if ! has_executable nvim; then
   wget -c --show-progress https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
   tar xzf nvim-linux64.tar.gz
   rm nvim-linux64.tar.gz
