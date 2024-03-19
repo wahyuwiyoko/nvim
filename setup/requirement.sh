@@ -8,6 +8,9 @@ programs[git]="git"
 programs[gcc]="build-essential"
 programs[rg]="ripgrep"
 programs[fdfind]="fd-find"
+programs[wget]="wget"
+programs[tar]="tar"
+programs[unzip]="unzip"
 
 has_executable() {
   [ -x "$(command -v "$1")" ]

@@ -10,7 +10,8 @@ Minimalist Neovim configuration with no patched fonts included.
 - Git, `gcc`, and `make` installed
 - [ripgrep](https://github.com/BurntSushi/ripgrep) for `:grep` command
 - [fd](https://github.com/sharkdp/fd) for `:Fd` command
-- [Node.js](https://nodejs.org/) for install and run LSP server
+- [Node.js](https://nodejs.org/), `wget`, `tar`, and `unzip` installed for
+  download, install, and run LSP server
 
 ## Installation
 
