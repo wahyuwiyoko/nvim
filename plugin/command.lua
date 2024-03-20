@@ -4,12 +4,12 @@ local usercmd = vim.api.nvim_create_user_command
 
 local clear = { clear = true }
 
-augroup("FileFormat", clear)
+augroup("AutoFormatFile", clear)
 augroup("TerminalMode", clear)
 augroup("CommandMode", clear)
 
 autocmd("BufWritePre", {
-  group = "FileFormat",
+  group = "AutoFormatFile",
   pattern = "*",
   desc = "Remove trailing whitespace",
   callback = function()

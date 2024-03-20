@@ -12,7 +12,7 @@ local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("FileType", {
-  group = augroup("FileFormat", { clear = true }),
+  group = augroup("InsertModeFormat", { clear = true }),
   pattern = "*",
   desc = "Disable auto comment at new line",
   command = "setlocal formatoptions-=cro",
