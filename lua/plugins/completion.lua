@@ -13,6 +13,7 @@ completion.dependencies = {
 function completion.config()
   local cmp = require("cmp")
   local luasnip = require("luasnip")
+  local mapping = cmp.mapping
 
   cmp.setup({
     snippet = {
@@ -21,17 +22,17 @@ function completion.config()
       end,
     },
     mapping = {
-      ["<C-k>"] = cmp.mapping.select_prev_item({
+      ["<C-k>"] = mapping.select_prev_item({
         behavior = cmp.SelectBehavior.Select,
       }),
-      ["<C-j>"] = cmp.mapping.select_next_item({
+      ["<C-j>"] = mapping.select_next_item({
         behavior = cmp.SelectBehavior.Select,
       }),
-      ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-d>"] = cmp.mapping.scroll_docs(4),
-      ["<C-s>"] = cmp.mapping.complete(),
-      ["<C-e>"] = cmp.mapping.abort(),
-      ["<CR>"] = cmp.mapping.confirm({
+      ["<C-u>"] = mapping.scroll_docs(-4),
+      ["<C-d>"] = mapping.scroll_docs(4),
+      ["<C-s>"] = mapping.complete(),
+      ["<C-e>"] = mapping.abort(),
+      ["<CR>"] = mapping.confirm({
         select = true,
       }),
       ["<C-l>"] = cmp.mapping(function(fallback)
@@ -60,7 +61,7 @@ function completion.config()
     },
     sources = {
       { name = "nvim_lsp" },
-      { name = "luasnip", option = { show_autosnippets = true } },
+      { name = "luasnip" },
       { name = "buffer" },
     },
   })
