@@ -21,6 +21,7 @@ function completion.config()
         luasnip.lsp_expand(args.body)
       end,
     },
+    preselect = cmp.PreselectMode.None,
     mapping = {
       ["<C-k>"] = mapping.select_prev_item({
         behavior = cmp.SelectBehavior.Select,
@@ -28,12 +29,20 @@ function completion.config()
       ["<C-j>"] = mapping.select_next_item({
         behavior = cmp.SelectBehavior.Select,
       }),
+      ["<C-g>"] = function()
+        if cmp.visible_docs() then
+          cmp.close_docs()
+        else
+          cmp.open_docs()
+        end
+      end,
       ["<C-u>"] = mapping.scroll_docs(-4),
       ["<C-d>"] = mapping.scroll_docs(4),
       ["<C-s>"] = mapping.complete(),
       ["<C-e>"] = mapping.abort(),
       ["<CR>"] = mapping.confirm({
         select = true,
+        behavior = cmp.ConfirmBehavior.Replace,
       }),
       ["<C-l>"] = cmp.mapping(function(fallback)
         if luasnip.expand_or_jumpable() then
@@ -63,6 +72,11 @@ function completion.config()
       { name = "nvim_lsp" },
       { name = "luasnip" },
       { name = "buffer" },
+    },
+    view = {
+      docs = {
+        auto_open = false,
+      },
     },
   })
 end
